@@ -89,9 +89,9 @@
         <div class="sidebar">
             <div class="text-center fs-4 fw-bold mb-3">Dash</div>
             <div class="user-panel mb-3">
-                <img src="https://via.placeholder.com/60" alt="User" />
-                <div>@userName</div>
-                <small>@(isAdmin ? "Administrator" : isSuperAdmin ? "Super Administrator" : "User")</small>
+                    <img src="~/AdminCast/Images/admin-avatar.png" width="45px" />
+                @* <div>@userName</div> *@
+                <div><small>@(isAdmin ? "Administrator" : isSuperAdmin ? "Super Administrator" : "User")</small> </div>               
             </div>
             <ul class="nav flex-column">
                 @if (isAdmin)
@@ -110,7 +110,7 @@
                     <li><a href="@Url.Action("CreateAdmin", "SuperAdmin")" class="nav-link"><i
                                 class="fas fa-user-plus me-2"></i> Create Admin</a></li>
                 }
-                <li class="mt-2 ps-3 text-uppercase small">Features</li>
+                @* <li class="mt-2 ps-3 text-uppercase small">Features</li>
                 <li><a href="#" class="nav-link"><i class="fas fa-bookmark me-2"></i> Basic UI</a></li>
                 <li><a href="#" class="nav-link"><i class="fas fa-edit me-2"></i> Forms</a></li>
                 <li><a href="#" class="nav-link"><i class="fas fa-table me-2"></i> Tables</a></li>
@@ -121,7 +121,7 @@
                 <li><a href="#" class="nav-link"><i class="fas fa-envelope me-2"></i> Mailbox</a></li>
                 <li><a href="#" class="nav-link"><i class="fas fa-calendar-alt me-2"></i> Calendar</a></li>
                 <li><a href="#" class="nav-link"><i class="fas fa-file me-2"></i> Pages</a></li>
-                <li><a href="#" class="nav-link"><i class="fas fa-sitemap me-2"></i> Menu Levels</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-sitemap me-2"></i> Menu Levels</a></li> *@
                 @if (isAdmin)
                 {
                     <li class="mt-2 ps-3 text-uppercase small">Admin</li>
@@ -150,7 +150,7 @@
                     <div class="dropdown">
                         <a class="dropdown-toggle d-flex align-items-center text-dark text-decoration-none" href="#"
                             id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://via.placeholder.com/40" class="rounded-circle me-2" />
+                            <img src="~/AdminCast/Images/admin-avatar.png"class="rounded-circle me-2" />
                             @userName
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">

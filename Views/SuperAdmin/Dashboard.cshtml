@@ -1,21 +1,20 @@
 @{
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
-    ViewBag.Title = "SuperAdmin Dashboard";
 }
 
-<h2> SuperAdmin Dashboard</h2>
-
-@* <div class="row mt-4">
-    <div class="col-md-4">
-        <div class="card bg-primary text-white p-3">
-            <h5>Manage Schools</h5>
-            <p>You can create, update, and delete schools here.</p>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card bg-dark text-white p-3">
-            <h5>Platform Settings</h5>
-            <p>Configure global platform settings and preferences.</p>
-        </div>
-    </div> *@
+<div class="dashboard-container">
+    <h2> SuperAdmin Dashboard</h2>
+    @* You can add dashboard stats or welcome message here *@
 </div>
+
+<style>
+    .dashboard-container {
+        background: #fff;
+        max-width: 400px;
+        margin: 60px auto;
+        padding: 30px 40px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+</style>
