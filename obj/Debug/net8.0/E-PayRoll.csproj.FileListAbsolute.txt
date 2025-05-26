@@ -102,3 +102,4 @@ E:\Seventh Semester\Education Project\projects\E-PayRoll\obj\Debug\net8.0\refint
 E:\Seventh Semester\Education Project\projects\E-PayRoll\obj\Debug\net8.0\E-PayRoll.pdb
 E:\Seventh Semester\Education Project\projects\E-PayRoll\obj\Debug\net8.0\E-PayRoll.genruntimeconfig.cache
 E:\Seventh Semester\Education Project\projects\E-PayRoll\obj\Debug\net8.0\ref\E-PayRoll.dll
+E:\Seventh Semester\Education Project\projects\E-PayRoll\obj\Debug\net8.0\E-PayRoll.sourcelink.json

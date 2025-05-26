@@ -1,23 +1,29 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using E_PayRoll.Data;
 using E_PayRoll.Models;
 using System.Linq;
 
 namespace E_PayRoll.Controllers;
 
+[Authorize(Roles = "Admin")]
 public class AdminController : Controller
 {
     private readonly ApplicationDbContext _context;
     public AdminController(ApplicationDbContext context) => _context = context;
 
+    [AllowAnonymous]
     public IActionResult Login() => View();
 
     [HttpPost]
+    [AllowAnonymous]
     public IActionResult Login(string username, string password)
     {
         var user = _context.Users.FirstOrDefault(u => u.Username == username && u.Password == password && u.Role == "Admin");
         if (user != null)
         {
+            // Here you should sign in the user using ASP.NET Core Identity or authentication cookie
+            // For demonstration, we'll just use TempData (not secure for production)
             TempData["Admin"] = user.Username;
             return RedirectToAction("Dashboard");
         }
@@ -27,6 +33,7 @@ public class AdminController : Controller
 
     public IActionResult Dashboard()
     {
+        // With [Authorize], this check is not strictly needed, but you can keep it for extra safety
         if (TempData["Admin"] == null) return RedirectToAction("Login");
         TempData.Keep("Admin");
         return View();

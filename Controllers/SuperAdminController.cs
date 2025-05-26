@@ -1,18 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using E_PayRoll.Data;
 using E_PayRoll.Models;
 using System.Linq;
 
 namespace E_PayRoll.Controllers;
 
+[Authorize(Roles = "SuperAdmin")]
 public class SuperAdminController : Controller
 {
     private readonly ApplicationDbContext _context;
     public SuperAdminController(ApplicationDbContext context) => _context = context;
 
+    [AllowAnonymous]
     public IActionResult Login() => View();
 
     [HttpPost]
+    [AllowAnonymous]
     public IActionResult Login(string username, string password)
     {
         var user = _context.Users.FirstOrDefault(u => u.Username == username && u.Password == password && u.Role == "SuperAdmin");
@@ -27,14 +31,12 @@ public class SuperAdminController : Controller
 
     public IActionResult Dashboard()
     {
-        if (TempData["SuperAdmin"] == null) return RedirectToAction("Login");
         TempData.Keep("SuperAdmin");
         return View();
     }
 
     public IActionResult CreateAdmin()
     {
-        if (TempData["SuperAdmin"] == null) return RedirectToAction("Login");
         TempData.Keep("SuperAdmin");
         return View();
     }
@@ -42,7 +44,6 @@ public class SuperAdminController : Controller
     [HttpPost]
     public IActionResult CreateAdmin(string username, string password)
     {
-        if (TempData["SuperAdmin"] == null) return RedirectToAction("Login");
         TempData.Keep("SuperAdmin");
         if (_context.Users.Any(u => u.Username == username))
         {
