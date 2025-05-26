@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+h2 {
+    color: #2c3e50;
+}
+form {
+    margin: 20px 0;
+}
+input, button {
+    margin: 5px 0;
+    padding: 8px;
+}
+button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background: #0056b3;
+}
+div[style*="color:red"] {
+    margin-top: 10px;
+}

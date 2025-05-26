@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - E-PayRoll</title>
+    <<link rel="stylesheet" href="~/AdminCast/Css/Style.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #007bff;
+            color: #fff;
+            padding: 18px 0 0 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding-bottom: 12px;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 18px;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .navbar a:hover, .navbar a.active {
+            background: #0056b3;
+            color: #fff;
+        }
+        .main-content {
+            flex: 1;
+            margin-top: 80px;
+            margin-bottom: 60px;
+        }
+        .fixed-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 14px 0;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed-header">
+        @* Navbar only visible if logged in *@
+        @{
+            var isSuperAdmin = TempData["SuperAdmin"] != null;
+            var isAdmin = TempData["Admin"] != null;
+        }
+        @if (isSuperAdmin || isAdmin)
+        {
+            <nav class="navbar">
+                <a href="/Home/Index">Home</a>
+                @* <a href="/Admin/Dashboard">Dashboard</a> *@
+                @if (isSuperAdmin)
+                {
+                    <a href="/SuperAdmin/CreateAdmin">Create Admin</a>
+                }
+                @if (isAdmin)
+                {
+                    <a href="/Admin/SchoolList">Schools</a>
+                }
+                <a href="/Account/Logout">Logout</a>
+            </nav>
+        }
+    </header>
+    <div class="main-content">
+        @RenderBody()
+    </div>
+    <footer class="fixed-footer">
+        &copy; @DateTime.Now.Year E-PayRoll. All rights reserved.
+    </footer>
+</body>
+</html>

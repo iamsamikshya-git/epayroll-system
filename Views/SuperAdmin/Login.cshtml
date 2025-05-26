@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="~/css/site.css" />
+
+<div class="login-container">
+    <h2>SuperAdmin Login</h2>
+    <form method="post">
+        <input name="username" placeholder="Username" required />
+        <input name="password" type="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+        <div class="error-message">@ViewBag.Error</div>
+    </form>
+</div>
+
+<style>
+    body {
+        background: #f8f9fa;
+        font-family: Arial, sans-serif;
+    }
+    .login-container {
+        background: #fff;
+        padding: 32px 40px;
+        margin: 80px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+        max-width: 350px;
+    }
+    h2 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: border 0.2s;
+    }
+    input:focus {
+        border: 1.5px solid #007bff;
+        outline: none;
+    }
+    button {
+        width: 100%;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        padding: 12px;
+        border-radius: 4px;
+        font-size: 17px;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-top: 8px;
+    }
+    button:hover {
+        background: #0056b3;
+    }
+    .error-message {
+        color: #e74c3c;
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
