@@ -1,61 +1,55 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using E_PayRoll.Data;
 using System.Linq;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 public class AccountController : Controller
 {
     private readonly ApplicationDbContext _context;
     public AccountController(ApplicationDbContext context) => _context = context;
 
+    [AllowAnonymous]
     public IActionResult Login()
     {
-        // If already logged in, redirect to the correct dashboard
-        if (TempData["SuperAdmin"] != null)
-            return RedirectToAction("Dashboard", "SuperAdmin");
-        if (TempData["Admin"] != null)
-            return RedirectToAction("Dashboard", "Admin");
-        if (TempData["School"] != null)
-            return RedirectToAction("Dashboard", "School");
-        if (TempData["Teacher"] != null)
-            return RedirectToAction("Dashboard", "Teacher");
-
+        // Do NOT redirect here! Always show login form for unauthenticated users.
         return View();
     }
 
     [HttpPost]
-    public IActionResult Login(string username, string password)
+    [AllowAnonymous]
+    public async Task<IActionResult> Login(string username, string password)
     {
         var user = _context.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
         if (user != null)
         {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Role, user.Role)
+            };
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
+            // Redirect to dashboard based on role
             if (user.Role == "SuperAdmin")
-            {
-                TempData["SuperAdmin"] = user.Username;
                 return RedirectToAction("Dashboard", "SuperAdmin");
-            }
-            else if (user.Role == "Admin")
-            {
-                TempData["Admin"] = user.Username;
+            if (user.Role == "Admin")
                 return RedirectToAction("Dashboard", "Admin");
-            }
-            else if (user.Role == "School")
-            {
-                TempData["School"] = user.Username;
+            if (user.Role == "School")
                 return RedirectToAction("Dashboard", "School");
-            }
-            else if (user.Role == "Teacher")
-            {
-                TempData["Teacher"] = user.Username;
+            if (user.Role == "Teacher")
                 return RedirectToAction("Dashboard", "Teacher");
-            }
         }
         ViewBag.Error = "Invalid credentials";
         return View();
     }
 
-    public IActionResult Logout()
+    public async Task<IActionResult> Logout()
     {
-        TempData.Clear();
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
         return RedirectToAction("Login");
     }
 }

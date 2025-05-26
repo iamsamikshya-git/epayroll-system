@@ -1,6 +1,8 @@
 using E_PayRoll.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+// using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,8 +20,13 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.LogoutPath = "/Account/Logout";
         // You can set options.AccessDeniedPath if needed
     });
+
+
+
     builder.Services.AddAuthorization();
 
+// builder.Services.AddDefaultIdentity<IdentityUser>()
+//     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 var app = builder.Build();
 
