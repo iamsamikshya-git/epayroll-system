@@ -1,15 +1,10 @@
-@* Add CSS link for external stylesheet *@
 @{
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
-
 <div class="dashboard-container">
     <h2>Admin Dashboard</h2>
-    <div class="dashboard-links">
-        <a href="/Admin/SchoolList" class="dashboard-link">View Schools</a>
-        <a href="/Admin/CreateSchool" class="dashboard-link">Create School</a>
-    </div>
+    @* You can add dashboard stats or welcome message here *@
 </div>
 
 <style>
@@ -22,24 +17,4 @@
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         text-align: center;
     }
-    .dashboard-links {
-        margin-top: 30px;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-    .dashboard-link {
-        display: block;
-        background: #007bff;
-        color: #fff;
-        text-decoration: none;
-        padding: 12px 0;
-        border-radius: 4px;
-        font-size: 18px;
-        transition: background 0.2s;
-    }
-    .dashboard-link:hover {
-        background: #0056b3;
-    }
 </style>
-<script src="/_framework/aspnetcore-browser-refresh.js"></script>
