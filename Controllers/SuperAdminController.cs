@@ -35,7 +35,6 @@ namespace E_PayRoll.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(string username, string password)
         {
-            // NOTE: Use hashed passwords in production!
             var user = _context.Users.FirstOrDefault(u =>
                 u.Username == username && u.Password == password);
 
@@ -58,15 +57,12 @@ namespace E_PayRoll.Controllers
         }
 
         // SuperAdmin Dashboard
-       // ...existing code...
-public IActionResult Dashboard()
-{
-    // Replace this with your actual logic to get admin count from the database
-    int adminCount = _context.Users.Count(u => u.Role == "Admin"); // Count users with Admin role
-    ViewBag.AdminCount = adminCount;
-    return View();
-}
-// ...existing code...
+        public IActionResult Dashboard()
+        {
+            int adminCount = _context.Users.Count(u => u.Role == "Admin");
+            ViewBag.AdminCount = adminCount;
+            return View();
+        }
 
         // Admin Creation Form
         public IActionResult CreateAdmin()
@@ -74,29 +70,60 @@ public IActionResult Dashboard()
             return View();
         }
 
-        // Admin Creation POST
+        // Admin Creation POST (for your new form)
         [HttpPost]
-        public IActionResult CreateAdmin(string username, string password)
+        public async Task<IActionResult> Add(
+            string username,
+            string password,
+            string country,
+            string province,
+            string localBodyName,
+            string localBodyType,
+            string district,
+            string email,
+            IFormFile logo)
         {
             if (_context.Users.Any(u => u.Username == username))
             {
                 ViewBag.Error = "Username already exists";
-                return View();
+                return View("CreateAdmin");
             }
 
-            // NOTE: Use password hashing here in real-world apps!
+            string? logoPath = null;
+            if (logo != null && logo.Length > 0)
+            {
+                var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
+                if (!Directory.Exists(uploads))
+                    Directory.CreateDirectory(uploads);
+
+                var fileName = Guid.NewGuid() + Path.GetExtension(logo.FileName);
+                var filePath = Path.Combine(uploads, fileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await logo.CopyToAsync(stream);
+                }
+                logoPath = "/uploads/" + fileName;
+            }
+
             var admin = new User
             {
                 Username = username,
                 Password = password,
-                Role = "Admin"
+                Role = "Admin",
+                Country = country,
+                Province = province,
+                LocalBodyName = localBodyName,
+                LocalBodyType = localBodyType,
+                District = district,
+                Email = email,
+                LogoPath = logoPath
             };
 
             _context.Users.Add(admin);
             _context.SaveChanges();
 
             ViewBag.Message = "Admin created successfully";
-            return View();
+            return View("CreateAdmin");
         }
 
         // Optional: Logout for SuperAdmin

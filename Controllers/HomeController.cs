@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using E_PayRoll.Models;
+using Microsoft.AspNetCore.Localization;
 
 namespace E_PayRoll.Controllers;
 
@@ -28,4 +29,8 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+        
+
+
+
 }

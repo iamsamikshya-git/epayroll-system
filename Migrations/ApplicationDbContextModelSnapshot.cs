@@ -49,8 +49,29 @@ namespace E_PayRoll.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Country")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("District")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LocalBodyName")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LocalBodyType")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LogoPath")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Password")
                         .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Province")
                         .HasColumnType("longtext");
 
                     b.Property<string>("Role")
