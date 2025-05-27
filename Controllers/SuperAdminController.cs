@@ -126,6 +126,13 @@ namespace E_PayRoll.Controllers
             return View("CreateAdmin");
         }
 
+
+// In SuperAdminController.cs
+public IActionResult AdminList()
+{
+    var admins = _context.Users.Where(u => u.Role == "Admin").ToList();
+    return View(admins);
+}
         // Optional: Logout for SuperAdmin
         public async Task<IActionResult> Logout()
         {

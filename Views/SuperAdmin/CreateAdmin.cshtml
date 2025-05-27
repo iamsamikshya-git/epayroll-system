@@ -1,6 +1,6 @@
 @{
     ViewBag.Title = "Admin Registration";
-    Layout = null; // Remove if you're using _Layout.cshtml
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -47,85 +47,86 @@
 </head>
 <body>
 
-    <div class="container">
-        <h2 class="text-center">Admin Registration</h2>
-        <div class="form-container">
-            <form enctype="multipart/form-data" method="post" asp-action="Add">
-                <div class="row">
-                    <!-- Left Column -->
-                    <div class="col-md-6">
-                        <!-- Username -->
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required />
+    <div class="container d-flex justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <h2 class="text-center">Admin Registration</h2>
+            <div class="form-container">
+                <form enctype="multipart/form-data" method="post" asp-action="Add">
+                    <div class="row">
+                        <!-- Left Column -->
+                        <div class="col-md-6">
+                            <!-- Username -->
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="username" placeholder="Username" required />
+                            </div>
+                            <!-- Password -->
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" placeholder="Password" required />
+                            </div>
+                            <!-- Country -->
+                            <div class="form-group">
+                                <select class="form-control" name="country" required>
+                                    <option selected disabled>Choose Country</option>
+                                    <option>Nepal</option>
+                                    <option>India</option>
+                                </select>
+                            </div>
+                            <!-- Province -->
+                            <div class="form-group">
+                                <select class="form-control" name="province" required>
+                                    <option selected disabled>Choose State</option>
+                                    <option>State 1</option>
+                                    <option>State 2</option>
+                                    <option>State 3</option>
+                                    <option>State 4</option>
+                                    <option>State 5</option>
+                                    <option>State 6</option>
+                                    <option>State 7</option>
+                                </select>
+                            </div>
+                            <!-- Local Body Name -->
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="localBodyName" placeholder="Local level name" required />
+                            </div>
+                            <!-- Local Body Type -->
+                            <div class="form-group">
+                                <select class="form-control" name="localBodyType" required>
+                                    <option selected disabled>Local level type</option>
+                                    <option>Nagarpalika</option>
+                                    <option>Gaunpalika</option>
+                                </select>
+                            </div>
                         </div>
-                        <!-- Password -->
-                        <div class="form-group">
-                            <input type="password" class="form-control" name="password" placeholder="Password" required />
-                        </div>
-                        <!-- Country -->
-                        <div class="form-group">
-                            <select class="form-control" name="country" required>
-                                <option selected disabled>Choose Country</option>
-                                <option>Nepal</option>
-                                <option>India</option>
-                            </select>
-                        </div>
-                        <!-- Province -->
-                        <div class="form-group">
-                            <select class="form-control" name="province" required>
-                                <option selected disabled>Choose State</option>
-                                <option>State 1</option>
-                                <option>State 2</option>
-                                <option>State 3</option>
-                                <option>State 4</option>
-                                <option>State 5</option>
-                                <option>State 6</option>
-                                <option>State 7</option>
-                            </select>
-                        </div>
-                        <!-- Local Body Name -->
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="localBodyName" placeholder="Local level name" required />
-                        </div>
-                        <!-- Local Body Type -->
-                        <div class="form-group">
-                            <select class="form-control" name="localBodyType" required>
-                                <option selected disabled>Local level type</option>
-                                <option>Nagarpalika</option>
-                                <option>Gaunpalika</option>
-                            </select>
+
+                        <!-- Right Column -->
+                        <div class="col-md-6">
+                            <!-- District -->
+                            <div class="form-group">
+                                <select class="form-control" name="district" required>
+                                    <option selected disabled>Choose district</option>
+                                    <option>Kathmandu</option>
+                                    <option>Dhading</option>
+                                    <option>Nuwakot</option>
+                                    <option>Chitwan</option>
+                                    <option>Makwanpur</option>
+                                </select>
+                            </div>
+                            <!-- Email -->
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" placeholder="Enter email" />
+                            </div>
+                            <!-- Logo -->
+                            <div class="form-group">
+                                <input type="file" class="form-control" name="logo" placeholder="Logo" accept="image/*" />
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Right Column -->
-                    <div class="col-md-6">
-                        <!-- District -->
-                        <div class="form-group">
-                            <select class="form-control" name="district" required>
-                                <option selected disabled>Choose district</option>
-                                <option>Kathmandu</option>
-                                <option>Dhading</option>
-                                <option>Nuwakot</option>
-                                <option>Chitwan</option>
-                                <option>Makwanpur</option>
-                                <!-- Add more as needed -->
-                            </select>
-                        </div>
-                        <!-- Email -->
-                        <div class="form-group">
-                            <input type="email" class="form-control" name="email" placeholder="Enter email " />
-                        </div>
-                        <!-- Logo -->
-                        <div class="form-group">
-                            <input type="file" class="form-control" name="logo" placeholder="Logo" accept="image/*" />
-                        </div>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary">Create admin</button>
                     </div>
-                </div>
-
-                <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-primary">Create admin</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -154,5 +155,6 @@
             myModal.show();
         </script>
     }
+
 </body>
 </html>

@@ -1325,6 +1325,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\451f3c76-73fd-4415-9414-a21375fa2859.png",
+      "PackagePath": "staticwebassets\\uploads\\451f3c76-73fd-4415-9414-a21375fa2859.png"
+    },
+    {
       "Id": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\702dfedd-98a3-4774-bb6a-49a444bf581a.jpeg",
       "PackagePath": "staticwebassets\\uploads\\702dfedd-98a3-4774-bb6a-49a444bf581a.jpeg"
     },
@@ -1339,6 +1343,10 @@
     {
       "Id": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\aa2c73c9-f91f-458e-88ae-937ab5c5720a.jpeg",
       "PackagePath": "staticwebassets\\uploads\\aa2c73c9-f91f-458e-88ae-937ab5c5720a.jpeg"
+    },
+    {
+      "Id": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\d95e5728-dd42-463f-863e-81a74d10f430.png",
+      "PackagePath": "staticwebassets\\uploads\\d95e5728-dd42-463f-863e-81a74d10f430.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.E-PayRoll.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cZov4jJwGbRJVUA/eNoLMxZ3mQPr/7Clq+8KY66jnjo=",
+  "Hash": "+MLngF6ESJogI5K2fF7UnblDsKPMI4GnksdMvyhBVhU=",
   "Source": "E-PayRoll",
   "BasePath": "_content/E-PayRoll",
   "Mode": "Default",
@@ -6325,6 +6325,25 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
+      "Identity": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\451f3c76-73fd-4415-9414-a21375fa2859.png",
+      "SourceId": "E-PayRoll",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\",
+      "BasePath": "_content/E-PayRoll",
+      "RelativePath": "uploads/451f3c76-73fd-4415-9414-a21375fa2859.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\451f3c76-73fd-4415-9414-a21375fa2859.png"
+    },
+    {
       "Identity": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\702dfedd-98a3-4774-bb6a-49a444bf581a.jpeg",
       "SourceId": "E-PayRoll",
       "SourceType": "Discovered",
@@ -6399,6 +6418,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\aa2c73c9-f91f-458e-88ae-937ab5c5720a.jpeg"
+    },
+    {
+      "Identity": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\d95e5728-dd42-463f-863e-81a74d10f430.png",
+      "SourceId": "E-PayRoll",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\",
+      "BasePath": "_content/E-PayRoll",
+      "RelativePath": "uploads/d95e5728-dd42-463f-863e-81a74d10f430.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\d95e5728-dd42-463f-863e-81a74d10f430.png"
     }
   ]
 }
