@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dell\\E-Payroll-System\\E-PayRoll.csproj": {}
+    "D:\\E-Payroll-System\\E-PayRoll.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dell\\E-Payroll-System\\E-PayRoll.csproj": {
+    "D:\\E-Payroll-System\\E-PayRoll.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dell\\E-Payroll-System\\E-PayRoll.csproj",
+        "projectUniqueName": "D:\\E-Payroll-System\\E-PayRoll.csproj",
         "projectName": "E-PayRoll",
-        "projectPath": "C:\\Users\\Dell\\E-Payroll-System\\E-PayRoll.csproj",
+        "projectPath": "D:\\E-Payroll-System\\E-PayRoll.csproj",
         "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dell\\E-Payroll-System\\obj\\",
+        "outputPath": "D:\\E-Payroll-System\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config"
