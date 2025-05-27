@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\E-Payroll-System\\E-PayRoll.csproj": {}
+    "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\E-PayRoll.csproj": {}
   },
   "projects": {
-    "D:\\E-Payroll-System\\E-PayRoll.csproj": {
+    "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\E-PayRoll.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\E-Payroll-System\\E-PayRoll.csproj",
+        "projectUniqueName": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\E-PayRoll.csproj",
         "projectName": "E-PayRoll",
-        "projectPath": "D:\\E-Payroll-System\\E-PayRoll.csproj",
-        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "D:\\E-Payroll-System\\obj\\",
+        "projectPath": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\E-PayRoll.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -75,6 +75,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.15, 8.0.15]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -83,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.410/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
