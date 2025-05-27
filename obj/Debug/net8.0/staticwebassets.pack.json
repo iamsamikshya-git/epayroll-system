@@ -1,1327 +1,1327 @@
 {
   "Files": [
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\E-PayRoll.bundle.scp.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\E-PayRoll.bundle.scp.css",
       "PackagePath": "staticwebassets\\E-PayRoll.bundle.scp.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Css\\Style.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Css\\Style.css",
       "PackagePath": "staticwebassets\\AdminCast\\Css\\Style.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\404.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\404.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\404.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\admin-avatar.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\admin-avatar.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\admin-avatar.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\adminca-banner\\adminca-preview.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\adminca-banner\\adminca-preview.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\adminca-banner\\adminca-preview.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\adminca-banner\\angular.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\adminca-banner\\angular.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\adminca-banner\\angular.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\adminca-banner\\bootstrap.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\adminca-banner\\bootstrap.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\adminca-banner\\bootstrap.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\adminca-banner\\sprite.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\adminca-banner\\sprite.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\adminca-banner\\sprite.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\blog\\candles.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\blog\\candles.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\blog\\candles.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\blog\\cropper-picture.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\blog\\cropper-picture.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\blog\\cropper-picture.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\blog\\horse.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\blog\\horse.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\blog\\horse.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\blog\\macarons.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\blog\\macarons.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\blog\\macarons.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\blog\\magnifying-glass.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\blog\\magnifying-glass.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\blog\\magnifying-glass.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\blog\\seascape.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\blog\\seascape.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\blog\\seascape.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\blog\\storm.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\blog\\storm.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\blog\\storm.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\file.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\file.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\file.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\ASEAN.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\ASEAN.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\ASEAN.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Afghanistan.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Afghanistan.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Afghanistan.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\African Union(OAS).png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\African Union(OAS).png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\African Union(OAS).png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Albania.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Albania.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Albania.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Algeria.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Algeria.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Algeria.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\American Samoa.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\American Samoa.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\American Samoa.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Andorra.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Andorra.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Andorra.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Angola.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Angola.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Angola.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Anguilla.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Anguilla.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Anguilla.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Antarctica.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Antarctica.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Antarctica.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Antigua & Barbuda.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Antigua & Barbuda.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Antigua & Barbuda.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Arab League.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Arab League.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Arab League.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Argentina.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Argentina.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Argentina.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Armenia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Armenia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Armenia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Aruba.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Aruba.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Aruba.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Australia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Australia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Australia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Austria.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Austria.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Austria.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Azerbaijan.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Azerbaijan.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Azerbaijan.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Bahamas.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Bahamas.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Bahamas.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Bahrain.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Bahrain.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Bahrain.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Bangladesh.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Bangladesh.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Bangladesh.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Barbados.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Barbados.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Barbados.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Belarus.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Belarus.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Belarus.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Belgium.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Belgium.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Belgium.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Belize.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Belize.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Belize.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Benin.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Benin.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Benin.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Bermuda.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Bermuda.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Bermuda.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Bhutan.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Bhutan.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Bhutan.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Bolivia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Bolivia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Bolivia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Bosnia & Herzegovina.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Bosnia & Herzegovina.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Bosnia & Herzegovina.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Botswana.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Botswana.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Botswana.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Brazil.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Brazil.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Brazil.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Brunei.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Brunei.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Brunei.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Bulgaria.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Bulgaria.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Bulgaria.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Burkina Faso.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Burkina Faso.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Burkina Faso.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Burundi.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Burundi.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Burundi.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\CARICOM.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\CARICOM.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\CARICOM.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\CIS.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\CIS.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\CIS.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Cambodja.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Cambodja.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Cambodja.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Cameroon.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Cameroon.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Cameroon.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Canada.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Canada.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Canada.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Cape Verde.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Cape Verde.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Cape Verde.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Cayman Islands.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Cayman Islands.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Cayman Islands.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Central African Republic.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Central African Republic.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Central African Republic.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Chad.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Chad.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Chad.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Chile.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Chile.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Chile.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\China.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\China.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\China.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Colombia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Colombia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Colombia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Commonwealth.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Commonwealth.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Commonwealth.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Comoros.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Comoros.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Comoros.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Congo-Brazzaville.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Congo-Brazzaville.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Congo-Brazzaville.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Congo-Kinshasa.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Congo-Kinshasa.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Congo-Kinshasa.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Cook Islands.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Cook Islands.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Cook Islands.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Costa Rica.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Costa Rica.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Costa Rica.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Cote d'Ivoire.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Cote d'Ivoire.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Cote d'Ivoire.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Croatia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Croatia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Croatia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Cuba.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Cuba.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Cuba.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Cyprus.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Cyprus.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Cyprus.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Czech Republic.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Czech Republic.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Czech Republic.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Denmark.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Denmark.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Denmark.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Djibouti.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Djibouti.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Djibouti.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Dominica.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Dominica.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Dominica.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Dominican Republic.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Dominican Republic.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Dominican Republic.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Egypt.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Egypt.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Egypt.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\El Salvador.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\El Salvador.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\El Salvador.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\England.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\England.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\England.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Equador.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Equador.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Equador.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Equatorial Guinea.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Equatorial Guinea.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Equatorial Guinea.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Eritrea.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Eritrea.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Eritrea.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Estonia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Estonia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Estonia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Ethiopia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Ethiopia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Ethiopia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\European Union.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\European Union.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\European Union.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Faroes.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Faroes.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Faroes.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Fiji.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Fiji.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Fiji.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Finland.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Finland.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Finland.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\France.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\France.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\France.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Gabon.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Gabon.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Gabon.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Gambia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Gambia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Gambia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Georgia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Georgia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Georgia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Germany.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Germany.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Germany.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Ghana.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Ghana.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Ghana.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Gibraltar.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Gibraltar.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Gibraltar.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Greece.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Greece.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Greece.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Greenland.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Greenland.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Greenland.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Grenada.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Grenada.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Grenada.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Guadeloupe.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Guadeloupe.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Guadeloupe.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Guam.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Guam.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Guam.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Guatemala.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Guatemala.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Guatemala.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Guernsey.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Guernsey.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Guernsey.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Guinea-Bissau.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Guinea-Bissau.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Guinea-Bissau.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Guinea.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Guinea.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Guinea.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Guyana.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Guyana.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Guyana.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Haiti.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Haiti.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Haiti.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Honduras.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Honduras.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Honduras.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Hong Kong.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Hong Kong.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Hong Kong.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Hungary.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Hungary.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Hungary.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Iceland.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Iceland.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Iceland.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\India.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\India.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\India.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Indonesia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Indonesia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Indonesia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Iran.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Iran.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Iran.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Iraq.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Iraq.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Iraq.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Ireland.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Ireland.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Ireland.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Islamic Conference.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Islamic Conference.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Islamic Conference.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Isle of Man.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Isle of Man.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Isle of Man.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Israel.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Israel.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Israel.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Italy.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Italy.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Italy.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Jamaica.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Jamaica.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Jamaica.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Jersey.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Jersey.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Jersey.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Jordan.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Jordan.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Jordan.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Kazakhstan.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Kazakhstan.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Kazakhstan.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Kenya.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Kenya.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Kenya.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Kiribati.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Kiribati.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Kiribati.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Kosovo.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Kosovo.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Kosovo.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Kuwait.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Kuwait.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Kuwait.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Kyrgyzstan.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Kyrgyzstan.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Kyrgyzstan.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Laos.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Laos.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Laos.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Latvia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Latvia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Latvia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Lebanon.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Lebanon.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Lebanon.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Lesotho.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Lesotho.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Lesotho.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Liberia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Liberia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Liberia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Libya.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Libya.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Libya.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Liechtenstein.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Liechtenstein.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Liechtenstein.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Lithuania.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Lithuania.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Lithuania.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Luxembourg.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Luxembourg.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Luxembourg.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Macao.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Macao.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Macao.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Macedonia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Macedonia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Macedonia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Madagascar.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Madagascar.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Madagascar.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Malawi.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Malawi.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Malawi.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Malaysia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Malaysia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Malaysia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Maldives.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Maldives.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Maldives.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Mali.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Mali.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Mali.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Malta.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Malta.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Malta.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Marshall Islands.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Marshall Islands.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Marshall Islands.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Martinique.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Martinique.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Martinique.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Mauritania.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Mauritania.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Mauritania.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Mauritius.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Mauritius.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Mauritius.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Mexico.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Mexico.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Mexico.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Micronesia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Micronesia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Micronesia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Moldova.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Moldova.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Moldova.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Monaco.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Monaco.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Monaco.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Mongolia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Mongolia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Mongolia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Montenegro.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Montenegro.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Montenegro.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Montserrat.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Montserrat.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Montserrat.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Morocco.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Morocco.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Morocco.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Mozambique.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Mozambique.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Mozambique.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Myanmar(Burma).png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Myanmar(Burma).png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Myanmar(Burma).png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\NATO.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\NATO.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\NATO.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Namibia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Namibia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Namibia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Nauru.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Nauru.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Nauru.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Nepal.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Nepal.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Nepal.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Netherlands Antilles.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Netherlands Antilles.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Netherlands Antilles.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Netherlands.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Netherlands.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Netherlands.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\New Caledonia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\New Caledonia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\New Caledonia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\New Zealand.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\New Zealand.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\New Zealand.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Nicaragua.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Nicaragua.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Nicaragua.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Niger.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Niger.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Niger.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Nigeria.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Nigeria.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Nigeria.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\North Korea.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\North Korea.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\North Korea.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Northern Cyprus.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Northern Cyprus.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Northern Cyprus.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Northern Ireland.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Northern Ireland.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Northern Ireland.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Norway.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Norway.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Norway.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\OPEC.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\OPEC.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\OPEC.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Olimpic Movement.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Olimpic Movement.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Olimpic Movement.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Oman.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Oman.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Oman.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Pakistan.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Pakistan.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Pakistan.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Palau.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Palau.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Palau.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Palestine.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Palestine.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Palestine.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Panama.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Panama.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Panama.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Papua New Guinea.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Papua New Guinea.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Papua New Guinea.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Paraguay.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Paraguay.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Paraguay.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Peru.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Peru.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Peru.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Philippines.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Philippines.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Philippines.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Poland.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Poland.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Poland.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Portugal.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Portugal.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Portugal.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Puerto Rico.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Puerto Rico.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Puerto Rico.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Qatar.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Qatar.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Qatar.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Red Cross.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Red Cross.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Red Cross.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Reunion.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Reunion.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Reunion.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Romania.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Romania.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Romania.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Russian Federation.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Russian Federation.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Russian Federation.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Rwanda.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Rwanda.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Rwanda.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Saint Lucia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Saint Lucia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Saint Lucia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Samoa.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Samoa.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Samoa.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\San Marino.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\San Marino.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\San Marino.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Sao Tome & Principe.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Sao Tome & Principe.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Sao Tome & Principe.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Saudi Arabia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Saudi Arabia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Saudi Arabia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Scotland.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Scotland.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Scotland.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Senegal.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Senegal.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Senegal.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Serbia(Yugoslavia).png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Serbia(Yugoslavia).png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Serbia(Yugoslavia).png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Seyshelles.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Seyshelles.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Seyshelles.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Sierra Leone.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Sierra Leone.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Sierra Leone.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Singapore.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Singapore.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Singapore.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Slovakia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Slovakia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Slovakia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Slovenia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Slovenia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Slovenia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Solomon Islands.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Solomon Islands.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Solomon Islands.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Somalia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Somalia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Somalia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Somaliland.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Somaliland.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Somaliland.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\South Africa.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\South Africa.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\South Africa.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\South Korea.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\South Korea.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\South Korea.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Spain.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Spain.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Spain.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Sri Lanka.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Sri Lanka.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Sri Lanka.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\St Kitts & Nevis.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\St Kitts & Nevis.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\St Kitts & Nevis.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\St Vincent & the Grenadines.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\St Vincent & the Grenadines.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\St Vincent & the Grenadines.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Sudan.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Sudan.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Sudan.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Suriname.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Suriname.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Suriname.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Swaziland.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Swaziland.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Swaziland.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Sweden.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Sweden.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Sweden.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Switzerland.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Switzerland.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Switzerland.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Syria.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Syria.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Syria.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Tahiti(French Polinesia).png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Tahiti(French Polinesia).png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Tahiti(French Polinesia).png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Taiwan.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Taiwan.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Taiwan.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Tajikistan.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Tajikistan.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Tajikistan.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Tanzania.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Tanzania.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Tanzania.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Thailand.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Thailand.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Thailand.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Timor-Leste.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Timor-Leste.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Timor-Leste.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Togo.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Togo.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Togo.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Tonga.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Tonga.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Tonga.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Trinidad & Tobago.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Trinidad & Tobago.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Trinidad & Tobago.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Tunisia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Tunisia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Tunisia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Turkey.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Turkey.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Turkey.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Turkmenistan.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Turkmenistan.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Turkmenistan.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Turks and Caicos Islands.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Turks and Caicos Islands.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Turks and Caicos Islands.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Tuvalu.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Tuvalu.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Tuvalu.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\UAE.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\UAE.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\UAE.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Uganda.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Uganda.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Uganda.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Ukraine.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Ukraine.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Ukraine.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\United Nations.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\United Nations.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\United Nations.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Uruguay.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Uruguay.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Uruguay.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Uzbekistan.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Uzbekistan.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Uzbekistan.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Vanuatu.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Vanuatu.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Vanuatu.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Vatican City.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Vatican City.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Vatican City.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Venezuela.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Venezuela.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Venezuela.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Viet Nam.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Viet Nam.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Viet Nam.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Virgin Islands British.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Virgin Islands British.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Virgin Islands British.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Virgin Islands US.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Virgin Islands US.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Virgin Islands US.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Wales.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Wales.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Wales.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Western Sahara.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Western Sahara.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Western Sahara.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Yemen.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Yemen.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Yemen.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Zambia.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Zambia.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Zambia.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\Zimbabwe.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\Zimbabwe.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\Zimbabwe.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\japan.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\japan.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\japan.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\uk.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\uk.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\uk.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\flags\\us.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\flags\\us.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\flags\\us.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\image.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\image.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\image.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\image.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\image.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\image.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\logos\\logo-vue.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\logos\\logo-vue.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\logos\\logo-vue.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\repeat.png",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\repeat.png",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\repeat.png"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\users\\u1.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\users\\u1.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\users\\u1.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\users\\u2.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\users\\u2.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\users\\u2.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\users\\u3.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\users\\u3.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\users\\u3.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\users\\u4.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\users\\u4.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\users\\u4.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\users\\u5.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\users\\u5.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\users\\u5.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\users\\u6.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\users\\u6.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\users\\u6.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Images\\users\\u7.jpg",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Images\\users\\u7.jpg",
       "PackagePath": "staticwebassets\\AdminCast\\Images\\users\\u7.jpg"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\AdminCast\\Js\\Script.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\AdminCast\\Js\\Script.js",
       "PackagePath": "staticwebassets\\AdminCast\\Js\\Script.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "E:\\Seventh Semester\\Education Project\\projects\\E-PayRoll\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\Dell\\E-Payroll-System\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

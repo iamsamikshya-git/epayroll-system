@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_PayRoll.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250526125803_InitialCreate")]
+    [Migration("20250527021744_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
