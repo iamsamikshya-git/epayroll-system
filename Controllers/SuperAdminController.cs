@@ -58,10 +58,15 @@ namespace E_PayRoll.Controllers
         }
 
         // SuperAdmin Dashboard
-        public IActionResult Dashboard()
-        {
-            return View();
-        }
+       // ...existing code...
+public IActionResult Dashboard()
+{
+    // Replace this with your actual logic to get admin count from the database
+    int adminCount = _context.Users.Count(u => u.Role == "Admin"); // Count users with Admin role
+    ViewBag.AdminCount = adminCount;
+    return View();
+}
+// ...existing code...
 
         // Admin Creation Form
         public IActionResult CreateAdmin()
