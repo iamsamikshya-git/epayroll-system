@@ -3,158 +3,150 @@
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
-<!DOCTYPE html>
-<html lang="ne">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Admin Registration</title>
+<!-- Font Awesome CDN for eye icon -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-
-        h2 {
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-        .form-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .btn-primary {
-            padding: 10px 40px;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        label {
-            font-weight: 500;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container d-flex justify-content-center">
-        <div class="col-md-8 col-lg-6">
-            <h2 class="text-center">Admin Registration</h2>
-            <div class="form-container">
-                <form enctype="multipart/form-data" method="post" asp-action="Add">
-                    <div class="row">
-                        <!-- Left Column -->
-                        <div class="col-md-6">
-                            <!-- Username -->
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="username" placeholder="Username" required />
-                            </div>
-                            <!-- Password -->
-                            <div class="form-group">
-                                <input type="password" class="form-control" name="password" placeholder="Password" required />
-                            </div>
-                            <!-- Country -->
-                            <div class="form-group">
-                                <select class="form-control" name="country" required>
-                                    <option selected disabled>Choose Country</option>
-                                    <option>Nepal</option>
-                                    <option>India</option>
-                                </select>
-                            </div>
-                            <!-- Province -->
-                            <div class="form-group">
-                                <select class="form-control" name="province" required>
-                                    <option selected disabled>Choose State</option>
-                                    <option>State 1</option>
-                                    <option>State 2</option>
-                                    <option>State 3</option>
-                                    <option>State 4</option>
-                                    <option>State 5</option>
-                                    <option>State 6</option>
-                                    <option>State 7</option>
-                                </select>
-                            </div>
-                            <!-- Local Body Name -->
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="localBodyName" placeholder="Local level name" required />
-                            </div>
-                            <!-- Local Body Type -->
-                            <div class="form-group">
-                                <select class="form-control" name="localBodyType" required>
-                                    <option selected disabled>Local level type</option>
-                                    <option>Nagarpalika</option>
-                                    <option>Gaunpalika</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Right Column -->
-                        <div class="col-md-6">
-                            <!-- District -->
-                            <div class="form-group">
-                                <select class="form-control" name="district" required>
-                                    <option selected disabled>Choose district</option>
-                                    <option>Kathmandu</option>
-                                    <option>Dhading</option>
-                                    <option>Nuwakot</option>
-                                    <option>Chitwan</option>
-                                    <option>Makwanpur</option>
-                                </select>
-                            </div>
-                            <!-- Email -->
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" placeholder="Enter email" />
-                            </div>
-                            <!-- Logo -->
-                            <div class="form-group">
-                                <input type="file" class="form-control" name="logo" placeholder="Logo" accept="image/*" />
-                            </div>
-                        </div>
+<div class="container d-flex justify-content-center">
+    <div class="col-md-10 col-lg-8">
+        <h2 class="text-center mt-4">Admin Registration</h2>
+        <div class="form-container">
+            <form enctype="multipart/form-data" method="post" asp-action="Add">
+                
+                <!-- First Row -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <select class="form-control" name="country" required>
+                            <option disabled selected>Country</option>
+                            <option>Nepal</option>
+                            <option>India</option>
+                        </select>
                     </div>
-
-                    <div class="text-center mt-4">
-                        <button type="submit" class="btn btn-primary">Create admin</button>
+                    <div class="col-md-4">
+                        <select class="form-control" name="province" required>
+                            <option disabled selected>Province</option>
+                            <option>Koshi</option>
+                            <option>Madhesh</option>
+                            <option>Bagmati</option>
+                            <option>Gandaki</option>
+                            <option>Lumbini</option>
+                            <option>Karnali</option>
+                            <option>SudurPachim</option>
+                        </select>
                     </div>
-                </form>
-            </div>
+                    <div class="col-md-4">
+                        <select class="form-control" name="district" required>
+                            <option disabled selected>District</option>
+                            <option>Kathmandu</option>
+                            <option>Dhading</option>
+                            <option>Nuwakot</option>
+                            <option>Chitwan</option>
+                            <option>Makwanpur</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Second Row -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <select class="form-control" name="localBodyType" required>
+                            <option disabled selected>Local Body Type</option>
+                            <option>Nagarpalika</option>
+                            <option>Gaunpalika</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="localBodyName" placeholder="Local Body Name" required />
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="username" placeholder="Username" required />
+                    </div>
+                </div>
+
+                <!-- Third Row -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <input type="email" class="form-control" name="email" placeholder="Email" required />
+                    </div>
+                    <div class="col-md-4 position-relative">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required />
+                        <span class="position-absolute top-50 end-0 translate-middle-y me-3" style="cursor:pointer;" onclick="togglePassword('password', this)">
+                            <i class="fa-solid fa-eye-slash"></i>
+                        </span>
+                    </div>
+                    <div class="col-md-4 position-relative">
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required />
+                        <span class="position-absolute top-50 end-0 translate-middle-y me-3" style="cursor:pointer;" onclick="togglePassword('confirmPassword', this)">
+                            <i class="fa-solid fa-eye-slash"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Fourth Row -->
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <input type="file" class="form-control" name="logo" accept="image/*" />
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary px-5">Create Admin</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
-    <!-- Success Modal -->
-    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header bg-success text-white">
-            <h5 class="modal-title" id="successModalLabel">Success</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            Admin created successfully!
-          </div>
-        </div>
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="successModalLabel">Success</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Admin created successfully!
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Bootstrap JS Bundle (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap + JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    @if (ViewBag.Message != null)
-    {
-        <script>
-            var myModal = new bootstrap.Modal(document.getElementById('successModal'));
-            myModal.show();
-        </script>
+@if (ViewBag.Message != null)
+{
+    <script>
+        var myModal = new bootstrap.Modal(document.getElementById('successModal'));
+        myModal.show();
+    </script>
+}
+
+<!-- Password toggle -->
+<script>
+    function togglePassword(fieldId, icon) {
+        const input = document.getElementById(fieldId);
+        const iTag = icon.querySelector('i');
+        if (input.type === "password") {
+            input.type = "text";
+            iTag.classList.remove("fa-eye-slash");
+            iTag.classList.add("fa-eye");
+        } else {
+            input.type = "password";
+            iTag.classList.remove("fa-eye");
+            iTag.classList.add("fa-eye-slash");
+        }
     }
+</script>
 
-</body>
-</html>
+<!-- Style -->
+<style>
+    .form-container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+</style>

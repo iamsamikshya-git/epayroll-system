@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+MLngF6ESJogI5K2fF7UnblDsKPMI4GnksdMvyhBVhU=",
+  "Hash": "Pk02Jb9j5tNaooMqiWBUDX79AJavm4PncOb386dUjJM=",
   "Source": "E-PayRoll",
   "BasePath": "_content/E-PayRoll",
   "Mode": "Default",
@@ -6325,6 +6325,25 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
+      "Identity": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\2fd3e4ed-f32b-4e3b-a078-86f4c0889db8.png",
+      "SourceId": "E-PayRoll",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\",
+      "BasePath": "_content/E-PayRoll",
+      "RelativePath": "uploads/2fd3e4ed-f32b-4e3b-a078-86f4c0889db8.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\2fd3e4ed-f32b-4e3b-a078-86f4c0889db8.png"
+    },
+    {
       "Identity": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\451f3c76-73fd-4415-9414-a21375fa2859.png",
       "SourceId": "E-PayRoll",
       "SourceType": "Discovered",
@@ -6380,6 +6399,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\92c64270-a4f2-4181-a6a3-e070d0137969.jpeg"
+    },
+    {
+      "Identity": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\9f7c83d4-0dc1-4376-ab3d-0987e61ee052.jpeg",
+      "SourceId": "E-PayRoll",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\",
+      "BasePath": "_content/E-PayRoll",
+      "RelativePath": "uploads/9f7c83d4-0dc1-4376-ab3d-0987e61ee052.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\9f7c83d4-0dc1-4376-ab3d-0987e61ee052.jpeg"
     },
     {
       "Identity": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\a79fcddb-f580-4d6a-a61a-a96f3a24df43.png",

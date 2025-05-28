@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_PayRoll.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250527145055_InitialCreate")]
+    [Migration("20250528085734_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -23,6 +23,45 @@ namespace E_PayRoll.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
+
+            modelBuilder.Entity("E_PayRoll.Models.Admin", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Country")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("District")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LocalBodyName")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LocalBodyType")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LogoPath")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Province")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Admins");
+                });
 
             modelBuilder.Entity("E_PayRoll.Models.School", b =>
                 {
@@ -52,29 +91,8 @@ namespace E_PayRoll.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Country")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("District")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("LocalBodyName")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("LocalBodyType")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("LogoPath")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Province")
                         .HasColumnType("longtext");
 
                     b.Property<string>("Role")
@@ -88,6 +106,17 @@ namespace E_PayRoll.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("E_PayRoll.Models.Admin", b =>
+                {
+                    b.HasOne("E_PayRoll.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

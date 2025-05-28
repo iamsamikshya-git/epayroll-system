@@ -15,14 +15,6 @@
         },
         "runtime": {
           "E-PayRoll.dll": {}
-        },
-        "resources": {
-          "en/E-PayRoll.resources.dll": {
-            "locale": "en"
-          },
-          "ne/E-PayRoll.resources.dll": {
-            "locale": "ne"
-          }
         }
       },
       "Humanizer.Core/2.14.1": {

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using E_PayRoll.Data;
 using E_PayRoll.Models;
+using E_PayRoll.ViewModels;
 using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -89,6 +90,17 @@ namespace E_PayRoll.Controllers
                 return View("CreateAdmin");
             }
 
+            // Create User
+            var user = new User
+            {
+                Username = username,
+                Password = password,
+                Role = "Admin"
+            };
+            _context.Users.Add(user);
+            _context.SaveChanges();
+
+            // Handle logo upload
             string? logoPath = null;
             if (logo != null && logo.Length > 0)
             {
@@ -105,11 +117,10 @@ namespace E_PayRoll.Controllers
                 logoPath = "/uploads/" + fileName;
             }
 
-            var admin = new User
+            // Create Admin profile
+            var admin = new Admin
             {
-                Username = username,
-                Password = password,
-                Role = "Admin",
+                UserId = user.Id,
                 Country = country,
                 Province = province,
                 LocalBodyName = localBodyName,
@@ -118,21 +129,26 @@ namespace E_PayRoll.Controllers
                 Email = email,
                 LogoPath = logoPath
             };
-
-            _context.Users.Add(admin);
+            _context.Admins.Add(admin);
             _context.SaveChanges();
 
             ViewBag.Message = "Admin created successfully";
             return View("CreateAdmin");
         }
 
+        // Admin List
+        public IActionResult AdminList()
+        {
+            var admins = _context.Admins
+                .Select(a => new AdminListViewModel
+                {
+                    User = a.User,
+                    Admin = a
+                })
+                .ToList();
+            return View(admins);
+        }
 
-// In SuperAdminController.cs
-public IActionResult AdminList()
-{
-    var admins = _context.Users.Where(u => u.Role == "Admin").ToList();
-    return View(admins);
-}
         // Optional: Logout for SuperAdmin
         public async Task<IActionResult> Logout()
         {
