@@ -1,5 +1,8 @@
 @using Microsoft.AspNetCore.Http
 @using System.Security.Claims
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+
 @{
     Layout = null;
     ViewBag.Title = "Dashboard";
@@ -7,6 +10,10 @@
     var isAdmin = User != null && User.IsInRole("Admin");
     var isSuperAdmin = User != null && User.IsInRole("SuperAdmin");
     var userName = User?.Identity?.Name ?? "User";
+
+    // Optional: Set message/notification counts
+    var messageCount = ViewBag.MessageCount ?? 3;
+    var notificationCount = ViewBag.NotificationCount ?? 5;
 }
 
 <!DOCTYPE html>
@@ -68,16 +75,14 @@
             border-bottom: 1px solid #ddd;
         }
 
-        .topbar input {
-            width: 300px;
-            border-radius: 20px;
-            border: 1px solid #ccc;
-            padding: 5px 15px;
-        }
-
         .dropdown-menu {
             right: 0;
             left: auto;
+        }
+
+        .badge {
+            font-size: 0.65rem;
+            padding: 4px 6px;
         }
     </style>
 </head>
@@ -86,12 +91,12 @@
     @if (User != null && User.Identity != null && User.Identity.IsAuthenticated && (User.IsInRole("Admin") ||
         User.IsInRole("SuperAdmin")))
     {
+        <!-- Sidebar -->
         <div class="sidebar">
             <div class="text-center fs-4 fw-bold mb-3">Dash</div>
             <div class="user-panel mb-3">
-                    <img src="~/AdminCast/Images/admin-avatar.png" width="45px" />
-                @* <div>@userName</div> *@
-                <div><small>@(isAdmin ? "Administrator" : isSuperAdmin ? "Super Administrator" : "User")</small> </div>               
+                <img src="~/AdminCast/Images/admin-avatar.png" width="45px" />
+                <div><small>@(isAdmin ? "Administrator" : isSuperAdmin ? "Super Administrator" : "User")</small></div>
             </div>
             <ul class="nav flex-column">
                 @if (isAdmin)
@@ -109,8 +114,8 @@
                             Dashboard</a></li>
                     <li><a href="@Url.Action("CreateAdmin", "SuperAdmin")" class="nav-link"><i
                                 class="fas fa-user-plus me-2"></i> Create Admin</a></li>
-                    <li><a href="@Url.Action("AdminList", "SuperAdmin")" class="nav-link"><i
-                                class="fas fa-users me-2"></i> Admin List</a></li>
+                    <li><a href="@Url.Action("AdminList", "SuperAdmin")" class="nav-link"><i class="fas fa-users me-2"></i>
+                            Admin List</a></li>
                 }
             </ul>
         </div>
@@ -119,56 +124,122 @@
         <div class="main-content">
             <!-- Topbar -->
             <div class="topbar d-flex align-items-center">
-                <div class="d-flex align-items-center">
-                    <input type="text" class="form-control me-3" placeholder="Search here..." />
+                <!-- Username shown instead of search bar -->
+                <div class="fw-semibold fs-5">
+                    Welcome, @userName
+                </div>
+
+                <!-- Replace your language dropdown with this -->
+                <div class="dropdown me-3">
+                    <a class="dropdown-toggle text-dark text-decoration-none" href="#" id="languageDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-globe me-2"></i> @Localizer["Language"]
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                        <li>
+                            <a class="dropdown-item" href="#" onclick="changeLanguage('en')">🇺🇸 English</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#" onclick="changeLanguage('ne')">🇳🇵 नेपाली</a>
+                        </li>
+                    </ul>
                 </div>
 
 
 
-                <div class="d-flex align-items-center">
-                    <i class="fas fa-envelope me-3 position-relative">
-                        <span class="badge bg-primary position-absolute top-0 start-100 translate-middle">9</span>
-                    </i>
-                    <i class="fas fa-bell me-3"></i>
-                    <div class="dropdown">
-                        <a class="dropdown-toggle d-flex align-items-center text-dark text-decoration-none" href="#"
-                            id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="~/AdminCast/Images/admin-avatar.png"class="rounded-circle me-2" />
-                            @userName
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li>
-                                <a class="dropdown-item" href="@Url.Action("Profile", "Account")">
-                                    <i class="fas fa-user me-2"></i> Profile
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="@Url.Action("Settings", "Account")">
-                                    <i class="fas fa-cog me-2"></i> Settings
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="@Url.Action("Support", "Account")">
-                                    <i class="fas fa-question-circle me-2"></i> Support
-                                </a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-danger" href="@Url.Action("Logout", "Account")">
-                                    <i class="fas fa-power-off me-2"></i> Logout
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                <!-- Messages -->
+                <div class="dropdown me-3">
+                    <a class="text-dark text-decoration-none position-relative" href="#" id="messageDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-envelope"></i>
+                        <span
+                            class="badge bg-primary position-absolute top-0 start-100 translate-middle">@messageCount</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="messageDropdown" style="width: 300px;">
+                        <li class="dropdown-header">Messages</li>
+                        <li><a class="dropdown-item" href="#">New message from John</a></li>
+                        <li><a class="dropdown-item" href="#">Meeting reminder at 3 PM</a></li>
+                        <li><a class="dropdown-item" href="#">System notice</a></li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+                        <li><a class="dropdown-item text-center" href="#">View all</a></li>
+                    </ul>
+                </div>
+
+                <!-- Notifications -->
+                <div class="dropdown me-3">
+                    <a class="text-dark text-decoration-none position-relative" href="#" id="notificationDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-bell"></i>
+                        <span
+                            class="badge bg-danger position-absolute top-0 start-100 translate-middle">@notificationCount</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown"
+                        style="width: 300px;">
+                        <li class="dropdown-header">Notifications</li>
+                        <li><a class="dropdown-item" href="#">New admin registered</a></li>
+                        <li><a class="dropdown-item" href="#">Data sync complete</a></li>
+                        <li><a class="dropdown-item" href="#">System updated</a></li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+                        <li><a class="dropdown-item text-center" href="#">View all</a></li>
+                    </ul>
+                </div>
+
+                <!-- Profile Dropdown -->
+                <div class="dropdown">
+                    <a class="dropdown-toggle d-flex align-items-center text-dark text-decoration-none" href="#"
+                        id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="~/AdminCast/Images/admin-avatar.png" class="rounded-circle me-2" width="35px" />
+                        @userName
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("Profile", "Account")">
+                                <i class="fas fa-user me-2"></i> @Localizer["Profile"]
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("Settings", "Account")">
+                                <i class="fas fa-cog me-2"></i> @Localizer["Settings"]
+                            </a>
+                        </li>
+                        @* <li><hr class="dropdown-divider" /></li> *@
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("Support", "Account")">
+                                <i class="fas fa-headset me-2"></i> @Localizer["Support"]
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-danger" href="@Url.Action("Logout", "Account")">
+                                <i class="fas fa-power-off me-2"></i> @Localizer["Logout"]
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
+       
     }
+
     <div>
         @RenderBody()
     </div>
+   <script>
+    // Set the active language in the dropdown
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentCulture = document.cookie.replace(/(?:(?:^|.*;\s*)culture\s*\=\s*([^;]*).*$)|^.*$/, "$1") || 'en';
+        if (currentCulture === 'ne') {
+            // You can add visual indication that Nepali is selected
+        }
+    });
+</script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     @RenderSection("Scripts", required: false)
 </body>

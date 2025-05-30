@@ -4,13 +4,15 @@ namespace E_PayRoll.Models;
 
 public class User
 {
-    public int Id { get; set; }
-    [Required]
-    public string Username { get; set; } = "";
-    [Required]
-    public string Password { get; set; } = "";
-    [Required]
-    public string Role { get; set; } = "";
+   public int Id { get; set; }
 
+    [Required(ErrorMessage = "Username is required")]
+    public string? Username { get; set; } = String.Empty;
+
+    [Required(ErrorMessage = "Password is required")]
+    public string? Password { get; set; }
+
+    [Required(ErrorMessage = "Role is required")]
+    public string? Role { get; set; }
   
 }

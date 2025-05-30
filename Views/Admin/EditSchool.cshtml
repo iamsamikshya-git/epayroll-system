@@ -1,11 +1,11 @@
 @model E_PayRoll.ViewModels.SchoolListViewModel
 
 @{
-    ViewData["Title"] = "Create School";
+    ViewData["Title"] = "Edit School";
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
-<h2 class="mb-4">Create School</h2>
+<h2 class="mb-4">Edit School</h2>
 
 @if (TempData["SuccessMessage"] != null)
 {
@@ -16,104 +16,94 @@
 }
 
 <div class="container-fluid px-4" style="max-width: 700px; margin: auto;">
-    <form asp-action="CreateSchool" method="post" novalidate class="d-flex flex-column align-items-end">
+    <form asp-action="EditSchool" method="post" novalidate class="d-flex flex-column align-items-end">
         @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.School.Id)
+        @Html.HiddenFor(m => m.User.Id)
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <!-- School Basic Info -->
+        <!-- School Info -->
         <div id="basicInfoSection" class="w-100">
             <div class="row g-3 mb-3 justify-content-end">
                 <div class="col-md-4">
-                    <label asp-for="School.SchoolName" class="form-label"></label>
+                    <label class="form-label" for="School_SchoolName">School Name</label>
                     <input asp-for="School.SchoolName" class="form-control" />
                     <span asp-validation-for="School.SchoolName" class="text-danger"></span>
                 </div>
                 <div class="col-md-4">
-                    <label asp-for="School.Tole" class="form-label"></label>
+                    <label class="form-label" for="School_Tole">Tole</label>
                     <input asp-for="School.Tole" class="form-control" />
                     <span asp-validation-for="School.Tole" class="text-danger"></span>
                 </div>
                 <div class="col-md-4">
-                    <label asp-for="School.TelephoneNo" class="form-label"></label>
+                    <label class="form-label" for="School_TelephoneNo">Telephone No</label>
                     <input asp-for="School.TelephoneNo" class="form-control" />
                     <span asp-validation-for="School.TelephoneNo" class="text-danger"></span>
                 </div>
 
                 <div class="col-md-4">
-                    <label asp-for="School.WardNo" class="form-label"></label>
+                    <label class="form-label" for="School_WardNo">Ward No</label>
                     <input asp-for="School.WardNo" class="form-control" />
                     <span asp-validation-for="School.WardNo" class="text-danger"></span>
                 </div>
                 <div class="col-md-4">
-                    <label asp-for="School.AccountNo" class="form-label"></label>
+                    <label class="form-label" for="School_AccountNo">Account No</label>
                     <input asp-for="School.AccountNo" class="form-control" />
                     <span asp-validation-for="School.AccountNo" class="text-danger"></span>
                 </div>
                 <div class="col-md-4">
-                    <label asp-for="School.ContactPerson" class="form-label"></label>
+                    <label class="form-label" for="School_ContactPerson">Contact Person</label>
                     <input asp-for="School.ContactPerson" class="form-control" />
                     <span asp-validation-for="School.ContactPerson" class="text-danger"></span>
                 </div>
             </div>
 
             <div class="mb-4 text-end">
-                <button id="showAdminDetailBtn" type="button" class="btn btn-info">Add School Administer Detail</button>
+                <button id="showAdminDetailBtn" type="button" class="btn btn-info">Edit Admin Info</button>
             </div>
         </div>
 
-        <!-- Admin Details Section -->
+        <!-- Admin Section -->
         <div id="adminDetailSection" class="w-100" style="display:none;">
             <div class="row g-3 mb-3 justify-content-end">
                 <div class="col-md-4">
-                    <label asp-for="School.Email" class="form-label"></label>
+                    <label class="form-label" for="School_Email">Email</label>
                     <input asp-for="School.Email" class="form-control" />
                     <span asp-validation-for="School.Email" class="text-danger"></span>
                 </div>
                 <div class="col-md-4">
-                    <label asp-for="School.UserPerson" class="form-label"></label>
+                    <label class="form-label" for="School_UserPerson">User Person</label>
                     <input asp-for="School.UserPerson" class="form-control" />
                     <span asp-validation-for="School.UserPerson" class="text-danger"></span>
                 </div>
                 <div class="col-md-4">
-                    <label asp-for="School.EMISCode" class="form-label"></label>
+                    <label class="form-label" for="School_EMISCode">EMIS Code</label>
                     <input asp-for="School.EMISCode" class="form-control" />
                     <span asp-validation-for="School.EMISCode" class="text-danger"></span>
                 </div>
 
-                <!-- Username (typically same as Email) -->
                 <div class="col-md-4">
-                    <label asp-for="Username" class="form-label"></label>
-                    <input asp-for="Username" class="form-control" />
-                    <span asp-validation-for="Username" class="text-danger"></span>
+                    <label class="form-label" for="User_Username">Username</label>
+                    <input asp-for="User.Username" class="form-control" />
+                    <span asp-validation-for="User.Username" class="text-danger"></span>
                 </div>
 
                 <div class="col-md-4">
-                    <label asp-for="Password" class="form-label"></label>
+                    <label class="form-label" for="User_Password">Password</label>
                     <div class="input-group">
-                        <input asp-for="Password" type="password" class="form-control" id="password" />
+                        <input asp-for="User.Password" type="password" class="form-control" id="password" />
                         <button class="btn btn-outline-secondary" type="button"
                             onclick="togglePassword('password')">👁</button>
                     </div>
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-
-                <div class="col-md-4">
-                    <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
-                    <div class="input-group">
-                        <input asp-for="ConfirmPassword" type="password" class="form-control" id="confirmPassword" />
-                        <button class="btn btn-outline-secondary" type="button"
-                            onclick="togglePassword('confirmPassword')">👁</button>
-                    </div>
-                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                </div>
-
-                <!-- Hidden Role -->
-                <input asp-for="User.Role" type="hidden" value="School" />
-
-                <div class="text-end mb-5">
-                    <button type="submit" class="btn btn-success px-5">Submit</button>
+                    <span asp-validation-for="User.Password" class="text-danger"></span>
                 </div>
             </div>
+        </div>
+
+        <div class="text-end mb-5">
+            <button type="submit" class="btn btn-success px-5">Update</button>
+            <a asp-action="SchoolList" class="btn btn-secondary ms-2">Cancel</a>
+        </div>
     </form>
 </div>
 
@@ -132,6 +122,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>
 }

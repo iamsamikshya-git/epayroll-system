@@ -1325,6 +1325,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\06406042-3ba6-4eec-8143-7b4d1cb8c61e.png",
+      "PackagePath": "staticwebassets\\uploads\\06406042-3ba6-4eec-8143-7b4d1cb8c61e.png"
+    },
+    {
       "Id": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\2fd3e4ed-f32b-4e3b-a078-86f4c0889db8.png",
       "PackagePath": "staticwebassets\\uploads\\2fd3e4ed-f32b-4e3b-a078-86f4c0889db8.png"
     },
@@ -1341,6 +1345,10 @@
       "PackagePath": "staticwebassets\\uploads\\92c64270-a4f2-4181-a6a3-e070d0137969.jpeg"
     },
     {
+      "Id": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\947a7848-a29f-4a7c-8a96-e5fa6ab469cb.png",
+      "PackagePath": "staticwebassets\\uploads\\947a7848-a29f-4a7c-8a96-e5fa6ab469cb.png"
+    },
+    {
       "Id": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\9f7c83d4-0dc1-4376-ab3d-0987e61ee052.jpeg",
       "PackagePath": "staticwebassets\\uploads\\9f7c83d4-0dc1-4376-ab3d-0987e61ee052.jpeg"
     },
@@ -1353,8 +1361,16 @@
       "PackagePath": "staticwebassets\\uploads\\aa2c73c9-f91f-458e-88ae-937ab5c5720a.jpeg"
     },
     {
+      "Id": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\b5f17645-bbb8-4ab6-925b-6a15919e463a.png",
+      "PackagePath": "staticwebassets\\uploads\\b5f17645-bbb8-4ab6-925b-6a15919e463a.png"
+    },
+    {
       "Id": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\d95e5728-dd42-463f-863e-81a74d10f430.png",
       "PackagePath": "staticwebassets\\uploads\\d95e5728-dd42-463f-863e-81a74d10f430.png"
+    },
+    {
+      "Id": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\e993cd7d-e185-475a-91c9-517159ccd4d9.png",
+      "PackagePath": "staticwebassets\\uploads\\e993cd7d-e185-475a-91c9-517159ccd4d9.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.E-PayRoll.Microsoft.AspNetCore.StaticWebAssets.props",
