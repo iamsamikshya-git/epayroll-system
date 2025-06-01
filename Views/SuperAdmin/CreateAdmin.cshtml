@@ -1,103 +1,126 @@
+@{
+    Layout = null; // Standalone page
+}
+@model AdminCreateViewModel
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Advanced User Form</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <style>
-    .form-container {
-      max-width: 720px;
-      margin: 60px auto;
-      background-color: #ffffff;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-    .form-floating > .form-control::placeholder {
-      color: transparent;
-    }
-    .form-floating > .form-control:focus::placeholder {
-      color: #6c757d;
-    }
-    select:invalid {
-      color: #60e82a;
-    }
-  </style>
+    <meta charset="utf-8" />
+    <title>Create Admin - Local Level Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="container my-5">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white text-center">
+                <h4>Create Admin - Local Level Registration</h4>
+            </div>
+            @if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
 
-<div class="container">
-  <form class="form-container needs-validation" novalidate>
-    <h2 class="mb-4 text-center">User Registration</h2>
+@foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+{
+    <div class="alert alert-danger">@error.ErrorMessage</div>
+}
 
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="id" placeholder="Enter ID" pattern="\d+" required>
-      <label for="id">ID</label>
-      <div class="invalid-feedback">Please enter a valid numeric ID.</div>
+            <div class="card-body">
+                <form enctype="multipart/form-data" method="post">
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <select id="CountryId" name="CountryId" class="form-select" required>
+                                <option value="" selected disabled>Country</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select id="ProvinceId" name="ProvinceId" class="form-select" required>
+                                <option value="" selected disabled>Province</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select id="DistrictId" name="DistrictId" class="form-select" required>
+                                <option value="" selected disabled>District</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select id="MunicipalityId" name="MunicipalityId" class="form-select" required>
+                                <option value="" selected disabled>Municipality</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <input type="text" id="Username" name="Username" class="form-control" placeholder="Username" required />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="email" id="Email" name="Email" class="form-control" placeholder="Email Address" required />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="file" id="ProfilePicture" name="ProfilePicture" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <input type="password" id="Password" name="Password" class="form-control" placeholder="Password" required />
+                        </div>
+                        <div class="col-md-6">
+                            <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" placeholder="Confirm Password" required />
+                        </div>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-success px-4">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+<!-- jQuery (required for AJAX and DOM manipulation) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="name" placeholder="Enter full name" required>
-      <label for="name">Full Name</label>
-      <div class="invalid-feedback">Full name is required.</div>
-    </div>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $.getJSON('/SuperAdmin/GetCountries', function (data) {
+            $('#CountryId').append(data.map(c => `<option value="${c.id}">${c.name}</option>`));
+        });
 
-    <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="email" placeholder="Enter email address" required>
-      <label for="email">Email</label>
-      <div class="invalid-feedback">Enter a valid email address.</div>
-    </div>
+        $('#CountryId').change(function () {
+            const countryId = $(this).val();
+            $('#ProvinceId').empty().append('<option selected disabled>Select Province</option>');
+            $('#DistrictId, #MunicipalityId').empty().append('<option selected disabled>Select</option>');
 
-    <div class="form-floating mb-3">
-      <input type="tel" class="form-control" id="contact" placeholder="e.g. +1234567890" pattern="^\+?\d{10,15}$" required>
-      <label for="contact">Contact Number</label>
-      <div class="invalid-feedback">Enter a valid contact number (e.g., +1234567890).</div>
-    </div>
+            $.getJSON(`/SuperAdmin/GetProvinces?countryId=${countryId}`, function (data) {
+                $('#ProvinceId').append(data.map(p => `<option value="${p.id}">${p.name}</option>`));
+            });
+        });
 
-    <!-- Modified Address Section -->
-    <div class="mb-3">
-          <select class="form-select" id="address" required>
-        <option value="" disabled selected hidden>Address</option>
-        <option value="New York, NY">New York, NY</option>
-        <option value="Los Angeles, CA">Los Angeles, CA</option>
-        <option value="Chicago, IL">Chicago, IL</option>
-        <option value="Houston, TX">Houston, TX</option>
-        <option value="Miami, FL">Miami, FL</option>
-      </select>
-      <div class="invalid-feedback">Please select your address.</div>
-    </div>
+        $('#ProvinceId').change(function () {
+            const provinceId = $(this).val();
+            $('#DistrictId').empty().append('<option selected disabled>Select District</option>');
+            $('#MunicipalityId').empty().append('<option selected disabled>Select Municipality</option>');
 
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="username" placeholder="Choose a username" pattern="^[a-zA-Z0-9_]{5,20}$" required>
-      <label for="username">Username</label>
-      <div class="invalid-feedback">5–20 characters, letters, numbers, or underscores only.</div>
-    </div>
+            $.getJSON(`/SuperAdmin/GetDistricts?provinceId=${provinceId}`, function (data) {
+                $('#DistrictId').append(data.map(d => `<option value="${d.id}">${d.name}</option>`));
+            });
+        });
 
-    <div class="form-floating mb-4">
-      <input type="password" class="form-control" id="password" placeholder="Create a strong password" pattern=".{8,}" required>
-      <label for="password">Password</label>
-      <div class="invalid-feedback">Password must be at least 8 characters.</div>
-    </div>
+        $('#DistrictId').change(function () {
+            const districtId = $(this).val();
+            $('#MunicipalityId').empty().append('<option selected disabled>Select Municipality</option>');
 
-    <button type="submit" class="btn btn-primary w-100">Submit</button>
-  </form>
-</div>
-
-<script>
-  (() => {
-    'use strict';
-    const forms = document.querySelectorAll('.needs-validation');
-    Array.from(forms).forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
+            $.getJSON(`/SuperAdmin/GetMunicipalities?districtId=${districtId}`, function (data) {
+                $('#MunicipalityId').append(data.map(m => `<option value="${m.id}">${m.name}</option>`));
+            });
+        });
     });
-  })();
 </script>
 
 </body>

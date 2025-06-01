@@ -1,0 +1,57 @@
+@model List<AdminListViewModel>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Admin List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Registered Admins</h2>
+
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Country</th>
+                    <th>Province</th>
+                    <th>District</th>
+                    <th>Municipality</th>
+                    <th>Profile Picture</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                    @foreach (var a in Model)
+{
+    <tr>
+        <td>@a.Id</td>
+        <td>@a.Username</td>
+        <td>@a.Email</td>
+        <td>@a.CountryName</td>
+        <td>@a.ProvinceName</td>
+        <td>@a.DistrictName</td>
+        <td>@a.MunicipalityName</td>
+
+        <td>
+            @if (!string.IsNullOrEmpty(a.ProfilePicture))
+            {
+                <img src="@a.ProfilePicture" width="60" height="60" />
+            }
+        </td>
+    </tr>
+}
+
+                    
+
+                
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

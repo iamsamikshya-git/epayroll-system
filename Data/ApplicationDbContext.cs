@@ -8,4 +8,9 @@ public class ApplicationDbContext : DbContext
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
     public DbSet<User> Users { get; set; }
     public DbSet<School> Schools { get; set; }
+    public DbSet<Country> Countries { get; set; }
+    public DbSet<Province> Provinces { get; set; }
+    public DbSet<District> Districts { get; set; }
+    public DbSet<Municipality> Municipalities { get; set; }
+    public DbSet<Admin> Admins { get; set; }
 }
