@@ -16,6 +16,20 @@ namespace E_PayRoll.Controllers
         private readonly ApplicationDbContext _context;
         public SchoolController(ApplicationDbContext context) => _context = context;
 
+        // Helper to get current schoolId from logged-in user
+        private async Task<int?> GetCurrentSchoolIdAsync()
+        {
+            var username = User.Identity?.Name;
+            if (string.IsNullOrEmpty(username))
+                return null;
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+                return null;
+            var teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.UserId == user.Id);
+            return teacher?.SchoolId;
+        }
+
         // Dashboard
         public IActionResult Dashboard()
         {
@@ -38,7 +52,6 @@ namespace E_PayRoll.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddTeacher(TeacherListViewModel viewModel)
         {
-            // Set the role in the controller, not in the form
             viewModel.Role = "Teacher";
 
             if (string.IsNullOrEmpty(viewModel.Password) || viewModel.Password != viewModel.ConfirmPassword)
@@ -47,7 +60,6 @@ namespace E_PayRoll.Controllers
             if (viewModel.Teacher == null)
                 ModelState.AddModelError("", "Teacher details are missing.");
 
-            // Check for unique username
             if (await _context.Users.AnyAsync(u => u.Username == viewModel.Username))
                 ModelState.AddModelError("Username", "Username already taken");
 
@@ -67,17 +79,23 @@ namespace E_PayRoll.Controllers
                 return View(viewModel);
             }
 
+            // Get current schoolId
+            var schoolId = await GetCurrentSchoolIdAsync();
+            if (schoolId == null)
+            {
+                ModelState.AddModelError("", "Unable to determine your school. Please contact admin.");
+                return View(viewModel);
+            }
+
             // Create and Save User
             var user = new User
             {
                 Username = viewModel.Username,
                 Password = viewModel.Password,
-                Role = viewModel.Role // Always "Teacher"
+                Role = viewModel.Role
             };
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
-
-            int schoolId = 1; // Replace with actual logic if needed
 
             // File upload logic
             string? photoPath = null;
@@ -127,7 +145,7 @@ namespace E_PayRoll.Controllers
                 LanguagePreference = viewModel.Teacher.LanguagePreference,
                 AdminId = admin.Id,
                 UserId = user.Id,
-                SchoolId = schoolId,
+                SchoolId = schoolId.Value,
                 PhotoPath = photoPath,
                 CVPath = cvPath
             };
@@ -151,9 +169,12 @@ namespace E_PayRoll.Controllers
         [HttpGet]
         public async Task<IActionResult> TeacherList()
         {
-            int schoolId = 1; // TODO: Replace with actual school id logic
+            var schoolId = await GetCurrentSchoolIdAsync();
+            if (schoolId == null)
+                return Unauthorized();
+
             var teachers = await _context.Teachers
-                .Where(t => t.SchoolId == schoolId)
+                .Where(t => t.SchoolId == schoolId.Value)
                 .Include(t => t.User)
                 .ToListAsync();
             return View(teachers);
@@ -169,6 +190,10 @@ namespace E_PayRoll.Controllers
 
             if (teacher == null)
                 return NotFound();
+
+            var schoolId = await GetCurrentSchoolIdAsync();
+            if (schoolId == null || teacher.SchoolId != schoolId.Value)
+                return Unauthorized();
 
             var viewModel = new TeacherListViewModel
             {
@@ -201,6 +226,10 @@ namespace E_PayRoll.Controllers
             var teacher = await _context.Teachers.Include(t => t.User).FirstOrDefaultAsync(t => t.Id == id);
             if (teacher == null)
                 return NotFound();
+
+            var schoolId = await GetCurrentSchoolIdAsync();
+            if (schoolId == null || teacher.SchoolId != schoolId.Value)
+                return Unauthorized();
 
             // File upload logic for PhotoFile and CVFile
             if (viewModel.PhotoFile != null && viewModel.PhotoFile.Length > 0)
@@ -279,6 +308,13 @@ namespace E_PayRoll.Controllers
                 return RedirectToAction("TeacherList");
             }
 
+            var schoolId = await GetCurrentSchoolIdAsync();
+            if (schoolId == null || teacher.SchoolId != schoolId.Value)
+            {
+                TempData["ErrorMessage"] = "Unauthorized delete attempt.";
+                return RedirectToAction("TeacherList");
+            }
+
             // Also delete the linked user
             var user = await _context.Users.FindAsync(teacher.UserId);
             if (user != null)
@@ -297,9 +333,12 @@ namespace E_PayRoll.Controllers
         [HttpGet]
         public async Task<IActionResult> Salary()
         {
-            int schoolId = 1; // TODO: Replace with actual school id logic
+            var schoolId = await GetCurrentSchoolIdAsync();
+            if (schoolId == null)
+                return Unauthorized();
+
             var teachers = await _context.Teachers
-                .Where(t => t.SchoolId == schoolId)
+                .Where(t => t.SchoolId == schoolId.Value)
                 .ToListAsync();
 
             return View(teachers);
