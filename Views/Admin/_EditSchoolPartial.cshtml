@@ -1,0 +1,43 @@
+@model E_PayRoll.ViewModels.SchoolListViewModel
+
+<form asp-action="EditSchool" method="post" class="edit-school-form">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.School.Id)
+    @Html.HiddenFor(m => m.User.Id)
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="mb-3">
+        <label asp-for="School.SchoolName" class="form-label"></label>
+        <input asp-for="School.SchoolName" class="form-control" />
+        <span asp-validation-for="School.SchoolName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="School.Tole" class="form-label"></label>
+        <input asp-for="School.Tole" class="form-control" />
+        <span asp-validation-for="School.Tole" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="School.TelephoneNo" class="form-label"></label>
+        <input asp-for="School.TelephoneNo" class="form-control" />
+        <span asp-validation-for="School.TelephoneNo" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="School.Email" class="form-label"></label>
+        <input asp-for="School.Email" class="form-control" />
+        <span asp-validation-for="School.Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="User.Username" class="form-label"></label>
+        <input asp-for="User.Username" class="form-control" />
+        <span asp-validation-for="User.Username" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="User.Password" class="form-label"></label>
+        <input asp-for="User.Password" type="password" class="form-control" autocomplete="new-password" />
+        <small class="form-text text-muted">Leave blank to keep the current password.</small>
+        <span asp-validation-for="User.Password" class="text-danger"></span>
+    </div>
+    <div class="text-end">
+        <button type="submit" class="btn btn-success">Update</button>
+    </div>
+</form>

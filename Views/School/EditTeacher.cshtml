@@ -1,0 +1,84 @@
+@model E_PayRoll.ViewModels.TeacherListViewModel
+
+@{
+    ViewBag.Title = "Edit Teacher";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+<h2>Edit Teacher</h2>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2 col-lg-7 offset-lg-3">
+        @using (Html.BeginForm("EditTeacher", "School", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Teacher!.Id)
+
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Teacher!.FirstName)
+                    @Html.TextBoxFor(m => m.Teacher!.FirstName, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Teacher!.MiddleName)
+                    @Html.TextBoxFor(m => m.Teacher!.MiddleName, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Teacher!.LastName)
+                    @Html.TextBoxFor(m => m.Teacher!.LastName, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Teacher!.Gender)
+                    @Html.DropDownListFor(m => m.Teacher!.Gender, new SelectList(new[] { "Male", "Female", "Other" }, Model.Teacher!.Gender), "Select Gender", new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Teacher!.DateOfBirth)
+                    @Html.TextBoxFor(m => m.Teacher!.DateOfBirth, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Teacher!.PhotoPath)
+                    @Html.TextBoxFor(m => m.Teacher!.PhotoPath, new { @class = "form-control", placeholder = "Photo path or URL" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Teacher!.EmployeeId)
+                    @Html.TextBoxFor(m => m.Teacher!.EmployeeId, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Teacher!.Department)
+                    @Html.TextBoxFor(m => m.Teacher!.Department, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Teacher!.Subjects)
+                    @Html.TextBoxFor(m => m.Teacher!.Subjects, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Teacher!.Designation)
+                    @Html.TextBoxFor(m => m.Teacher!.Designation, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Teacher!.DateOfJoining)
+                    @Html.TextBoxFor(m => m.Teacher!.DateOfJoining, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Teacher!.CVPath)
+                    @Html.TextBoxFor(m => m.Teacher!.CVPath, new { @class = "form-control", placeholder = "CV path or URL" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Teacher!.LanguagePreference)
+                    @Html.DropDownListFor(m => m.Teacher!.LanguagePreference, new SelectList(new[] { "English", "Nepali" }, Model.Teacher!.LanguagePreference), "Select Language", new { @class = "form-control" })
+                </div>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success">Update</button>
+            <a href="@Url.Action("TeacherList", "School")" class="btn btn-secondary">Cancel</a>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function confirmUpdate() {
+            return confirm('Are you sure you want to update this teacher information?');
+        }
+    </script>
+}
