@@ -9,4 +9,6 @@ public class ApplicationDbContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<School> Schools { get; set; }
     public DbSet<Admin> Admins { get; set; }
+
+    public DbSet<Teacher> Teachers { get; set; }
 }

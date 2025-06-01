@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Account\" />
+    <Folder Include="Views\School\" />
     <Folder Include="Views\SuperAdmin\" />
     <Folder Include="wwwroot\AdminCast\Images\" />
   </ItemGroup>

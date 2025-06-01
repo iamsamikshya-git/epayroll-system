@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("E-PayRoll")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute(" ")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b32e37120f9a648dc3bcdc933d171b7aeca1480")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8c7056dbc0ab796695e3c1eceb8e223c120ef8b")]
 [assembly: System.Reflection.AssemblyProductAttribute("E-PayRoll")]
 [assembly: System.Reflection.AssemblyTitleAttribute("E-PayRoll")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

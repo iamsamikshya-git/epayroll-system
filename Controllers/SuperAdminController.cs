@@ -43,7 +43,7 @@ namespace E_PayRoll.Controllers
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, user.Username),
+                    new Claim(ClaimTypes.Name, user.Username!),
                     new Claim(ClaimTypes.Role, user.Role)
                 };
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

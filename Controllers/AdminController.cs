@@ -17,10 +17,11 @@ namespace E_PayRoll.Controllers
         }
 
         // GET: Admin/Dashboard
-        public IActionResult Dashboard()
-        {
-            return View();
-        }
+    public IActionResult Dashboard()
+{
+    ViewBag.SchoolCount = _context.Schools.Count();
+    return View();
+}
 
         // GET: Admin/SchoolList
         public async Task<IActionResult> SchoolList()
@@ -33,7 +34,7 @@ namespace E_PayRoll.Controllers
             var viewModelList = schools.Select(s => new SchoolListViewModel
             {
                 School = s,
-                User = s.User,
+                User = s.User!,
                 Admin = s.Admin
             }).ToList();
 

@@ -2,13 +2,13 @@
 @using System.Security.Claims
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
-
 @{
     Layout = null;
     ViewBag.Title = "Dashboard";
 
     var isAdmin = User != null && User.IsInRole("Admin");
     var isSuperAdmin = User != null && User.IsInRole("SuperAdmin");
+    var isSchool = User != null && User.IsInRole("School");
     var userName = User?.Identity?.Name ?? "User";
 
     // Optional: Set message/notification counts
@@ -18,7 +18,6 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title - AdminCAST</title>
@@ -30,7 +29,6 @@
             margin: 0;
             font-family: 'Segoe UI', sans-serif;
         }
-
         .sidebar {
             width: 250px;
             background-color: #263544;
@@ -39,32 +37,26 @@
             height: 100vh;
             padding-top: 20px;
         }
-
         .sidebar .user-panel {
             text-align: center;
             padding: 10px;
         }
-
         .sidebar .user-panel img {
             width: 60px;
             border-radius: 50%;
         }
-
         .sidebar .nav-link {
             color: #cfd8dc;
             padding: 10px 20px;
         }
-
         .sidebar .nav-link:hover {
             background-color: #34495e;
             color: white;
         }
-
         .main-content {
             margin-left: 250px;
             padding: 0;
         }
-
         .topbar {
             height: 60px;
             background: #fff;
@@ -74,48 +66,49 @@
             align-items: center;
             border-bottom: 1px solid #ddd;
         }
-
         .dropdown-menu {
             right: 0;
             left: auto;
         }
-
         .badge {
             font-size: 0.65rem;
             padding: 4px 6px;
         }
     </style>
 </head>
-
 <body>
-    @if (User != null && User.Identity != null && User.Identity.IsAuthenticated && (User.IsInRole("Admin") ||
-        User.IsInRole("SuperAdmin")))
+    @if (User != null && User.Identity != null && User.Identity.IsAuthenticated)
     {
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="text-center fs-4 fw-bold mb-3">Dash</div>
             <div class="user-panel mb-3">
                 <img src="~/AdminCast/Images/admin-avatar.png" width="45px" />
-                <div><small>@(isAdmin ? "Administrator" : isSuperAdmin ? "Super Administrator" : "User")</small></div>
+                <div>
+                    <small>
+                        @(isAdmin ? "Administrator" : isSuperAdmin ? "Super Administrator" : isSchool ? "School" : "User")
+                    </small>
+                </div>
             </div>
             <ul class="nav flex-column">
                 @if (isAdmin)
                 {
-                    <li><a href="@Url.Action("Dashboard", "Admin")" class="nav-link"><i class="fas fa-th-large me-2"></i>
-                            Dashboard</a></li>
-                    <li><a href="@Url.Action("SchoolList", "Admin")" class="nav-link"><i class="fas fa-school me-2"></i> View
-                            Schools</a></li>
-                    <li><a href="@Url.Action("CreateSchool", "Admin")" class="nav-link"><i class="fas fa-plus me-2"></i> Create
-                            School</a></li>
+                    <li><a href="@Url.Action("Dashboard", "Admin")" class="nav-link"><i class="fas fa-th-large me-2"></i> Dashboard</a></li>
+                    <li><a href="@Url.Action("SchoolList", "Admin")" class="nav-link"><i class="fas fa-school me-2"></i> View Schools</a></li>
+                    <li><a href="@Url.Action("CreateSchool", "Admin")" class="nav-link"><i class="fas fa-plus me-2"></i> Create School</a></li>
                 }
                 @if (isSuperAdmin)
                 {
-                    <li><a href="@Url.Action("Dashboard", "SuperAdmin")" class="nav-link"><i class="fas fa-th-large me-2"></i>
-                            Dashboard</a></li>
-                    <li><a href="@Url.Action("CreateAdmin", "SuperAdmin")" class="nav-link"><i
-                                class="fas fa-user-plus me-2"></i> Create Admin</a></li>
-                    <li><a href="@Url.Action("AdminList", "SuperAdmin")" class="nav-link"><i class="fas fa-users me-2"></i>
-                            Admin List</a></li>
+                    <li><a href="@Url.Action("Dashboard", "SuperAdmin")" class="nav-link"><i class="fas fa-th-large me-2"></i> Dashboard</a></li>
+                    <li><a href="@Url.Action("CreateAdmin", "SuperAdmin")" class="nav-link"><i class="fas fa-user-plus me-2"></i> Create Admin</a></li>
+                    <li><a href="@Url.Action("AdminList", "SuperAdmin")" class="nav-link"><i class="fas fa-users me-2"></i> Admin List</a></li>
+                }
+                @if (isSchool)
+                {
+                    <li><a href="@Url.Action("Dashboard", "School")" class="nav-link"><i class="fas fa-th-large me-2"></i> Dashboard</a></li>
+                    <li><a href="@Url.Action("AddTeacher", "School")" class="nav-link"><i class="fas fa-user-plus me-2"></i> Add Teacher</a></li>
+                    <li><a href="@Url.Action("TeacherList", "School")" class="nav-link"><i class="fas fa-users me-2"></i> Teacher List</a></li>
+                    <li><a href="@Url.Action("Salary", "School")" class="nav-link"><i class="fas fa-money-bill me-2"></i> Salary</a></li>
                 }
             </ul>
         </div>
@@ -129,7 +122,7 @@
                     Welcome, @userName
                 </div>
 
-                <!-- Replace your language dropdown with this -->
+                <!-- Language Dropdown -->
                 <div class="dropdown me-3">
                     <a class="dropdown-toggle text-dark text-decoration-none" href="#" id="languageDropdown"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -145,24 +138,19 @@
                     </ul>
                 </div>
 
-
-
                 <!-- Messages -->
                 <div class="dropdown me-3">
                     <a class="text-dark text-decoration-none position-relative" href="#" id="messageDropdown"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-envelope"></i>
-                        <span
-                            class="badge bg-primary position-absolute top-0 start-100 translate-middle">@messageCount</span>
+                        <span class="badge bg-primary position-absolute top-0 start-100 translate-middle">@messageCount</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="messageDropdown" style="width: 300px;">
                         <li class="dropdown-header">Messages</li>
                         <li><a class="dropdown-item" href="#">New message from John</a></li>
                         <li><a class="dropdown-item" href="#">Meeting reminder at 3 PM</a></li>
                         <li><a class="dropdown-item" href="#">System notice</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
+                        <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item text-center" href="#">View all</a></li>
                     </ul>
                 </div>
@@ -172,18 +160,14 @@
                     <a class="text-dark text-decoration-none position-relative" href="#" id="notificationDropdown"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-bell"></i>
-                        <span
-                            class="badge bg-danger position-absolute top-0 start-100 translate-middle">@notificationCount</span>
+                        <span class="badge bg-danger position-absolute top-0 start-100 translate-middle">@notificationCount</span>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown"
-                        style="width: 300px;">
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" style="width: 300px;">
                         <li class="dropdown-header">Notifications</li>
                         <li><a class="dropdown-item" href="#">New admin registered</a></li>
                         <li><a class="dropdown-item" href="#">Data sync complete</a></li>
                         <li><a class="dropdown-item" href="#">System updated</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
+                        <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item text-center" href="#">View all</a></li>
                     </ul>
                 </div>
@@ -206,15 +190,12 @@
                                 <i class="fas fa-cog me-2"></i> @Localizer["Settings"]
                             </a>
                         </li>
-                        @* <li><hr class="dropdown-divider" /></li> *@
                         <li>
                             <a class="dropdown-item" href="@Url.Action("Support", "Account")">
                                 <i class="fas fa-headset me-2"></i> @Localizer["Support"]
                             </a>
                         </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
+                        <li><hr class="dropdown-divider" /></li>
                         <li>
                             <a class="dropdown-item text-danger" href="@Url.Action("Logout", "Account")">
                                 <i class="fas fa-power-off me-2"></i> @Localizer["Logout"]
@@ -224,24 +205,27 @@
                 </div>
             </div>
         </div>
-       
     }
 
     <div>
         @RenderBody()
     </div>
-   <script>
-    // Set the active language in the dropdown
-    document.addEventListener('DOMContentLoaded', function() {
-        const currentCulture = document.cookie.replace(/(?:(?:^|.*;\s*)culture\s*\=\s*([^;]*).*$)|^.*$/, "$1") || 'en';
-        if (currentCulture === 'ne') {
-            // You can add visual indication that Nepali is selected
-        }
-    });
-</script>
+    <script>
+        // Set the active language in the dropdown
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentCulture = document.cookie.replace(/(?:(?:^|.*;\s*)culture\s*\=\s*([^;]*).*$)|^.*$/, "$1") || 'en';
+            if (currentCulture === 'ne') {
+                // You can add visual indication that Nepali is selected
+            }
+        });
 
+        // Language change handler (requires a SetLanguage action in your controller)
+        function changeLanguage(culture) {
+            var returnUrl = window.location.pathname + window.location.search;
+            window.location.href = '/Home/SetLanguage?culture=' + culture + '&returnUrl=' + encodeURIComponent(returnUrl);
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
-
 </html>

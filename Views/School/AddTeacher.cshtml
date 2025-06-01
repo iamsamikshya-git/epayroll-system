@@ -8,6 +8,27 @@
 
 <h2>Create Teacher</h2>
 
+<!-- Button to go to Teacher List -->
+<a href="@Url.Action("TeacherList", "School")" class="btn btn-primary mb-3">
+    <i class="fa fa-users"></i> View Teacher List
+</a>
+
+<!-- Success Popup -->
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert" id="successPopup">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="errorPopup">
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
 <div class="row">
     <div class="col-md-8 offset-md-2 col-lg-7 offset-lg-3">
         @using (Html.BeginForm("AddTeacher", "School", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -45,7 +66,6 @@
                     <div class="col-md-4">
                         <label for="PhotoFile">Photo</label>
                         <input type="file" id="PhotoFile" name="PhotoFile" class="form-control" accept="image/*" />
-                        @* No validation for optional file *@
                     </div>
                 </div>
                 <br />
@@ -83,7 +103,6 @@
                     <div class="col-md-4">
                         <label for="CVFile">CV / Resume</label>
                         <input type="file" id="CVFile" name="CVFile" class="form-control" accept=".pdf,.doc,.docx,.png" />
-                        @* No validation for optional file *@
                     </div>
                 </div>
                 <br />
@@ -150,18 +169,19 @@
                 icon.classList.add('fa-eye');
             }
         }
+        // Auto-hide success/error popup after 3 seconds
         window.onload = function () {
-            @if (TempData["SuccessMessage"] != null)
-            {
-                <text>
-                alert('@TempData["SuccessMessage"]');
-                </text>
+            var popup = document.getElementById('successPopup');
+            if (popup) {
+                setTimeout(function () {
+                    popup.classList.remove('show');
+                }, 3000);
             }
-            @if (TempData["ErrorMessage"] != null)
-            {
-                <text>
-                alert('@TempData["ErrorMessage"]');
-                </text>
+            var errorPopup = document.getElementById('errorPopup');
+            if (errorPopup) {
+                setTimeout(function () {
+                    errorPopup.classList.remove('show');
+                }, 3000);
             }
         }
     </script>
@@ -169,7 +189,4 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }
