@@ -5,49 +5,31 @@ namespace E_PayRoll.ViewModels
 {
     public class SchoolListViewModel
     {
-        [Required(ErrorMessage = "School details are required")]
         public School School { get; set; } = new School();
-
-        [Required(ErrorMessage = "User details are required")]
         public User User { get; set; } = new User();
-
         public Admin? Admin { get; set; }
 
-        [Required(ErrorMessage = "Confirm Password is required")]
+        [DataType(DataType.Password)]
+        public string? Password { get; set; }
+
+        [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Passwords do not match")]
         public string? ConfirmPassword { get; set; }
 
-        [Required(ErrorMessage = "Password is required")]
-        public string Password
+        public string? Username
         {
-            get => User?.Password ?? string.Empty;
-            set
-            {
-                if (User != null)
-                    User.Password = value;
-            }
+            get => User?.Username;
+            set { if (User != null) User.Username = value; }
         }
 
-        [Required(ErrorMessage = "Username is required")]
-        public string Username
+        public string? Role
         {
-            get => User?.Username ?? string.Empty;
-            set
-            {
-                if (User != null)
-                    User.Username = value;
-            }
+            get => User?.Role;
+            set { if (User != null) User.Role = value; }
         }
-
-        [Required(ErrorMessage = "Role is required")]
-        public string Role
-        {
-            get => User?.Role ?? string.Empty;
-            set
-            {
-                if (User != null)
-                    User.Role = value;
-            }
-        }
+public SchoolListViewModel()
+    {
+        Role = "School";
+    }
     }
 }

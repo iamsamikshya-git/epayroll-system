@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_PayRoll.Controllers
 {
@@ -71,7 +72,7 @@ namespace E_PayRoll.Controllers
             return View();
         }
 
-        // Admin Creation POST (for your new form)
+        // Admin Creation POST
         [HttpPost]
         public async Task<IActionResult> Add(
             string username,
@@ -140,6 +141,7 @@ namespace E_PayRoll.Controllers
         public IActionResult AdminList()
         {
             var admins = _context.Admins
+                .Include(a => a.User)
                 .Select(a => new AdminListViewModel
                 {
                     User = a.User,
@@ -147,6 +149,76 @@ namespace E_PayRoll.Controllers
                 })
                 .ToList();
             return View(admins);
+        }
+
+        // Edit Admin GET
+        public IActionResult EditAdmin(int id)
+        {
+            var admin = _context.Admins.Include(a => a.User).FirstOrDefault(a => a.Id == id);
+            if (admin == null)
+                return NotFound();
+
+            return View(admin);
+        }
+
+        // Edit Admin POST
+        [HttpPost]
+        public async Task<IActionResult> EditAdmin(Admin model, IFormFile LogoFile)
+        {
+            var admin = _context.Admins.Include(a => a.User).FirstOrDefault(a => a.Id == model.Id);
+            if (admin == null)
+                return NotFound();
+
+            // Update admin fields
+            admin.Email = model.Email;
+            admin.Country = model.Country;
+            admin.Province = model.Province;
+            admin.District = model.District;
+            admin.LocalBodyName = model.LocalBodyName;
+            admin.LocalBodyType = model.LocalBodyType;
+
+            // Handle logo upload
+            if (LogoFile != null && LogoFile.Length > 0)
+            {
+                var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
+                if (!Directory.Exists(uploads))
+                    Directory.CreateDirectory(uploads);
+
+                var fileName = Guid.NewGuid() + Path.GetExtension(LogoFile.FileName);
+                var filePath = Path.Combine(uploads, fileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await LogoFile.CopyToAsync(stream);
+                }
+                admin.LogoPath = "/uploads/" + fileName;
+            }
+
+            _context.SaveChanges();
+            TempData["SuccessMessage"] = "Admin updated successfully!";
+            return RedirectToAction("AdminList");
+        }
+
+        // Delete Admin POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteAdmin(int id)
+        {
+            var admin = _context.Admins.Include(a => a.User).FirstOrDefault(a => a.Id == id);
+            if (admin == null)
+            {
+                TempData["ErrorMessage"] = "Admin not found.";
+                return RedirectToAction("AdminList");
+            }
+
+            // Remove user as well
+            if (admin.User != null)
+                _context.Users.Remove(admin.User);
+
+            _context.Admins.Remove(admin);
+            _context.SaveChanges();
+
+            TempData["SuccessMessage"] = "Admin deleted successfully!";
+            return RedirectToAction("AdminList");
         }
 
         // Optional: Logout for SuperAdmin

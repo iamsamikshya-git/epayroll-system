@@ -9,7 +9,7 @@ public class User
     [Required(ErrorMessage = "Username is required")]
     public string? Username { get; set; } = String.Empty;
 
-    [Required(ErrorMessage = "Password is required")]
+    //[Required(ErrorMessage = "Password is required")]
     public string? Password { get; set; }
 
     [Required(ErrorMessage = "Role is required")]

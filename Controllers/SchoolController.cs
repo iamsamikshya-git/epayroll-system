@@ -17,20 +17,19 @@ namespace E_PayRoll.Controllers
         public SchoolController(ApplicationDbContext context) => _context = context;
 
         // Helper to get current schoolId from logged-in user
-        private async Task<int?> GetCurrentSchoolIdAsync()
-        {
-            var username = User.Identity?.Name;
-            if (string.IsNullOrEmpty(username))
-                return null;
+ private async Task<int?> GetCurrentSchoolIdAsync()
+{
+    var username = User.Identity?.Name;
+    if (string.IsNullOrEmpty(username))
+        return null;
 
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
-            if (user == null)
-                return null;
-            var teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.UserId == user.Id);
-            return teacher?.SchoolId;
-        }
+    var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+    if (user == null)
+        return null;
 
-        // Dashboard
+    var school = await _context.Schools.FirstOrDefaultAsync(s => s.UserId == user.Id);
+    return school?.Id;
+} // Dashboard
         public IActionResult Dashboard()
         {
             ViewBag.TeacherCount = _context.Teachers.Count();

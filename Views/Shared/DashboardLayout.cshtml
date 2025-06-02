@@ -9,6 +9,7 @@
     var isAdmin = User != null && User.IsInRole("Admin");
     var isSuperAdmin = User != null && User.IsInRole("SuperAdmin");
     var isSchool = User != null && User.IsInRole("School");
+    var isUser = User != null && User.IsInRole("Teacher");
     var userName = User?.Identity?.Name ?? "User";
 
     // Optional: Set message/notification counts
@@ -86,7 +87,7 @@
                 <img src="~/AdminCast/Images/admin-avatar.png" width="45px" />
                 <div>
                     <small>
-                        @(isAdmin ? "Administrator" : isSuperAdmin ? "Super Administrator" : isSchool ? "School" : "User")
+                        @(isAdmin ? "Administrator" : isSuperAdmin ? "Super Administrator" : isSchool ? "School" : "Teacher")
                     </small>
                 </div>
             </div>

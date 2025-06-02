@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "avwxUmnkXvYD0LAf0kb70/D9FN0IxsZgEhcg1kUMHdA=",
+  "Hash": "w1aGgOptWaxU7u+jI1jULppKWhbsQmoupab/inLjyPc=",
   "Source": "E-PayRoll",
   "BasePath": "_content/E-PayRoll",
   "Mode": "Default",
@@ -6361,6 +6361,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\04fa787d-f70d-4651-8e4b-ffe179ae428d.png"
+    },
+    {
+      "Identity": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\97396db6-401e-4722-b2a0-217df49a8224.jpeg",
+      "SourceId": "E-PayRoll",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\",
+      "BasePath": "_content/E-PayRoll",
+      "RelativePath": "uploads/97396db6-401e-4722-b2a0-217df49a8224.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\97396db6-401e-4722-b2a0-217df49a8224.jpeg"
     },
     {
       "Identity": "D:\\OneDrive\\Documents\\GitHub\\E-Payroll-System\\wwwroot\\uploads\\a9829fb0-d689-45da-9938-bc0ecdea73cf.png",
