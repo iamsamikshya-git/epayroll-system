@@ -6,6 +6,8 @@ using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using E_PayRollAdminListViewModel.Models;
+
 
 // … your usings …
 namespace E_PayRoll.Controllers
