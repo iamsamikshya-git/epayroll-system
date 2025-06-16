@@ -2,11 +2,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using E_PayRoll.Data;
 using E_PayRoll.Models;
+using E_PayRoll.ViewModels;
 using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using E_PayRollAdminListViewModel.Models;
+using AdminListViewModel = E_PayRollAdminListViewModel.Models.AdminListViewModel;
 
 
 // … your usings …

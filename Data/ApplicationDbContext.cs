@@ -13,4 +13,6 @@ public class ApplicationDbContext : DbContext
     public DbSet<District> Districts { get; set; }
     public DbSet<Municipality> Municipalities { get; set; }
     public DbSet<Admin> Admins { get; set; }
+    public DbSet<Teacher> Teachers { get; set; }
+
 }

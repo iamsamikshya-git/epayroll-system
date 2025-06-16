@@ -1,10 +1,18 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
 <div class="dashboard-container">
-    <h2> SuperAdmin Dashboard</h2>
-    @* You can add dashboard stats or welcome message here *@
+   <h2>@Localizer["SuperAdmin Dashboard"]</h2>
+ 
+
+       <div class="card admin-card"></div>
+        <div class="card-title">Total Admins</div>
+        <div class="card-value">@ViewBag.AdminCount</div>
+    </div>
+</div>
 </div>
 
 <style>

@@ -1,0 +1,28 @@
+@{
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+<div class="dashboard-container">
+    <h2>School Dashboard</h2>
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;"></div>
+    <div class="card-header">Total Teachers</div>
+    <div class="card-body">
+        <h5 class="card-title" style="font-size:2.5rem;">@ViewBag.TeacherCount</h5>
+        <p class="card-text">Teachers registered in the system.</p>
+    </div>
+</div>
+    @* You can add dashboard stats or welcome message here *@
+    
+ 
+
+<style>
+    .dashboard-container {
+        background: #fff;
+        max-width: 400px;
+        margin: 60px auto;
+        padding: 30px 40px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+</style>
