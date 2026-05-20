@@ -1,0 +1,126 @@
+@model IEnumerable<E_PayRoll.Models.SalaryAcknowledgmentViewModel>
+@{
+    ViewData["Title"] = "Salary Acknowledgment — Salary List";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+<div class="container-fluid mt-3">
+    <h4 class="mb-3">Salary List</h4>
+
+    <div class="table-responsive">
+        <table id="salaryTable" class="table table-bordered table-striped align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>S.N.</th>
+                    <th>Teacher Name</th>
+                    <th>Issued Date</th>
+                    <th>Basic Salary</th>
+                    <th>Provident Fund</th>
+                    <th>CIT</th>
+                    <th>Dearness Allowance</th>
+                    <th>Clothing Allowance</th>
+                    <th>Festival Allowance</th>
+                    <th>Total Salary</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+            @{
+                var sn = 1;
+                if (Model != null && Model.Any())
+                {
+                    foreach (var r in Model)
+                    {
+                        var badgeClass = r.Status == "Accepted" ? "bg-success"
+                                        : r.Status == "Rejected" ? "bg-danger"
+                                        : "bg-warning text-dark";
+                        <tr>
+                            <td>@sn</td>
+                            <td>@r.FullName</td>
+                            <td>@r.IssuedDate.ToString("yyyy-MM-dd")</td>
+                            <td>@r.BasicSalary.ToString("N2")</td>
+                            <td>@r.PF.ToString("N2")</td>
+                            <td>@r.CIT.ToString("N2")</td>
+                            <td>@r.Dearness.ToString("N2")</td>
+                            <td>@(r.Clothing ? "Yes" : "No")</td>
+                            <td>@(r.Festival ? "Yes" : "No")</td>
+                            <td>@r.TotalSalary.ToString("N2")</td>
+                            <td><span class="badge @badgeClass">@r.Status</span></td>
+                        </tr>
+                        sn++;
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="11" class="text-center text-muted">No salary records.</td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- DataTables CSS (ok to keep here if your layout doesn't have a Styles section) -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
+
+    <style>
+      /* Wrap the whole DataTables UI in a bordered card */
+      #salaryTable_wrapper .dt-card{
+        border:1px solid #dee2e6;
+        border-radius:.5rem;
+        background:#fff;
+        overflow:hidden; /* keeps edges crisp */
+      }
+
+      /* Top and bottom toolbars */
+      #salaryTable_wrapper .dt-head,
+      #salaryTable_wrapper .dt-foot{
+        padding:.75rem 1rem;
+        background:#fff;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:.5rem;
+        flex-wrap:wrap;
+      }
+      #salaryTable_wrapper .dt-head{ border-bottom:1px solid #dee2e6; }
+      #salaryTable_wrapper .dt-foot{ border-top:1px solid #dee2e6; }
+
+      /* Tidy up the select and search input */
+      #salaryTable_wrapper .dataTables_length select,
+      #salaryTable_wrapper .dataTables_filter input{
+        border:1px solid #ced4da;
+        border-radius:.375rem;
+        padding:.375rem .75rem;
+        height:calc(1.5em + .75rem + 2px);
+      }
+      #salaryTable_wrapper .dataTables_length label,
+      #salaryTable_wrapper .dataTables_filter label{ margin:0; }
+
+      /* Remove any outer margin so borders align with the table */
+      #salaryTable{ margin:0; }
+    </style>
+
+    <!-- jQuery + DataTables (remove if already included in your layout) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+    <script>
+      $(function () {
+        $('#salaryTable').DataTable({
+          /* Place controls inside our bordered wrappers */
+          dom: '<"dt-card"<"dt-head d-flex justify-content-between align-items-center flex-wrap gap-2"l f>t<"dt-foot d-flex justify-content-between align-items-center flex-wrap gap-2"i p>>',
+          language: {
+            lengthMenu: "Show _MENU_ entries",
+            zeroRecords: "No matching records found",
+            info: "Showing _START_ to _END_ of _TOTAL_ entries",
+            infoEmpty: "No entries available",
+            search: "Search:"
+          }
+        });
+      });
+    </script>
+}

@@ -1,58 +1,174 @@
-using System;
-using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace E_PayRoll.Models;
+using E_PayRoll.Data;
 
-public class Teacher
+namespace E_PayRoll.Models
 {
-    public int Id { get; set; }
+    public class Teacher
+    {
+        public int Id { get; set; }
 
-    // Personal
-    [Required(ErrorMessage = "First Name is required")]
-    public string? FirstName { get; set; }
+        // Personal Info
+        //[Required]
+        public int SchoolId { get; set; }
 
-    public string? MiddleName { get; set; } // Not required
+        public string SchoolName { get; set; } = string.Empty;
+        public string Type { get; set; } = string.Empty;
+        [Required]
+        public string SchoolCode { get; set; } = string.Empty;
+        [Required]
+        public string FirstName { get; set; } = string.Empty;
+        
+        public string MiddleName { get; set; } = string.Empty;
+        [Required]
+        public string LastName { get; set; } = string.Empty;
+        [Required]
+        public string Gender { get; set; } = string.Empty;
+        [Required]
+        public DateTime DateOfBirth { get; set; }
 
-    [Required(ErrorMessage = "Last Name is required")]
-    public string? LastName { get; set; }
+        // Permanent Address
+        [Required(ErrorMessage = "Country is required")]
+        public string PermanentCountry { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Province is required")]
+        public string PermanentProvince { get; set; } = string.Empty;
+        [Required(ErrorMessage = "District is required")]
+        public string PermanentDistrict { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Local Level is required")]
+        public string PermanentLocalLevel { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Ward is required")]
+        public string PermanentWard { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Tole is required")]
+        public string PermanentTole { get; set; } = string.Empty;
 
-    [Required(ErrorMessage = "Gender is required")]
-    public string? Gender { get; set; }
+        // Temporary Address
+        //public bool SamePermanent { get; set; }
+       // [Required(ErrorMessage = "Temporary address is required")]
+        public string TemporaryCountry { get; set; } = string.Empty;
+        public string TemporaryProvince { get; set; } = string.Empty;
+        public string TemporaryDistrict { get; set; } = string.Empty;
+        public string TemporaryLocalLevel { get; set; } = string.Empty;
+        public string TemporaryWard { get; set; } = string.Empty;
+        public string TemporaryTole { get; set; } = string.Empty;
+        //Family details
+        public string FatherName { get; set; } = string.Empty;
+        public string MotherName { get; set; } = string.Empty;
+        public string? SpouseName { get; set; } = string.Empty;
+        public string Ethnicity { get; set; } = string.Empty;
+        public string MotherTongue { get; set; } = string.Empty;
+        public string Disability { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public byte[]? Photo { get; set; }
+        public string Contact { get; set; } = string.Empty;
 
-    [Required(ErrorMessage = "Date of Birth is required")]
-    public DateTime? DateOfBirth { get; set; }
+        // Document Information
 
-    // Professional
-    [Required(ErrorMessage = "Employee ID is required")]
-    public string? EmployeeId { get; set; }
+        public string CitizenshipNo { get; set; }
+        
+        [Display(Name = "Citizenship Issue Date")]
+        [DataType(DataType.Date)]
+        public DateTime? CitizenshipIssueDate { get; set; }
 
-    [Required(ErrorMessage = "Department is required")]
-    public string? Department { get; set; }
+        [Display(Name = "Citizenship Issue District")]
+        public string CitizenshipIssueDistrict { get; set; }
 
-    [Required(ErrorMessage = "Subjects are required")]
-    public string? Subjects { get; set; }
+        [Display(Name = "National ID Number")]
+        public string NationalId { get; set; }
 
-    [Required(ErrorMessage = "Designation is required")]
-    public string? Designation { get; set; }
+        [Display(Name = "Permanent Account Number")]
+        public string PermanentAccount { get; set; }
 
-    [Required(ErrorMessage = "Date of Joining is required")]
-    public DateTime? DateOfJoining { get; set; }
+        [Display(Name = "Employee Union Fund No.")]
+        public string UnionFundNo { get; set; }
 
-    // Account
-    [Required(ErrorMessage = "Language Preference is required")]
-    public string? LanguagePreference { get; set; }
+        [Display(Name = "Citizen Investment Fund No.")]
+        public string InvestmentFundNo { get; set; }
 
-    // File uploads (not mapped to DB)
-    public string? PhotoPath { get; set; }
-    public string? CVPath { get; set; }
+        [Display(Name = "Bank Name")]
+        public string BankName { get; set; }
 
-    public int UserId { get; set; }
-    public int AdminId { get; set; }
-    public int SchoolId { get; set; }
+        [Display(Name = "Bank Account Number")]
+        public string BankAccount { get; set; }
 
-    public User? User { get; set; }
-    public Admin? Admin { get; set; }
-    public School? School { get; set; }
+        [Display(Name = "Teaching License Number")]
+        public string LicenseNo { get; set; }
+
+        [Display(Name = "Highest Contribution-Based Grant Fund")]
+        public string ContributionFund { get; set; }
+
+        [Display(Name = "Sheet Roll")]
+        public string SheetRoll { get; set; }
+
+        // Appointment Details
+        [Required]
+        [Display(Name = "Teacher Level")]
+        public string TeacherLevel { get; set; }
+
+        [Required]
+        [Display(Name = "Teacher Category")]
+        public string TeacherCategory { get; set; }
+
+        [Required]
+        [Display(Name = "Appointment Type")]
+        public string AppointmentType { get; set; }
+
+        [Required]
+        [Display(Name = "Appointment Status")]
+        public string AppointmentStatus { get; set; }
+
+        [Required]
+        [Display(Name = "Teacher Status")]
+        public string TeacherStatus { get; set; }
+
+       
+        // Qualification Fields
+    [Required]
+    [Display(Name = "Education Level")]
+    public string EducationLevel { get; set; }
+
+    [Required]
+    [Display(Name = "Board / University")]
+    public string BoardUniversity { get; set; }
+
+    [Required]
+    [Display(Name = "Passed Year")]
+    public int PassedYear { get; set; }
+
+    [Required]
+    [Display(Name = "Faculty")]
+    public string Faculty { get; set; }
+
+    [Required]
+    [Display(Name = "Grade / GPA")]
+    public string GradeGPA { get; set; }
+
+    // Experience Fields
+    [Required]
+    [Display(Name = "Post Type")]
+    public string PostType { get; set; }
+
+    [Required]
+    [Display(Name = "Appointment Start Date")]
+    public DateTime AppointmentStartDate { get; set; }
+
+    [Required]
+    [Display(Name = "Decision Date")]
+    public DateTime DecisionDate { get; set; }
+
+    [Required]
+    [Display(Name = "Attendance Date")]
+    public DateTime AttendanceDate { get; set; }
+
+    [Required]
+    [Display(Name = "Appointed School")]
+    public string AppointedSchool { get; set; }
+
+    [Required]
+    [Display(Name = "School Address")]
+    public string SchoolAddress { get; set; }
+
+    [Required]
+    [Display(Name = "Appointed Subject")]
+    public string AppointedSubject { get; set; }
+    }
 }

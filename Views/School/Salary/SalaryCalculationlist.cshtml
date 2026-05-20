@@ -1,0 +1,103 @@
+@model IEnumerable<E_PayRoll.Models.SalaryViewModel>
+@{
+    ViewBag.Title = "Salary Calculation List";
+}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+<!-- Icons (you can move this to _Layout.cshtml) -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<style>
+  .salary-list-container { margin-left: 100px; }
+  .table-actions .btn { margin-right: 4px; }
+  .status-badge { margin-right: 8px; }
+  
+</style>
+
+<div class="salary-list-container">
+  <h2>Salary Calculation List</h2>
+
+  <table id="salaryTable" class="display table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>S.N.</th>
+        <th>Name</th>
+        <th>Basic Salary</th>
+        <th>Provident Fund</th>
+        <th>Total Salary</th>
+        <th>Status</th>   
+        <th>Action</th>   
+      </tr>
+    </thead>
+    <tbody>
+      @if (Model != null && Model.Any())
+      {
+          var sn = 1;
+          foreach (var item in Model)
+          {
+              var statusClass =
+                  item.Status == "Accepted" ? "bg-success" :
+                  item.Status == "Rejected" ? "bg-danger" :
+                  "bg-warning text-dark"; // Pending
+              <tr>
+    <td>@sn</td>
+    <td>@item.FullName</td>
+    <td>@item.BasicSalary.ToString("N2")</td>
+    <td>@item.PF.ToString("N2")</td>
+    <td>@item.TotalSalary.ToString("N2")</td>
+
+    <!-- STATUS column: badge ONLY -->
+    <td>
+        <span class="badge @statusClass">@item.Status</span>
+    </td>
+
+    <!-- ACTION column: edit/delete/icons ONLY -->
+    <td class="table-actions">
+        <a href="@Url.Action("Edit", "Salary", new { id = item.Id })"
+           class="btn btn-sm btn-outline-primary"
+           title="Edit"
+           @(item.Status == "Accepted" ? "disabled" : null)>
+            <i class="fa-solid fa-pen-to-square"></i>
+        </a>
+<a href="@Url.Action("Pdf","Salary", new { id = item.Id })"
+   class="btn btn-sm btn-outline-secondary"
+   title="Open PDF"
+   target="_blank" rel="noopener">
+  <i class="fa-solid fa-file-pdf"></i>
+</a>
+        <form asp-action="Delete" asp-controller="Salary" method="post" style="display:inline"
+              onsubmit="return confirm('Delete this record?');">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@item.Id" />
+            <button type="submit" class="btn btn-sm btn-outline-danger"
+                    title="Delete"
+                    @(item.Status == "Accepted" ? "disabled" : null)>
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </form>
+    </td>
+</tr>
+              sn++;
+          }
+      }
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $(function () {
+    $('#salaryTable').DataTable({
+      language: {
+        lengthMenu: "Show _MENU_ entries",
+        zeroRecords: "No matching records found",
+        info: "Showing _START_ to _END_ of _TOTAL_ entries",
+        infoEmpty: "No entries available",
+        search: "Search:"
+      }
+    });
+  });
+</script>

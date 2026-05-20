@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 
 public class AdminCreateViewModel
 {
+    public int Id { get; set; }
     [Required(ErrorMessage = "Country is required")]
     public int CountryId { get; set; }
 
@@ -34,4 +35,5 @@ public class AdminCreateViewModel
     public string ConfirmPassword { get; set; } = null!;
 
     public IFormFile? ProfilePicture { get; set; }
+    public string? ExistingProfilePicturePath { get; set; }
 }

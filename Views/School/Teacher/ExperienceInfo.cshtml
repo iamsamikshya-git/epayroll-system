@@ -1,0 +1,77 @@
+@model E_PayRoll.ViewModels.TeacherExperienceViewModel
+
+@{
+    ViewBag.Title = "Step 3 - Qualification and Experience";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .form-section {
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            background-color: #fdfdfd;
+            margin-left: 100px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .sub-title {
+            font-size: 18px;
+            color: #0066cc;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+}
+
+<div class="container mt-4 mb-5">
+    <div class="section-title">Teacher/Staff Information</div>
+
+    @using (Html.BeginForm("ExperienceInfo", "School", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.Id)
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="sub-title">Educational Qualification</div>
+        <div class="form-section">
+            <div class="form-row">
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.EducationLevel) @Html.TextBoxFor(m => m.EducationLevel, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.BoardUniversity) @Html.TextBoxFor(m => m.BoardUniversity, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.PassedYear) @Html.TextBoxFor(m => m.PassedYear, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.Faculty) @Html.TextBoxFor(m => m.Faculty, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.GradeGPA) @Html.TextBoxFor(m => m.GradeGPA, new { @class = "form-control" })</div>
+            </div>
+        </div>
+
+        <div class="sub-title">Appointment and Experience</div>
+        <div class="form-section">
+            <div class="form-row">
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.PostType) @Html.TextBoxFor(m => m.PostType, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.AppointmentStartDate) @Html.TextBoxFor(m => m.AppointmentStartDate,"{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.AttendanceDate) @Html.TextBoxFor(m => m.AttendanceDate,"{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })</div>
+                
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.AppointedSchool) @Html.TextBoxFor(m => m.AppointedSchool, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.SchoolAddress) @Html.TextBoxFor(m => m.SchoolAddress, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.AppointedSubject) @Html.TextBoxFor(m => m.AppointedSubject, new { @class = "form-control" })</div>
+            </div>
+        </div>
+
+        
+
+        <div class="form-group d-flex justify-content-between">
+            <a href="@Url.Action("PersonalInfo", "School")" class="btn btn-secondary" style="margin-left: 250px;">Previous</a>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    }
+</div>

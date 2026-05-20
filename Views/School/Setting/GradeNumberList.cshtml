@@ -1,0 +1,156 @@
+@model List<E_PayRoll.Models.GradeNumber>
+
+@{
+    ViewBag.Title = "Grade Number List";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+@section Styles {
+    <style>
+        .table-wrapper {
+            margin-top: 40px;
+            margin-left: 80px;
+            margin-right: 20px;
+        }
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .header-row h3 {
+            margin: 0 auto;
+            text-align: center;
+            flex-grow: 1;
+        }
+        .action-btns {
+            display: inline-flex;
+            gap: 5px;
+            align-items: center;
+        }
+        .action-btns form { display:inline; margin:0; }
+        .table th, .table td { vertical-align: middle !important; }
+    </style>
+}
+
+<div class="container table-wrapper">
+    <div class="header-row mb-3">
+        <h3>Grade Numbers</h3>
+        <a href="@Url.Action("AddGradeNumber", "School")" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Add Grade Number
+        </a>
+    </div>
+
+    <!-- Controls: page length + search -->
+    <div class="d-flex justify-content-between mb-2">
+        <div>
+            Show 
+            <select id="pageLength" class="form-control d-inline-block" style="width:auto;">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+            </select> 
+            entries
+        </div>
+        <div>
+            Search: <input type="text" id="searchBox" class="form-control d-inline-block" style="width:200px;" />
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped" id="gradeNumbersTable">
+        <thead class="thead-dark">
+            <tr>
+                <th>S.N</th>
+                <th>Number</th>
+                <th>Code</th>
+                <th style="width:150px;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                var index = 1;
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@index</td>
+                        <td>@item.Number</td>
+                        <td>@item.Code</td>
+                        <td>
+                            <div class="action-btns">
+                                <a href="@Url.Action("EditGradeNumber", "School", new { id = item.Id })" class="btn btn-sm btn-warning" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <form asp-action="DeleteGradeNumber" asp-controller="School" method="post" onsubmit="return confirm('Are you sure?');">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <button type="submit" class="btn btn-sm btn-danger" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    index++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="text-center text-muted">No grade numbers found.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="d-flex justify-content-between">
+        <span id="tableInfo"></span>
+        <div>
+            <button id="prevPage" class="btn btn-sm btn-secondary">Previous</button>
+            <button id="nextPage" class="btn btn-sm btn-secondary">Next</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const table = document.getElementById("gradeNumbersTable");
+            const rows = Array.from(table.querySelectorAll("tbody tr"));
+            const searchBox = document.getElementById("searchBox");
+            const pageLengthSelect = document.getElementById("pageLength");
+            const prevBtn = document.getElementById("prevPage");
+            const nextBtn = document.getElementById("nextPage");
+            const info = document.getElementById("tableInfo");
+
+            let currentPage = 1;
+            let pageLength = parseInt(pageLengthSelect.value);
+
+            function renderTable() {
+                const search = searchBox.value.toLowerCase();
+                const filteredRows = rows.filter(r => r.innerText.toLowerCase().includes(search));
+                const total = filteredRows.length;
+                const totalPages = Math.ceil(total / pageLength);
+                currentPage = Math.min(currentPage, totalPages || 1);
+
+                rows.forEach(r => r.style.display = "none");
+                const start = (currentPage - 1) * pageLength;
+                const end = start + pageLength;
+                filteredRows.slice(start, end).forEach(r => r.style.display = "");
+
+                info.textContent = `Showing ${start + 1} to ${Math.min(end, total)} of ${total} entries`;
+
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === totalPages;
+            }
+
+            searchBox.addEventListener("input", () => { currentPage = 1; renderTable(); });
+            pageLengthSelect.addEventListener("change", () => { pageLength = parseInt(pageLengthSelect.value); currentPage = 1; renderTable(); });
+            prevBtn.addEventListener("click", () => { if (currentPage > 1) { currentPage--; renderTable(); } });
+            nextBtn.addEventListener("click", () => { currentPage++; renderTable(); });
+
+            renderTable();
+        });
+    </script>
+}

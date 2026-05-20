@@ -1,0 +1,150 @@
+@model E_PayRoll.ViewModels.TeacherPersonalInfoViewModel
+
+@{
+    ViewBag.Title = "Step 2 - Personal and Document Details";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .form-section {
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            background-color: #fdfdfd;
+            margin-left:100px;
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .sub-title {
+            font-size: 18px;
+            color: #0066cc;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+}
+
+<div class="container mt-4 mb-5">
+    <div class="section-title">Teacher/Staff Information</div>
+
+    @using (Html.BeginForm("PersonalInfo", "School", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.Id)
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="sub-title">Family Details</div>
+        <div class="form-section">
+            <div class="form-row">
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.FatherName) @Html.TextBoxFor(m => m.FatherName, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.MotherName) @Html.TextBoxFor(m => m.MotherName, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.SpouseName) @Html.TextBoxFor(m => m.SpouseName, new { @class = "form-control" })</div>
+                <div class="form-row"></div>
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.Ethnicity)
+                    @Html.DropDownListFor(m => m.Ethnicity, new SelectList(new[] { "Brahmin", "Chhetri", "Gurung", "Magar" }), "Select Ethnicity", new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.MotherTongue)
+                    @Html.DropDownListFor(m => m.MotherTongue, new SelectList(new[] { "Nepali", "Newari", "Tamang","Magar","Maithali","Bhojpuri" }), "Select Mother Tongue", new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.Disability)
+                    @Html.DropDownListFor(m => m.Disability, new SelectList(new[] { "yes", "No"}), "Select Disability", new { @class = "form-control" })
+                </div>
+                  <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.Photo)
+                    @Html.TextBoxFor(m => m.Photo, new { type = "file", @class = "form-control" })
+                </div>
+                 
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.Contact) @Html.TextBoxFor(m => m.Contact, new { @class = "form-control" })
+                    </div>
+    <div class="form-group col-md-4">@Html.LabelFor(m => m.Email) @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+   
+</div>
+
+                </div>
+            </div>
+        
+
+        @* <div class="sub-title">Ethnicity and Contact</div>
+        <div class="form-section">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.Ethnicity)
+                    @Html.DropDownListFor(m => m.Ethnicity, new SelectList(new[] { "Brahmin", "Chhetri", "Gurung", "Magar" }), "Select Ethnicity", new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.MotherTongue)
+                    @Html.DropDownListFor(m => m.MotherTongue, new SelectList(new[] { "Nepali", "Newari", "Tamang" }), "Select Mother Tongue", new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.Disability)
+                    @Html.DropDownListFor(m => m.Disability, new SelectList(new[] { "Physical Disability", "Visual Impairment", "Hearing Impairment" }), "Select Disability", new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.Email) @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email" })</div>
+                <div class="form-group col-md-4">@Html.Label("Photo") <input type="file" name="Photo" class="form-control" /></div>
+            </div>
+        </div> *@
+
+        <div class="sub-title">Document Information</div>
+        <div class="form-section">
+            <div class="form-row">
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.CitizenshipNo) @Html.TextBoxFor(m => m.CitizenshipNo, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">
+               @Html.LabelFor(m => m.CitizenshipIssueDistrict)
+              @Html.DropDownListFor(m => m.CitizenshipIssueDistrict, Model.DistrictList, "Select District", new { @class = "form-control" })
+             </div>
+             <div class="form-group col-md-4">
+    @Html.LabelFor(m => m.CitizenshipIssueDate)
+    @Html.TextBoxFor(m => m.CitizenshipIssueDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.NationalId) @Html.TextBoxFor(m => m.NationalId, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.PermanentAccount) @Html.TextBoxFor(m => m.PermanentAccount, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.UnionFundNo) @Html.TextBoxFor(m => m.UnionFundNo, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.InvestmentFundNo) @Html.TextBoxFor(m => m.InvestmentFundNo, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.BankName) @Html.TextBoxFor(m => m.BankName, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.BankAccount) @Html.TextBoxFor(m => m.BankAccount, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.LicenseNo) @Html.TextBoxFor(m => m.LicenseNo, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.ContributionFund) @Html.TextBoxFor(m => m.ContributionFund, new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.SheetRoll) @Html.TextBoxFor(m => m.SheetRoll, new { @class = "form-control" })</div>
+            </div>
+        </div>
+         
+            
+         //</div>
+         <div class="sub-title">Position Details</div>
+        <div class="form-section">
+            <div class="form-row">
+<div class="form-group col-md-4">
+        @Html.LabelFor(m => m.TeacherLevel)
+        @Html.DropDownListFor(m => m.TeacherLevel, Model.TeacherLevels, "Select Level", new { @class = "form-control" })
+    </div>               
+<div class="form-group col-md-4">
+        @Html.LabelFor(m => m.TeacherCategory)
+        @Html.DropDownListFor(m => m.TeacherCategory, Model.TeacherCategories, "Select Category", new { @class = "form-control" })
+    </div>
+ <div class="form-group col-md-4">
+        @Html.LabelFor(m => m.AppointmentType)
+        @Html.DropDownListFor(m => m.AppointmentType, Model.AppointmentTypes, "Select Type", new { @class = "form-control" })
+    </div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.AppointmentStatus) @Html.DropDownListFor(m => m.AppointmentStatus, new SelectList(new[] { "Government Teacher", "Permanent Teacher","Temporary Teacher","Contract Teacher","Temporary Replacement Teacher","Private School Teacher","Community School Teacher" }), "Select Status", new { @class = "form-control" })</div>
+                <div class="form-group col-md-4">@Html.LabelFor(m => m.TeacherStatus) @Html.DropDownListFor(m => m.TeacherStatus, new SelectList(new[] { "Working", "On Leave","Retired","Resigned","Suspended / Dismissed","Other" }), "Select Status", new { @class = "form-control" })</div>
+            </div>
+        </div>
+
+
+        <div class="form-group d-flex justify-content-between">
+            <a href='@Url.Action("BasicInfo", "School")' class="btn btn-secondary" style="margin-left: 250px;">Previous</a>
+            <button type="submit" class="btn btn-primary">Next</button>
+        </div>
+    }
+</div>

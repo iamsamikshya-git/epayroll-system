@@ -3,21 +3,22 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.SignalR;
+
 using E_PayRoll.Data;
+using E_PayRoll.Infrastructure;   // NameUserIdProvider
+using E_PayRoll.Hubs;            // NotificationHub
+using E_PayRoll.Services;        // INotificationService, NotificationService
+using Rotativa.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Localization setup - set Resources folder for localization files
+// Session
+builder.Services.AddSession();
+
+// Localization
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
-
-// Define supported cultures
-var supportedCultures = new[]
-{
-    new CultureInfo("en"),
-    new CultureInfo("ne")
-};
-
-// Configure localization options with default culture and supported cultures
+var supportedCultures = new[] { new CultureInfo("en"), new CultureInfo("ne") };
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
     options.DefaultRequestCulture = new RequestCulture("en");
@@ -25,30 +26,37 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedUICultures = supportedCultures;
 });
 
-// Add MVC with localization support for views and data annotations
+// MVC + localization
 builder.Services.AddControllersWithViews()
     .AddViewLocalization()
     .AddDataAnnotationsLocalization();
 
-// Configure Entity Framework Core with MySQL
+// EF Core (MySQL)
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
 
-// Configure authentication with cookie scheme
+// Auth
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
         options.LoginPath = "/Account/Login";
         options.LogoutPath = "/Account/Logout";
+        options.AccessDeniedPath = "/Account/AccessDenied";
     });
 
-
-// Add authorization services
 builder.Services.AddAuthorization();
 
+// SignalR + notifications DI
+builder.Services.AddSignalR();
+builder.Services.AddSingleton<IUserIdProvider, NameUserIdProvider>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+
 var app = builder.Build();
+
+// Rotativa
+RotativaConfiguration.Setup(builder.Environment.WebRootPath, "Rotativa");
 
 if (!app.Environment.IsDevelopment())
 {
@@ -61,18 +69,20 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// Get localization options from DI and apply localization middleware **only once**
+// Localization (only once)
 var localizationOptions = app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value;
 app.UseRequestLocalization(localizationOptions);
-app.UseRequestLocalization();
 
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Endpoints
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Account}/{action=Login}/{id?}");
 
+// SignalR hub
+app.MapHub<NotificationHub>("/hubs/notifications");
+
 app.Run();
-
-

@@ -22,7 +22,7 @@ namespace E_PayRoll.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("Admin", b =>
+            modelBuilder.Entity("E_PayRoll.Models.Admin", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -67,6 +67,53 @@ namespace E_PayRoll.Migrations
                     b.ToTable("Admins");
                 });
 
+            modelBuilder.Entity("E_PayRoll.Models.AppointmentType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppointmentTypes");
+                });
+
+            modelBuilder.Entity("E_PayRoll.Models.BasicSalary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("BaseSalaryAmount")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<int>("TeacherCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TeacherLevelId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TeacherCategoryId");
+
+                    b.HasIndex("TeacherLevelId");
+
+                    b.ToTable("BasicSalaries");
+                });
+
             modelBuilder.Entity("E_PayRoll.Models.Country", b =>
                 {
                     b.Property<int>("Id")
@@ -77,9 +124,6 @@ namespace E_PayRoll.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("NameNepali")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
@@ -109,6 +153,27 @@ namespace E_PayRoll.Migrations
                     b.ToTable("Districts");
                 });
 
+            modelBuilder.Entity("E_PayRoll.Models.GradeNumber", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Number")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GradeNumbers");
+                });
+
             modelBuilder.Entity("E_PayRoll.Models.Municipality", b =>
                 {
                     b.Property<int>("Id")
@@ -134,6 +199,43 @@ namespace E_PayRoll.Migrations
                     b.ToTable("Municipalities");
                 });
 
+            modelBuilder.Entity("E_PayRoll.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("LinkUrl")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("RecipientUsername")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notifications");
+                });
+
             modelBuilder.Entity("E_PayRoll.Models.Province", b =>
                 {
                     b.Property<int>("Id")
@@ -154,6 +256,82 @@ namespace E_PayRoll.Migrations
                     b.HasIndex("CountryId");
 
                     b.ToTable("Provinces");
+                });
+
+            modelBuilder.Entity("E_PayRoll.Models.Salary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AppointmentType")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<decimal>("BasicSalary")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<decimal>("CitizenInvestmentTrust")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<bool>("ClothingAllowance")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<decimal>("DearnessAllowance")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<decimal>("EmployeesProvidentFund")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<bool>("FestivalAllowance")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Grade")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<decimal>("GradeAmount")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<decimal>("HeadmasterAllowance")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<string>("Level")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("TeacherId")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("TeacherName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<decimal>("TotalAllowance")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<decimal>("TotalSalary")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Salaries");
                 });
 
             modelBuilder.Entity("E_PayRoll.Models.School", b =>
@@ -222,29 +400,86 @@ namespace E_PayRoll.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AdminId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CVPath")
+                    b.Property<string>("AppointedSchool")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime?>("DateOfBirth")
+                    b.Property<string>("AppointedSubject")
                         .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("AppointmentStartDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime?>("DateOfJoining")
+                    b.Property<string>("AppointmentStatus")
                         .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("AppointmentType")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("AttendanceDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Department")
+                    b.Property<string>("BankAccount")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Designation")
+                    b.Property<string>("BankName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("EmployeeId")
+                    b.Property<string>("BoardUniversity")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CitizenshipIssueDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("CitizenshipIssueDistrict")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("CitizenshipNo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Contact")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ContributionFund")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DecisionDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Disability")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("EducationLevel")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Ethnicity")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Faculty")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("FatherName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -256,7 +491,11 @@ namespace E_PayRoll.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("LanguagePreference")
+                    b.Property<string>("GradeGPA")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("InvestmentFundNo")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -264,31 +503,177 @@ namespace E_PayRoll.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("MiddleName")
+                    b.Property<string>("LicenseNo")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("PhotoPath")
+                    b.Property<string>("MiddleName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("MotherName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("MotherTongue")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NationalId")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("PassedYear")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PermanentAccount")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PermanentCountry")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PermanentDistrict")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PermanentLocalLevel")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PermanentProvince")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PermanentTole")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PermanentWard")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("longblob");
+
+                    b.Property<string>("PostType")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SchoolAddress")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SchoolCode")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("SchoolId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Subjects")
+                    b.Property<string>("SchoolName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("SheetRoll")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SpouseName")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("TeacherCategory")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("TeacherLevel")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("TeacherStatus")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("TemporaryCountry")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("TemporaryDistrict")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("TemporaryLocalLevel")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("TemporaryProvince")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("TemporaryTole")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("TemporaryWard")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("UnionFundNo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AdminId");
-
                     b.HasIndex("SchoolId");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("Teachers");
+                });
+
+            modelBuilder.Entity("E_PayRoll.Models.TeacherCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TeacherCategories");
+                });
+
+            modelBuilder.Entity("E_PayRoll.Models.TeacherLevel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TeacherLevels");
                 });
 
             modelBuilder.Entity("E_PayRoll.Models.User", b =>
@@ -300,7 +685,6 @@ namespace E_PayRoll.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Role")
@@ -316,7 +700,7 @@ namespace E_PayRoll.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Admin", b =>
+            modelBuilder.Entity("E_PayRoll.Models.Admin", b =>
                 {
                     b.HasOne("E_PayRoll.Models.Country", "Country")
                         .WithMany()
@@ -359,6 +743,25 @@ namespace E_PayRoll.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("E_PayRoll.Models.BasicSalary", b =>
+                {
+                    b.HasOne("E_PayRoll.Models.TeacherCategory", "TeacherCategory")
+                        .WithMany()
+                        .HasForeignKey("TeacherCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("E_PayRoll.Models.TeacherLevel", "TeacherLevel")
+                        .WithMany()
+                        .HasForeignKey("TeacherLevelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TeacherCategory");
+
+                    b.Navigation("TeacherLevel");
+                });
+
             modelBuilder.Entity("E_PayRoll.Models.District", b =>
                 {
                     b.HasOne("E_PayRoll.Models.Province", "Province")
@@ -392,6 +795,34 @@ namespace E_PayRoll.Migrations
                     b.Navigation("Country");
                 });
 
+            modelBuilder.Entity("E_PayRoll.Models.School", b =>
+                {
+                    b.HasOne("E_PayRoll.Models.Admin", "Admin")
+                        .WithMany()
+                        .HasForeignKey("AdminId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("E_PayRoll.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Admin");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("E_PayRoll.Models.Teacher", b =>
+                {
+                    b.HasOne("E_PayRoll.Models.School", null)
+                        .WithMany("Teachers")
+                        .HasForeignKey("SchoolId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("E_PayRoll.Models.Country", b =>
                 {
                     b.Navigation("Provinces");
@@ -405,6 +836,11 @@ namespace E_PayRoll.Migrations
             modelBuilder.Entity("E_PayRoll.Models.Province", b =>
                 {
                     b.Navigation("Districts");
+                });
+
+            modelBuilder.Entity("E_PayRoll.Models.School", b =>
+                {
+                    b.Navigation("Teachers");
                 });
 #pragma warning restore 612, 618
         }

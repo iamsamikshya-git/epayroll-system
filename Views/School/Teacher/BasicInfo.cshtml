@@ -1,0 +1,278 @@
+@model E_PayRoll.ViewModels.TeacherBasicInfoViewModel
+
+@{
+    ViewBag.Title = "Create Teacher";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+@section Styles {
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .form-section {
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            background-color: #fdfdfd;
+            margin-left: 100px;
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .sub-title {
+            font-size: 18px;
+            color: #0066cc;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+}
+
+<div class="container mt-4 mb-5">
+    <div class="section-title">Teacher/Staff Information</div>
+
+    @using (Html.BeginForm("BasicInfo", "School", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.Id)
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="sub-title">Personal Information</div>
+        <div class="form-section">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>School Name *</label>
+                    @Html.TextBoxFor(m => m.SchoolName, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Type *</label>
+                    @Html.DropDownListFor(m => m.Type, new SelectList(new[] { "Teacher", "Staff" }), "Select", new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.SchoolCode)
+                    @Html.TextBoxFor(m => m.SchoolCode, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.FirstName)
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.MiddleName)
+                    @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.LastName)
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.Gender)
+                    @Html.DropDownListFor(m => m.Gender, new SelectList(new[] { "Male", "Female", "Other" }), "Select Gender", new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.DateOfBirth)
+                    @Html.TextBoxFor(m => m.DateOfBirth, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-title">Permanent Address</div>
+        <div class="form-section">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    @Html.Label("Country")
+                    <select id="PermanentCountryId" name="PermanentCountry" class="form-control">
+                        <option selected disabled>Select Country</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.Label("Province")
+                    <select id="PermanentProvinceId" name="PermanentProvince" class="form-control">
+                        <option selected disabled>Select Province</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.Label("District")
+                    <select id="PermanentDistrictId" name="PermanentDistrict" class="form-control">
+                        <option selected disabled>Select District</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.Label("Permanent Local Level")
+                    <select id="PermanentMunicipalityId" name="PermanentLocalLevel" class="form-control">
+                        <option selected disabled>Select Municipality</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(m => m.PermanentWard)
+                    @Html.TextBoxFor(m => m.PermanentWard, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(m => m.PermanentTole)
+                    @Html.TextBoxFor(m => m.PermanentTole, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-title">Temporary Address</div>
+        <div class="form-section">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label>
+                        <input type="checkbox" id="SameAsPermanent" />
+                        Same as Permanent
+                    </label>
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.Label("Country")
+                    <select id="TemporaryCountryId" name="TemporaryCountry" class="form-control">
+                        <option selected disabled>Select Country</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.Label("Province")
+                    <select id="TemporaryProvinceId" name="TemporaryProvince" class="form-control">
+                        <option selected disabled>Select Province</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.Label("District")
+                    <select id="TemporaryDistrictId" name="TemporaryDistrict" class="form-control">
+                        <option selected disabled>Select District</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.Label("Municipality")
+                    <select id="TemporaryMunicipalityId" name="TemporaryLocalLevel" class="form-control">
+                        <option selected disabled>Select Municipality</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(m => m.TemporaryWard)
+                    @Html.TextBoxFor(m => m.TemporaryWard, new { @class = "form-control", id = "TemporaryWard" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(m => m.TemporaryTole)
+                    @Html.TextBoxFor(m => m.TemporaryTole, new { @class = "form-control", id = "TemporaryTole" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group text-right">
+            <button type="submit" class="btn btn-primary">Next</button>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const checkbox = document.getElementById("SameAsPermanent");
+
+            checkbox.addEventListener("change", function () {
+                if (this.checked) {
+                    const permanentCountryId = document.getElementById("PermanentCountryId").value;
+                    const permanentProvinceId = document.getElementById("PermanentProvinceId").value;
+                    const permanentDistrictId = document.getElementById("PermanentDistrictId").value;
+                    const permanentMunicipalityId = document.getElementById("PermanentMunicipalityId").value;
+
+                    $('#TemporaryCountryId').val(permanentCountryId).trigger('change');
+
+                    setTimeout(() => {
+                        $('#TemporaryProvinceId').val(permanentProvinceId).trigger('change');
+                        setTimeout(() => {
+                            $('#TemporaryDistrictId').val(permanentDistrictId).trigger('change');
+                            setTimeout(() => {
+                                $('#TemporaryMunicipalityId').val(permanentMunicipalityId);
+                            }, 400);
+                        }, 400);
+                    }, 400);
+
+                    document.getElementById("TemporaryWard").value = document.getElementById("PermanentWard").value;
+                    document.getElementById("TemporaryTole").value = document.getElementById("PermanentTole").value;
+                } else {
+                    $('#TemporaryCountryId, #TemporaryProvinceId, #TemporaryDistrictId, #TemporaryMunicipalityId').val('').change();
+                    document.getElementById("TemporaryWard").value = "";
+                    document.getElementById("TemporaryTole").value = "";
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('@Url.Action("GetCountries", "School")', function (data) {
+                data.forEach(c => {
+                    $('#PermanentCountryId, #TemporaryCountryId').append(`<option value="${c.id}">${c.name}</option>`);
+                });
+            });
+
+            $('#PermanentCountryId').change(function () {
+                let countryId = $(this).val();
+                $('#PermanentProvinceId').empty().append('<option selected disabled>Select Province</option>');
+                $.getJSON(`/School/GetProvinces?countryId=${countryId}`, function (data) {
+                    data.forEach(p => {
+                        $('#PermanentProvinceId').append(`<option value="${p.id}">${p.name}</option>`);
+                    });
+                });
+            });
+
+            $('#PermanentProvinceId').change(function () {
+                let provinceId = $(this).val();
+                $('#PermanentDistrictId').empty().append('<option selected disabled>Select District</option>');
+                $.getJSON(`/School/GetDistricts?provinceId=${provinceId}`, function (data) {
+                    data.forEach(d => {
+                        $('#PermanentDistrictId').append(`<option value="${d.id}">${d.name}</option>`);
+                    });
+                });
+            });
+
+            $('#PermanentDistrictId').change(function () {
+                let districtId = $(this).val();
+                $('#PermanentMunicipalityId').empty().append('<option selected disabled>Select Municipality</option>');
+                $.getJSON(`/School/GetMunicipalities?districtId=${districtId}`, function (data) {
+                    data.forEach(m => {
+                        $('#PermanentMunicipalityId').append(`<option value="${m.id}">${m.name}</option>`);
+                    });
+                });
+            });
+
+            $('#TemporaryCountryId').change(function () {
+                let countryId = $(this).val();
+                $('#TemporaryProvinceId').empty().append('<option selected disabled>Select Province</option>');
+                $.getJSON(`/School/GetProvinces?countryId=${countryId}`, function (data) {
+                    data.forEach(p => {
+                        $('#TemporaryProvinceId').append(`<option value="${p.id}">${p.name}</option>`);
+                    });
+                });
+            });
+
+            $('#TemporaryProvinceId').change(function () {
+                let provinceId = $(this).val();
+                $('#TemporaryDistrictId').empty().append('<option selected disabled>Select District</option>');
+                $.getJSON(`/School/GetDistricts?provinceId=${provinceId}`, function (data) {
+                    data.forEach(d => {
+                        $('#TemporaryDistrictId').append(`<option value="${d.id}">${d.name}</option>`);
+                    });
+                });
+            });
+
+            $('#TemporaryDistrictId').change(function () {
+                let districtId = $(this).val();
+                $('#TemporaryMunicipalityId').empty().append('<option selected disabled>Select Municipality</option>');
+                $.getJSON(`/School/GetMunicipalities?districtId=${districtId}`, function (data) {
+                    data.forEach(m => {
+                        $('#TemporaryMunicipalityId').append(`<option value="${m.id}">${m.name}</option>`);
+                    });
+                });
+            });
+        });
+    </script>
+}

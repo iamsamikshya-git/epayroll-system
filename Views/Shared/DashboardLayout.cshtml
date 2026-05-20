@@ -3,16 +3,15 @@
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
-    
+    Layout = null;
     ViewBag.Title = "Dashboard";
 
-    var isAdmin = User != null && User.IsInRole("Admin");
-    var isSuperAdmin = User != null && User.IsInRole("SuperAdmin");
-    var isSchool = User != null && User.IsInRole("School");
-    var isUser = User != null && User.IsInRole("Teacher");
+    var isAdmin = User?.IsInRole("Admin") ?? false;
+    var isSuperAdmin = User?.IsInRole("SuperAdmin") ?? false;
+    var isSchool = User?.IsInRole("School") ?? false;
+    var isTeacher = User?.IsInRole("Teacher") ?? false;
     var userName = User?.Identity?.Name ?? "User";
 
-    // Optional: Set message/notification counts
     var messageCount = ViewBag.MessageCount ?? 3;
     var notificationCount = ViewBag.NotificationCount ?? 5;
 }
@@ -23,197 +22,479 @@
     <meta charset="utf-8" />
     <title>@ViewBag.Title - AdminCAST</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
     <style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', sans-serif;
-    }
+        body{ margin:0; font-family:'Segoe UI',sans-serif; }
 
-    #wrapper {
-        display: flex;
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
+        /* === Collapsible sidebar === */
+        :root{ --sb-w:250px; --sb-w-collapsed:72px; }
 
-    .sidebar {
-        width: 250px;
-        background-color: #263544;
-        color: white;
-        height: 100vh;
-        padding-top: 20px;
-        transition: margin-left 0.3s ease;
-        position: fixed;
-        z-index: 1000;
-    }
+        .sidebar{
+            width:var(--sb-w);
+            background:#263544;
+            color:#fff;
+            position:fixed;
+            height:100vh;
+            padding-top:20px;
+            overflow-y:auto;
+            overflow-x:hidden;
+            transition: width .25s ease, transform .25s ease;
+            z-index:1045;
+        }
+        .sidebar .user-panel{ text-align:center; padding:10px; }
+        .sidebar .user-panel img{ width:60px; border-radius:50%; }
+        .sidebar .nav-link{ color:#cfd8dc; padding:10px 20px; }
+        .sidebar .nav-link:hover{ background:#34495e; color:#fff; }
+        .sidebar .nav-link i{ width:22px; text-align:center; margin-right:12px; }
 
-    .sidebar.collapsed {
-        margin-left: -250px;
-    }
-
-    .sidebar .user-panel {
-        text-align: center;
-        padding: 10px;
-    }
-
-    .sidebar .user-panel img {
-        width: 60px;
-        border-radius: 50%;
-    }
-
-    .sidebar .nav-link {
-        color: #cfd8dc;
-        padding: 10px 20px;
-    }
-
-    .sidebar .nav-link:hover {
-        background-color: #34495e;
-        color: white;
-    }
-
-    .main-content {
-        margin-left: 250px;
-        transition: margin-left 0.3s ease;
-        width: 100%;
-        padding: 0;
-    }
-
-    .main-content.expanded {
-        margin-left: 0;
-    }
-
-    .topbar {
-        height: 60px;
-        background: #fff;
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .topbar input {
-        width: 300px;
-        border-radius: 20px;
-        border: 1px solid #ccc;
-        padding: 5px 15px;
-    }
-
-    .dropdown-menu {
-        right: 0;
-        left: auto;
-    }
-
-    /* Responsive Sidebar Handling */
-     @@media (max-width: 768px) {
-        .sidebar {
-            margin-left: -250px;
+        .main-content{
+            margin-left:var(--sb-w);
+            transition: margin-left .25s ease;
+            min-height:100vh;
+            background:#f7f8fa;
         }
 
-        .sidebar.show {
-            margin-left: 0;
-        }
-        .main-content {
-            margin-left: 0;
-        }
-    }
-</style>
+        /* Collapsed (desktop) */
+        body.sidebar-collapsed .sidebar{ width:var(--sb-w-collapsed); }
+        body.sidebar-collapsed .main-content{ margin-left:var(--sb-w-collapsed); }
+        body.sidebar-collapsed .sidebar .nav-link{ text-align:center; padding-left:0; padding-right:0; }
+        body.sidebar-collapsed .sidebar .nav-link i{ margin-right:0; }
+        body.sidebar-collapsed .sidebar .nav-label{ display:none; }
+        body.sidebar-collapsed .sidebar .user-panel small{ display:none; }
 
+        /* Topbar */
+        .topbar{
+            height:60px;
+            background:#fff;
+            padding:0 12px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            border-bottom:1px solid #e9ecef;
+            position:sticky;
+            top:0;
+            z-index:1020;
+        }
+        .dropdown-menu{ right:0; left:auto; }
+        .badge{ font-size:.65rem; padding:4px 6px; }
+
+        /* Mobile overlay behavior */
+        @@media (max-width: 991.98px){
+            .main-content{ margin-left:0; }
+            .sidebar{ transform: translateX(-100%); }
+            body.sidebar-open .sidebar{ transform: translateX(0); }
+        }
+    </style>
+
+    @RenderSection("Styles", required: false)
 </head>
 <body>
-    
-@if (User != null && User.Identity != null && User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("SuperAdmin")))
+@if (User?.Identity?.IsAuthenticated ?? false)
 {
-    <div class="d-flex" id="wrapper">
-        <!-- Sidebar -->
-        <div class="sidebar" id="sidebar">
-            <div class="text-center fs-4 fw-bold mb-3">Dash</div>
-            <div class="user-panel mb-3">
-                <img src="~/AdminCast/Images/admin-avatar.png" width="45px" />
-                <div><small>@(isAdmin ? "Administrator" : isSuperAdmin ? "Super Administrator" : "User")</small></div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="text-center fs-4 fw-bold mb-3">Dash</div>
+
+        <div class="user-panel mb-3">
+            <img src="~/AdminCast/Images/admin-avatar.png" alt="avatar" />
+            <div>
+                <small>
+                    @(isAdmin ? "Administrator" :
+                      isSuperAdmin ? "Super Administrator" :
+                      isSchool ? "School" :
+                      isTeacher ? "Teacher" : "User")
+                </small>
             </div>
-            <ul class="nav flex-column">
-                @if (isAdmin)
-                {
-                    <li><a href="@Url.Action("Dashboard", "Admin")" class="nav-link"><i class="fas fa-th-large me-2"></i>Dashboard</a></li>
-                    <li><a href="@Url.Action("SchoolList", "Admin")" class="nav-link"><i class="fas fa-school me-2"></i>View Schools</a></li>
-                    <li><a href="@Url.Action("CreateSchool", "Admin")" class="nav-link"><i class="fas fa-plus me-2"></i>Create School</a></li>
-                }
-                @if (isSuperAdmin)
-                {
-                    <li><a href="@Url.Action("Dashboard", "SuperAdmin")" class="nav-link"><i class="fas fa-th-large me-2"></i>Dashboard</a></li>
-                    <li><a href="@Url.Action("CreateAdmin", "SuperAdmin")" class="nav-link"><i class="fas fa-user-plus me-2"></i>Create Admin</a></li>
-                    <li><a href="@Url.Action("AdminList", "SuperAdmin")" class="nav-link"><i class="fas fa-user-plus me-2"></i>Admin List</a></li>
-                }
-                @if (isAdmin)
-                {
-                    <li><a href="@Url.Action("Dashboard", "School")" class="nav-link"><i class="fas fa-th-large me-2"></i> Dashboard</a></li>
-                    <li><a href="@Url.Action("AddTeacher", "School")" class="nav-link"><i class="fas fa-user-plus me-2"></i> Add Teacher</a></li>
-                    <li><a href="@Url.Action("TeacherList", "School")" class="nav-link"><i class="fas fa-users me-2"></i> Teacher List</a></li>
-                    <li><a href="@Url.Action("Salary", "School")" class="nav-link"><i class="fas fa-money-bill me-2"></i> Salary</a></li>
-                }
-            </ul>
-        </div>
-    
-        <!-- Main Content -->
-        <div class="main-content flex-grow-1" id="mainContent">
-            <!-- Topbar -->
-            <div class="topbar d-flex align-items-center justify-content-between">
-                <button class="btn btn-outline-light d-md-none ms-2" id="toggleSidebar">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <input type="text" class="form-control mx-3" placeholder="Search here..." style="max-width: 300px;" />
-                <div class="d-flex align-items-center">
-                    <i class="fas fa-envelope me-3 position-relative">
-                        <span class="badge bg-primary position-absolute top-0 start-100 translate-middle">9</span>
-                    </i>
-                    <i class="fas fa-bell me-3"></i>
-                    <div class="dropdown">
-                        <a class="dropdown-toggle d-flex align-items-center text-dark text-decoration-none" href="#"
-                           id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="~/AdminCast/Images/admin-avatar.png" class="rounded-circle me-2" />
-                            @userName
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="@Url.Action("Profile", "Account")"><i class="fas fa-user me-2"></i> Profile</a></li>
-                            <li><a class="dropdown-item" href="@Url.Action("Settings", "Account")"><i class="fas fa-cog me-2"></i> Settings</a></li>
-                            <li><a class="dropdown-item" href="@Url.Action("Support", "Account")"><i class="fas fa-question-circle me-2"></i> Support</a></li>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item text-danger" href="@Url.Action("Logout", "Account")"><i class="fas fa-power-off me-2"></i> Logout</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Page Content -->
-           <div class="container-fluid mt-4">
-                @RenderBody()
-                </div>
-            
         </div>
 
+        <ul class="nav flex-column">
+            @* ===== Admin ===== *@
+            @if (isAdmin)
+            {
+                <li><a href="@Url.Action("Dashboard","Admin")" class="nav-link"><i class="fas fa-th-large"></i><span class="nav-label"> Dashboard</span></a></li>
+                <li><a href="@Url.Action("SchoolList","Admin")" class="nav-link"><i class="fas fa-school"></i><span class="nav-label"> View Schools</span></a></li>
+                <li><a href="@Url.Action("CreateSchool","Admin")" class="nav-link"><i class="fas fa-plus"></i><span class="nav-label"> Create School</span></a></li>
+                <li><a href="@Url.Action("TeachersBySchool","Admin")" class="nav-link"><i class="fas fa-chalkboard-teacher"></i><span class="nav-label"> Teachers by Schools</span></a></li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+                       data-bs-toggle="collapse"
+                       href="#salaryAckSubMenu"
+                       role="button"
+                       aria-expanded="false"
+                       aria-controls="salaryAckSubMenu">
+                        <span><i class="fas fa-file-signature"></i><span class="nav-label"> Salary Acknowledgment</span></span>
+                        <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="collapse" id="salaryAckSubMenu">
+                        <ul class="list-unstyled ps-3">
+                            <li><a href="@Url.Action("Add","Salary")" class="nav-link"><i class="fas fa-plus"></i><span class="nav-label"> Add</span></a></li>
+                            <li><a href="@Url.Action("AckSalaryList","Salary")" class="nav-link"><i class="fas fa-list"></i><span class="nav-label"> Salary List</span></a></li>
+                        </ul>
+                    </div>
+                </li>
+                 
+
+            }
+
+            @* ===== SuperAdmin ===== *@
+            @if (isSuperAdmin)
+            {
+                <li><a href="@Url.Action("Dashboard","SuperAdmin")" class="nav-link"><i class="fas fa-th-large"></i><span class="nav-label"> Dashboard</span></a></li>
+                <li><a href="@Url.Action("CreateAdmin","SuperAdmin")" class="nav-link"><i class="fas fa-user-plus"></i><span class="nav-label"> Create Admin</span></a></li>
+                <li><a href="@Url.Action("AdminList","SuperAdmin")" class="nav-link"><i class="fas fa-users"></i><span class="nav-label"> Admin List</span></a></li>
+            }
+
+            @* ===== School ===== *@
+            @if (isSchool)
+            {
+                <li><a href="@Url.Action("Dashboard","School")" class="nav-link"><i class="fas fa-th-large"></i><span class="nav-label"> Dashboard</span></a></li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+                       data-bs-toggle="collapse"
+                       href="#teacherSubMenu"
+                       role="button"
+                       aria-expanded="false"
+                       aria-controls="teacherSubMenu">
+                        <span><i class="fas fa-chalkboard-teacher"></i><span class="nav-label"> Teacher</span></span>
+                        <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="collapse" id="teacherSubMenu">
+                        <ul class="list-unstyled ps-3">
+                            <li><a href="@Url.Action("BasicInfo","School")" class="nav-link"><i class="fas fa-user-plus"></i><span class="nav-label"> Add Teacher</span></a></li>
+                            <li><a href="@Url.Action("TeacherList","School")" class="nav-link"><i class="fas fa-users"></i><span class="nav-label"> Teacher List</span></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#settingsSubMenu" data-bs-toggle="collapse"
+                       class="nav-link collapsed d-flex justify-content-between align-items-center"
+                       role="button" aria-expanded="false" aria-controls="settingsSubMenu">
+                        <span><i class="fas fa-cog"></i><span class="nav-label"> Settings</span></span>
+                        <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="collapse" id="settingsSubMenu">
+                        <ul class="list-unstyled ps-3">
+
+                            <li>
+                                <a class="nav-link collapsed" href="#teacherLevelSub" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="teacherLevelSub">
+                                    <i class="fas fa-layer-group"></i><span class="nav-label"> Teacher Level</span>
+                                </a>
+                                <div class="collapse" id="teacherLevelSub">
+                                    <ul class="list-unstyled ps-3">
+                                        <li><a class="nav-link" href="@Url.Action("AddTeacherLevel","School")"><i class="fas fa-plus"></i><span class="nav-label"> Add Teacher Level</span></a></li>
+                                        <li><a class="nav-link" href="@Url.Action("TeacherLevelList","School")"><i class="fas fa-list"></i><span class="nav-label"> Teacher Level List</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a class="nav-link collapsed" href="#teacherCategorySub" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="teacherCategorySub">
+                                    <i class="fas fa-tags"></i><span class="nav-label"> Teacher Category</span>
+                                </a>
+                                <div class="collapse" id="teacherCategorySub">
+                                    <ul class="list-unstyled ps-3">
+                                        <li><a class="nav-link" href="@Url.Action("AddTeacherCategory","School")"><i class="fas fa-plus"></i><span class="nav-label"> Add Teacher Category</span></a></li>
+                                        <li><a class="nav-link" href="@Url.Action("TeacherCategoryList","School")"><i class="fas fa-list"></i><span class="nav-label"> Teacher Category List</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a class="nav-link collapsed" href="#appointmentTypeSub" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="appointmentTypeSub">
+                                    <i class="fas fa-clipboard-check"></i><span class="nav-label"> Appointment Type</span>
+                                </a>
+                                <div class="collapse" id="appointmentTypeSub">
+                                    <ul class="list-unstyled ps-3">
+                                        <li><a class="nav-link" href="@Url.Action("AddAppointmentType","School")"><i class="fas fa-plus"></i><span class="nav-label"> Add Appointment Type</span></a></li>
+                                        <li><a class="nav-link" href="@Url.Action("AppointmentTypeList","School")"><i class="fas fa-list"></i><span class="nav-label"> Appointment Type List</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a class="nav-link collapsed" href="#baseSalarySub" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="baseSalarySub">
+                                    <i class="fas fa-money-bill-wave"></i><span class="nav-label"> Base Salary</span>
+                                </a>
+                                <div class="collapse" id="baseSalarySub">
+                                    <ul class="list-unstyled ps-3">
+                                        <li><a class="nav-link" href="@Url.Action("AddBasicSalary","School")"><i class="fas fa-plus"></i><span class="nav-label"> Add Salary</span></a></li>
+                                        <li><a class="nav-link" href="@Url.Action("BasicSalaryList","School")"><i class="fas fa-list"></i><span class="nav-label"> Salary List</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a class="nav-link collapsed" href="#gradeNumberSub" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="gradeNumberSub">
+                                    <i class="fas fa-layer-group"></i><span class="nav-label"> Grade Number</span>
+                                </a>
+                                <div class="collapse" id="gradeNumberSub">
+                                    <ul class="list-unstyled ps-3">
+                                        <li><a class="nav-link" href="@Url.Action("AddGradeNumber","School")"><i class="fas fa-plus"></i><span class="nav-label"> Add Grade Number</span></a></li>
+                                        <li><a class="nav-link" href="@Url.Action("GradeNumberList","School")"><i class="fas fa-list"></i><span class="nav-label"> Grade Number List</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    
+                </li>
+                
+
+
+               
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+                       data-bs-toggle="collapse"
+                       href="#salaryCalcSubMenu"
+                       role="button"
+                       aria-expanded="false"
+                       aria-controls="salaryCalcSubMenu">
+                        <span><i class="fas fa-money-check-alt"></i><span class="nav-label"> Salary</span></span>
+                        <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="collapse" id="salaryCalcSubMenu">
+                        <ul class="list-unstyled ps-3">
+                            <li><a href="@Url.Action("SalaryCalculation","Salary")" class="nav-link"><i class="fas fa-calculator"></i><span class="nav-label"> Salary Calculation</span></a></li>
+                            <li><a href="@Url.Action("SalaryList","Salary")" class="nav-link"><i class="fas fa-list"></i><span class="nav-label"> Salary List</span></a></li>
+                        </ul>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
-    
-   
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="d-flex align-items-center">
+                <button id="sidebarToggle" class="btn btn-link text-dark me-2" type="button" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="fw-semibold fs-5">Welcome, @userName</div>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <!-- Language -->
+                <div class="dropdown me-3">
+                    <a class="dropdown-toggle text-dark text-decoration-none" href="#" id="languageDropdown"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-globe me-2"></i> @Localizer["Language"]
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                        <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">🇺🇸 English</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="changeLanguage('ne')">🇳🇵 नेपाली</a></li>
+                    </ul>
+                </div>
+
+                <!-- Messages -->
+                <div class="dropdown me-3">
+                    <a class="text-dark text-decoration-none position-relative" href="#" id="messageDropdown"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-envelope"></i>
+                        <span class="badge bg-primary position-absolute top-0 start-100 translate-middle">@messageCount</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="messageDropdown" style="width:300px;">
+                        <li class="dropdown-header">Messages</li>
+                        <li><a class="dropdown-item" href="#">New message from John</a></li>
+                        <li><a class="dropdown-item" href="#">Meeting reminder at 3 PM</a></li>
+                        <li><a class="dropdown-item" href="#">System notice</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item text-center" href="#">View all</a></li>
+                    </ul>
+                </div>
+
+                <!-- Notifications -->
+<div class="dropdown me-3">
+  <a class="text-dark text-decoration-none position-relative" href="#" id="notificationDropdown"
+     data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-bell"></i>
+    <span id="notificationBadge" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
+  </a>
+  <ul id="notificationList" class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" style="width:300px;">
+    <li class="dropdown-header">Notifications</li>
+    <li><hr class="dropdown-divider" /></li>
+    <li><a class="dropdown-item text-center" href="#" id="markAllRead">Mark all as read</a></li>
+  </ul>
+</div>
+
+
+                <!-- Profile -->
+                <div class="dropdown">
+                    <a class="dropdown-toggle d-flex align-items-center text-dark text-decoration-none" href="#"
+                       id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="~/AdminCast/Images/admin-avatar.png" class="rounded-circle me-2" width="35" height="35" alt="avatar" />
+                        @userName
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="@Url.Action("Profile","Account")"><i class="fas fa-user me-2"></i> @Localizer["Profile"]</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("Settings","Account")"><i class="fas fa-cog me-2"></i> @Localizer["Settings"]</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("Support","Account")"><i class="fas fa-headset me-2"></i> @Localizer["Support"]</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item text-danger" href="@Url.Action("Logout","Account")"><i class="fas fa-power-off me-2"></i> @Localizer["Logout"]</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page body -->
+        <div class="p-3">
+            @RenderBody()
+        </div>
+    </div>
 }
- 
- 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+else
+{
+    @RenderBody()
+}
+
 <script>
-    document.getElementById("toggleSidebar").addEventListener("click", function () {
-        document.getElementById("sidebar").classList.toggle("collapsed");
-        document.getElementById("mainContent").classList.toggle("expanded");
+    // Language change handler (requires HomeController.SetLanguage)
+    function changeLanguage(culture) {
+        var returnUrl = window.location.pathname + window.location.search;
+        window.location.href = '/Home/SetLanguage?culture=' + culture + '&returnUrl=' + encodeURIComponent(returnUrl);
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+@RenderSection("Scripts", required: false)
+
+<script>
+(function () {
+    const body = document.body;
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const KEY = 'sb-collapsed';
+
+    // Restore desktop collapsed state
+    if (localStorage.getItem(KEY) === '1') body.classList.add('sidebar-collapsed');
+
+    function isMobile() {
+        return window.matchMedia('(max-width: 991.98px)').matches;
+    }
+
+    toggleBtn?.addEventListener('click', function () {
+        if (isMobile()) {
+            body.classList.toggle('sidebar-open');
+        } else {
+            body.classList.toggle('sidebar-collapsed');
+            localStorage.setItem(KEY, body.classList.contains('sidebar-collapsed') ? '1' : '0');
+        }
+        // Trigger resize for grids
+        window.dispatchEvent(new Event('resize'));
+        if (window.jQuery && $.fn && $.fn.dataTable) {
+            $('.dataTable').DataTable().columns.adjust();
+        }
     });
+
+    // Close overlay on outside click (mobile)
+    document.addEventListener('click', (e) => {
+        if (!body.classList.contains('sidebar-open')) return;
+        const sb = document.querySelector('.sidebar');
+        const btn = document.getElementById('sidebarToggle');
+        if (sb && !sb.contains(e.target) && !btn.contains(e.target)) {
+            body.classList.remove('sidebar-open');
+        }
+    });
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+<script>
+(function () {
+  const badge = document.getElementById('notificationBadge');
+  const menu  = document.getElementById('notificationList');
+  const dd    = document.getElementById('notificationDropdown');
+  const markAllLink = document.getElementById('markAllRead');
+
+  async function refreshNotifications() {
+    try {
+      const res = await fetch('/notifications/latest?take=10', { credentials: 'same-origin' });
+      if (!res.ok) return;
+      const { unread, items } = await res.json();
+
+      // Badge
+      badge.textContent = unread;
+      badge.style.display = unread > 0 ? '' : 'none';
+
+      // Remove previous list items we added earlier
+      menu.querySelectorAll('li.notif-item').forEach(el => el.remove());
+
+      // Insert before the divider line
+      const dividerLi = menu.querySelector('li > hr')?.parentElement || null;
+
+      if (!items.length) {
+        const li = document.createElement('li');
+        li.className = 'notif-item';
+        li.innerHTML = '<div class="dropdown-item text-muted">No notifications.</div>';
+        if (dividerLi) menu.insertBefore(li, dividerLi); else menu.appendChild(li);
+        return;
+      }
+
+      for (const n of items) {
+        const li = document.createElement('li');
+        li.className = 'notif-item';
+        li.innerHTML = `
+          <a class="dropdown-item d-flex justify-content-between align-items-start notif-link"
+             href="${n.linkUrl || '#'}"
+             data-id="${n.id}">
+            <div class="me-2">
+              <div class="fw-semibold">${n.title || 'Notification'}</div>
+              <small class="text-muted">${n.message || ''}</small>
+            </div>
+            ${n.isRead ? '' : '<span class="badge bg-primary ms-2">new</span>'}
+          </a>`;
+        if (dividerLi) menu.insertBefore(li, dividerLi); else menu.appendChild(li);
+      }
+    } catch (e) {
+      console.warn('Failed to refresh notifications', e);
+    }
+  }
+
+  // Refresh when opening the dropdown
+  dd?.addEventListener('show.bs.dropdown', refreshNotifications);
+
+  // Mark all as read
+  markAllLink?.addEventListener('click', async (e) => {
+    e.preventDefault();
+    await fetch('/notifications/read-all', { method: 'POST', credentials: 'same-origin' });
+    await refreshNotifications();
+  });
+
+  // Mark single item as read when clicked, then follow the link
+  menu.addEventListener('click', async (e) => {
+    const a = e.target.closest('a.notif-link');
+    if (!a) return;
+    const id = a.getAttribute('data-id');
+    if (id) {
+      try { await fetch(`/notifications/read/${id}`, { method: 'POST', credentials: 'same-origin' }); }
+      catch { /* ignore */ }
+    }
+    // let the browser navigate to the link
+  });
+
+  // Live updates via SignalR
+  const connection = new signalR.HubConnectionBuilder()
+    .withUrl('/hubs/notifications')
+    .withAutomaticReconnect()
+    .build();
+
+  connection.on('Notify', refreshNotifications);
+
+  (async () => {
+    try { await connection.start(); } catch(e) { console.warn('SignalR connect failed', e); }
+    // initial fetch for the badge on page load
+    await refreshNotifications();
+  })();
+})();
 </script>
 
 
-        // Language change handler (requires a SetLanguage action in your controller)
-        function changeLanguage(culture) {
-            var returnUrl = window.location.pathname + window.location.search;
-            window.location.href = '/Home/SetLanguage?culture=' + culture + '&returnUrl=' + encodeURIComponent(returnUrl);
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    @RenderSection("Scripts", required: false)
 </body>
 </html>

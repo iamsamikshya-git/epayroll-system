@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace E_PayRoll.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize (Roles = "Admin,SuperAdmin,School")]
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -26,6 +26,8 @@ namespace E_PayRoll.Controllers
                     return RedirectToAction("Dashboard");
                 if (role == "SuperAdmin")
                     return RedirectToAction("Dashboard", "SuperAdmin");
+                    if (role == "School")
+                    return RedirectToAction("Dashboard", "School");
             }
             return View();
         }
@@ -61,18 +63,50 @@ namespace E_PayRoll.Controllers
    public IActionResult Dashboard()
 {
     var username = User.Identity?.Name;
-    var admin = _context.Admins.Include(a => a.User).FirstOrDefault(a => a.User!.Username == username);
-    if (admin != null)
-    {
-        // Only count schools for this admin
-        ViewBag.TotalSchools = _context.Schools.Count(s => s.AdminId == admin.Id);
-    }
-    else
+
+    var admin = _context.Admins
+        .Include(a => a.User)
+        .FirstOrDefault(a => a.User!.Username == username);
+
+    if (admin == null)
     {
         ViewBag.TotalSchools = 0;
+        ViewBag.RecentSchools = new List<object>();
+        ViewBag.TopSchools = new List<object>();
+        return View();
     }
+
+    // 1) Total schools
+    ViewBag.TotalSchools = _context.Schools.Count(s => s.AdminId == admin.Id);
+
+    // 2) Recently added schools (by Id descending)
+    var recentSchools = _context.Schools
+        .Where(s => s.AdminId == admin.Id)
+        .OrderByDescending(s => s.Id)
+        .Select(s => new { s.Id, s.SchoolName })
+        .Take(5)
+        .ToList();
+    ViewBag.RecentSchools = recentSchools;
+
+    // 3) Top schools by teacher count
+    var topSchools = _context.Schools
+        .Where(s => s.AdminId == admin.Id)
+        .Select(s => new
+        {
+            s.Id,
+            s.SchoolName,
+            TeacherCount = _context.Teachers.Count(t => t.SchoolId == s.Id)
+        })
+        .OrderByDescending(x => x.TeacherCount)
+        .ThenBy(x => x.SchoolName)
+        .Take(5)
+        .ToList();
+    ViewBag.TopSchools = topSchools;
+
     return View();
 }
+
+
 
         // GET: Admin/SchoolList
         public async Task<IActionResult> SchoolList()
@@ -287,7 +321,80 @@ namespace E_PayRoll.Controllers
                 return View(viewModel);
             }
         }
+        // GET: /Admin/SchoolProfile/5
 
+        [HttpGet]
+        public async Task<IActionResult> SchoolProfile(int id)
+        {
+            var school = await _context.Schools
+                .Include(s => s.Admin)
+                .Include(s => s.User)
+                .FirstOrDefaultAsync(s => s.Id == id);
+
+            if (school == null)
+                return NotFound();
+
+            // If a School user is viewing, only allow their own record
+            if (User.IsInRole("School"))
+            {
+                var username = User.Identity?.Name;
+                if (string.IsNullOrWhiteSpace(username))
+                    return Unauthorized();
+
+                if (!string.Equals(school.User?.Username, username, StringComparison.OrdinalIgnoreCase))
+                    return Forbid();
+            }
+
+            // Always return a result for all code paths
+            return View("~/Views/Admin/SchoolProfile.cshtml", school);
+        }
+[Authorize(Roles = "Admin")]
+[HttpGet]
+public async Task<IActionResult> TeachersBySchool()
+{
+    var username = User.Identity?.Name;
+
+    var admin = await _context.Admins
+        .Include(a => a.User)
+        .FirstOrDefaultAsync(a => a.User!.Username == username);
+
+    if (admin == null) return Unauthorized();
+
+    var schools = await _context.Schools
+        .Where(s => s.AdminId == admin.Id)
+        .OrderBy(s => s.SchoolName)
+        .ToListAsync();
+
+    return View("~/Views/Admin/TeachersBySchool.cshtml", schools);
+}
+// Admin sees teachers of a specific school
+[Authorize(Roles = "Admin,SuperAdmin")]
+[HttpGet]
+public async Task<IActionResult> ViewTeachers(int schoolId)
+{
+    // Optional: ensure the school belongs to this admin
+    var username = User.Identity?.Name;
+    var admin = await _context.Admins
+        .Include(a => a.User)
+        .FirstOrDefaultAsync(a => a.User!.Username == username);
+
+    if (admin == null) return Unauthorized();
+
+    var school = await _context.Schools
+        .FirstOrDefaultAsync(s => s.Id == schoolId && s.AdminId == admin.Id);
+
+    if (school == null) return Forbid(); // school not under this admin
+
+    var teachers = await _context.Teachers
+        .Where(t => t.SchoolId == schoolId)
+        .ToListAsync();
+
+    ViewBag.SchoolName = school.SchoolName;
+    return View("ViewTeachers", teachers); // create Views/Admin/ViewTeachers.cshtml
+}
+
+    
+    
         // POST: Admin/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -1,0 +1,40 @@
+@{
+    ViewBag.Title = "Success";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml"; // or _Layout.cshtml if preferred
+}
+
+@section Styles {
+    <style>
+        .center {
+            margin-top: 100px;
+            text-align: center;
+        }
+    </style>
+}
+
+<div class="center">
+    <h3>Teacher details inserted successfully!</h3>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: 'Teacher details inserted successfully!',
+                confirmButtonText: 'Go to Dashboard',
+                confirmButtonColor: '#28a745', // green
+                background: '#e6ffe6',
+                customClass: {
+                    popup: 'rounded shadow'
+                }
+            }).then(() => {
+                window.location.href = '@Url.Action("Dashboard", "School")';
+            });
+        });
+    </script>
+}
+
+}

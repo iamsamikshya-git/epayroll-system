@@ -1,0 +1,101 @@
+@model E_PayRoll.ViewModels.BasicSalaryViewModel   
+
+
+@{
+    ViewBag.Title = "Add Base Salary";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+@section Styles {
+    <style>
+        .custom-box {
+            border: 1px solid #007bff;
+            border-radius: 15px;
+            padding: 30px;
+            background-color: #fff;
+            margin-left: 250px;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #007bff;
+        }
+
+        .divider:not(:empty)::before {
+            margin-right: .75em;
+        }
+
+        .divider:not(:empty)::after {
+            margin-left: .75em;
+        }
+
+        .form-label {
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+    </style>
+}
+
+<div class="container mt-5 mb-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="custom-box">
+                <div class="divider"><h5>Enter Base Salary</h5></div>
+
+                @using (Html.BeginForm("AddBasicSalary", "School", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.TeacherLevelId, "Level:", htmlAttributes: new { @class = "form-label" })
+                            @Html.DropDownListFor(model => model.TeacherLevelId, Model.Levels, "Please select level", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.TeacherLevelId, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(model => model.TeacherCategoryId, "Category:", htmlAttributes: new { @class = "form-label" })
+                            @Html.DropDownListFor(model => model.TeacherCategoryId, Model.Categories, "Please select category", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.TeacherCategoryId, "", new { @class = "text-danger" })
+                        </div>
+                        
+
+                        <div class="form-group col-md-4">
+    @Html.LabelFor(model => model.BaseSalaryAmount, "Base Salary Amount:", htmlAttributes: new { @class = "form-label" })
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Rs.</span>
+        </div>
+        @Html.TextBoxFor(model => model.BaseSalaryAmount, new {
+            @class = "form-control",
+            placeholder = "Enter amount",
+            type = "number",
+            step = "0.01"
+        })
+    </div>
+    @Html.ValidationMessageFor(model => model.BaseSalaryAmount, "", new { @class = "text-danger" })
+</div>
+
+                    </div>
+
+                    <div class="mt-4 text-end">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

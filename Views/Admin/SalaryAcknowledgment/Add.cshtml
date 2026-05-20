@@ -1,0 +1,161 @@
+@model IEnumerable<E_PayRoll.Models.SalaryAcknowledgmentViewModel>
+@{
+    ViewData["Title"] = "Salary Acknowledgment - Add";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+
+    var schools = ViewBag.Schools as List<SelectListItem> ?? new();
+    string selectedSchoolId = Convert.ToString(ViewBag.SelectedSchoolId ?? "");
+    string selectedTeacherId = Convert.ToString(ViewBag.SelectedTeacherId ?? "");
+    string startDate = Convert.ToString(ViewBag.StartDate ?? "");
+    string endDate = Convert.ToString(ViewBag.EndDate ?? "");
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container-fluid mt-3">
+    <h4 class="mb-3">Salary Acknowledgment — Add</h4>
+
+    <!-- Filter Form -->
+    <form method="get" asp-controller="Salary" asp-action="Add" class="border rounded p-3">
+        <div class="row g-3">
+            <div class="col-md-3">
+                <label class="form-label">School *</label>
+                <select id="SchoolId" name="schoolId" class="form-select">
+                    <option value="">Select a school</option>
+                    @foreach (var s in schools)
+                    {
+                        <option value="@s.Value" selected="@(selectedSchoolId == s.Value)">
+                            @s.Text
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Teacher *</label>
+                <select id="TeacherId" name="teacherId" class="form-select" disabled>
+                    <option value="">Select a teacher</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Start Date *</label>
+                <input type="date" name="startDate" class="form-control" value="@startDate" />
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">End Date *</label>
+                <input type="date" name="endDate" class="form-control" value="@endDate" />
+            </div>
+        </div>
+
+        <div class="text-end mt-3">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </form>
+
+    <!-- Results Table -->
+    <h5 class="mt-4">Results</h5>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>S.N.</th>
+                    <th>Teacher Name</th>
+                    <th>Issued Date</th>
+                    <th>Basic Salary</th>
+                    <th>Provident Fund</th>
+                    <th>CIT</th>
+                    <th>Dearness Allowance</th>
+                    <th>Clothing Allowance</th>
+                    <th>Festival Allowance</th>
+                    <th>Total Salary</th>
+                    <th>Decision</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+            @{
+                var sn = 1;
+                if (Model != null && Model.Any())
+                {
+                    foreach (var r in Model)
+                    {
+                        var badgeClass = r.Status == "Accepted" ? "bg-success"
+                                        : r.Status == "Rejected" ? "bg-danger"
+                                        : "bg-warning text-dark";
+                        <tr>
+                            <td>@sn</td>
+                            <td>@r.FullName</td>
+                            <td>@r.IssuedDate.ToString("yyyy-MM-dd")</td>
+                            <td>@r.BasicSalary.ToString("N2")</td>
+                            <td>@r.PF.ToString("N2")</td>
+                            <td>@r.CIT.ToString("N2")</td>
+                            <td>@r.Dearness.ToString("N2")</td>
+                            <td>@(r.Clothing ? "Yes" : "No")</td>
+                            <td>@(r.Festival ? "Yes" : "No")</td>
+                            <td>@r.TotalSalary.ToString("N2")</td>
+                            
+                            @{
+    var normalized = (r.Status ?? "").Trim();
+    var isAccepted = normalized.Equals("Accepted", StringComparison.OrdinalIgnoreCase);
+    var buttonText = isAccepted ? "Reject" : "Accept";
+    var buttonClass = isAccepted ? "btn btn-sm btn-danger" : "btn btn-sm btn-success";
+}
+<td>
+  <form asp-controller="Salary" asp-action="ToggleDecision" method="post" class="d-inline">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="id" value="@r.Id" />
+    <button type="submit" class="@buttonClass">@buttonText</button>
+  </form>
+</td>
+                        </tr>
+                        sn++;
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="11" class="text-center text-muted">No salary records match your selection.</td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+(function() {
+  const schoolSel = document.getElementById('SchoolId');
+  const teacherSel = document.getElementById('TeacherId');
+  const selectedTeacher = '@selectedTeacherId';
+
+  function loadTeachers(schoolId) {
+    teacherSel.innerHTML = '<option value="">Select a teacher</option>';
+    teacherSel.disabled = true;
+    if (!schoolId) return;
+
+    fetch('@Url.Action("GetTeachersBySchool","Salary")?schoolId=' + encodeURIComponent(schoolId))
+      .then(r => r.ok ? r.json() : Promise.reject('Failed'))
+      .then(list => {
+        list.forEach(t => {
+          const opt = document.createElement('option');
+          opt.value = t.id;
+          opt.textContent = t.name;
+          if (selectedTeacher && String(t.id) === String(selectedTeacher)) opt.selected = true;
+          teacherSel.appendChild(opt);
+        });
+        teacherSel.disabled = false;
+      })
+      .catch(() => { teacherSel.disabled = false; });
+  }
+
+  schoolSel.addEventListener('change', e => loadTeachers(e.target.value));
+
+  // Load teachers on page load if a school was already selected
+  if (schoolSel.value) loadTeachers(schoolSel.value);
+})();
+</script>
+}

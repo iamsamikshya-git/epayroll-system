@@ -2,27 +2,94 @@
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
-<div class="dashboard-container">
-    <h2>School Dashboard</h2>
-    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;"></div>
-    <div class="card-header">Total Teachers</div>
-    <div class="card-body">
-        <h5 class="card-title" style="font-size:2.5rem;">@ViewBag.TeacherCount</h5>
-        <p class="card-text">Teachers registered in the system.</p>
+<div class="container-xxl mt-5">  <!-- wider than .container -->
+    <h2 class="mb-4 text-center fw-bold">School Dashboard</h2>
+
+    <!-- Row 1 -->
+    <div class="row gx-2 gy-4 mb-3"> <!-- tighter gutters for more width -->
+        <div class="col-12 col-md-4">
+            <div class="card stat-card bg-grad-primary text-white text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-users fa-2x mb-2"></i>
+                    <div class="label">Total Teachers</div>
+                    <div class="value">@ViewBag.TotalTeachers</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card stat-card bg-grad-blue text-white text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-mars fa-2x mb-2"></i>
+                    <div class="label">Male Teachers</div>
+                    <div class="value">@ViewBag.MaleTeachers</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card stat-card bg-grad-pink text-white text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-venus fa-2x mb-2"></i>
+                    <div class="label">Female Teachers</div>
+                    <div class="value">@ViewBag.FemaleTeachers</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="row gx-2 gy-4">
+        <div class="col-12 col-md-4">
+            <div class="card stat-card bg-grad-green text-white text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-user-check fa-2x mb-2"></i>
+                    <div class="label">Active Teachers</div>
+                    <div class="value">@ViewBag.ActiveTeachers</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card stat-card bg-grad-teal text-white text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-child-reaching fa-2x mb-2"></i>
+                    <div class="label">Primary Level Teachers</div>
+                    <div class="value">@ViewBag.PrimaryLevelTeachers</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card stat-card bg-grad-purple text-white text-center">
+                <div class="card-body">
+                    <i class="fa-solid fa-user-graduate fa-2x mb-2"></i>
+                    <div class="label">Secondary Level Teachers</div>
+                    <div class="value">@ViewBag.SecondaryLevelTeachers</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-    @* You can add dashboard stats or welcome message here *@
-    
- 
 
+@section Styles {
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
-    .dashboard-container {
-        background: #fff;
-        max-width: 400px;
-        margin: 60px auto;
-        padding: 30px 40px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        text-align: center;
+    .stat-card{
+        border:0; border-radius:16px;
+        box-shadow:0 6px 16px rgba(0,0,0,.12);
+        transition:transform .2s, box-shadow .2s;
     }
+    .stat-card .card-body{ padding: 28px 28px; } /* a bit more internal breadth */
+    .stat-card:hover{ transform:translateY(-6px); box-shadow:0 12px 28px rgba(0,0,0,.18); }
+    .label{ font-size:.95rem; opacity:.95; }
+    .value{ font-size:2.1rem; font-weight:800; line-height:1; }
+
+    .bg-grad-primary{ background:linear-gradient(135deg,#0d6efd,#0a58ca); }
+    .bg-grad-blue   { background:linear-gradient(135deg,#3b82f6,#1d4ed8); }
+    .bg-grad-pink   { background:linear-gradient(135deg,#e83e8c,#c2255c); }
+    .bg-grad-green  { background:linear-gradient(135deg,#198754,#146c43); }
+    .bg-grad-teal   { background:linear-gradient(135deg,#20c997,#0ea5a3); }
+    .bg-grad-purple { background:linear-gradient(135deg,#6f42c1,#4b2c91); }
 </style>
+}

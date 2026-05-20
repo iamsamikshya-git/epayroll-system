@@ -1,0 +1,82 @@
+@model E_PayRoll.Models.TeacherCategory
+
+@{
+    ViewBag.Title = "Add Teacher Category";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+@section Styles {
+    <style>
+        .custom-box {
+            border: 1px solid #007bff;
+            border-radius: 15px;
+            padding: 30px;
+            background-color: #fff;
+            margin-left: 250px;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #007bff;
+        }
+
+        .divider:not(:empty)::before {
+            margin-right: .75em;
+        }
+
+        .divider:not(:empty)::after {
+            margin-left: .75em;
+        }
+
+        .form-label {
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+    </style>
+}
+
+<div class="container mt-5 mb-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="custom-box">
+                <div class="divider"><h5>Add Teacher Category</h5></div>
+
+                @using (Html.BeginForm("AddTeacherCategory", "School", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(model => model.Name, "Category Name:", htmlAttributes: new { @class = "form-label" })
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Enter category name" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(model => model.Code, "Category Code:", htmlAttributes: new { @class = "form-label" })
+                            @Html.TextBoxFor(model => model.Code, new { @class = "form-control", placeholder = "Enter category code" })
+                            @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="mt-4 text-end">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

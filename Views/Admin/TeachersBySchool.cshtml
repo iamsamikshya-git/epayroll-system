@@ -1,0 +1,103 @@
+@model IEnumerable<E_PayRoll.Models.School>
+
+@{
+    ViewBag.Title = "Teachers by School";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+@section Styles {
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
+
+    <style>
+        #schoolBlock { padding-left: 0 !important; }
+        #schoolBlock .dataTables_wrapper,
+        #schoolBlock .dt-card,
+        #schoolBlock table { margin-left: 0 !important; }
+
+        .table thead th { background-color: #007bff; color: #fff; text-align: center; }
+        .table td, .table th { vertical-align: middle; }
+
+        #schoolTable_wrapper .dt-card { border:1px solid #dee2e6; border-radius:.5rem; background:#fff; overflow:hidden; }
+        #schoolTable_wrapper .dt-head,
+        #schoolTable_wrapper .dt-foot { padding:.75rem 1rem; background:#fff; display:flex; justify-content:space-between; align-items:center; gap:.5rem; flex-wrap:wrap; }
+        #schoolTable_wrapper .dt-head { border-bottom:1px solid #dee2e6; }
+        #schoolTable_wrapper .dt-foot { border-top:1px solid #dee2e6; }
+
+        #schoolTable_wrapper .dataTables_length select,
+        #schoolTable_wrapper .dataTables_filter input {
+            border:1px solid #ced4da; border-radius:.375rem; padding:.375rem .75rem; height:calc(1.5em + .75rem + 2px);
+        }
+
+        #schoolTable { margin:0 !important; width:100%; }
+    </style>
+}
+
+<div id="schoolBlock" class="container-fluid mt-4">
+    <h2 class="text-center mb-4">Teachers by School</h2>
+
+    <table id="schoolTable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>S.N</th>
+                <th>School Name</th>
+                <th class="text-center">View Teachers</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var sn = 1;
+            }
+            @if (Model != null && Model.Any())
+            {
+                foreach (var s in Model)
+                {
+                    <tr>
+                        <td class="text-center">@sn</td>
+                        <td>@s.SchoolName</td>
+                        <td class="text-center">
+                            <a class="btn btn-sm btn-outline-primary"
+                               href="@Url.Action("ViewTeachers", "Admin", new { schoolId = s.Id })">
+                                <i class="fa-solid fa-users"></i> View Teachers
+                            </a>
+                        </td>
+                    </tr>
+                    sn++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3" class="text-center text-muted">No schools found.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <!-- jQuery + DataTables -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(function () {
+            const dt = $('#schoolTable').DataTable({
+                dom: '<"dt-card"<"dt-head d-flex justify-content-between align-items-center flex-wrap gap-2"l f>t<"dt-foot d-flex justify-content-between align-items-center flex-wrap gap-2"i p>>',
+                pageLength: 10,
+                language: {
+                    lengthMenu: "Show _MENU_ entries",
+                    zeroRecords: "No matching records found",
+                    info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                    infoEmpty: "No entries available",
+                    search: "Search:"
+                }
+            });
+
+            $(window).on('resize', function(){ dt.columns.adjust(); });
+        });
+    </script>
+}

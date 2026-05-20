@@ -1,0 +1,99 @@
+@model E_PayRoll.Models.SalaryPdfViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Salary Request</title>
+<style>
+  body { font-family: DejaVu Sans, Arial, sans-serif; color:#111; font-size:12px; }
+  .header { text-align:center; margin-bottom:6px; }
+  .school { font-size:22px; font-weight:800; color:#c00; }
+  .addr { font-size:13px; color:#444; margin-top:2px; }
+  .meta { width:100%; margin:8px 0 12px 0; font-size:12px; }
+  .meta td { vertical-align:top; }
+  .right { text-align:right; }
+
+  table { width:100%; border-collapse:collapse; }
+  th, td { border:1px solid #444; padding:6px; }
+  th { background:#e9f0fb; }
+  .sec-title { font-weight:700; margin:14px 0 6px 0; }
+
+  .sign td { border:none; padding-top:30px; font-size:12px; }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="school">@Model.SchoolName</div>
+    <div class="addr">@Model.SchoolAddress</div>
+  </div>
+
+  <table class="meta">
+      <tr>
+          <td>Ref No: <strong>@(Model.ReferenceNo ?? "-")</strong><br/>FY: <strong>@(Model.FiscalYear ?? "-")</strong></td>
+          <td class="right">Date: <strong>@Model.IssuedDate:yyyy-MM-dd</strong></td>
+      </tr>
+  </table>
+
+  <!-- Letter body -->
+  <div style="margin-bottom:10px;">
+    To: Chief Administrative Officer<br/>
+    <strong>Municipality</strong><br/><br/>
+    Subject: <strong>Salary Release Request</strong><br/><br/>
+    Dear Sir/Madam,<br/>
+    This letter requests the release of the monthly salary for the teacher listed below, as per the approved rules.
+    Kindly transfer the specified amount to the school’s designated bank account.
+  </div>
+
+  <!-- Teacher / status -->
+  <table>
+    <tr><th style="width:32%">Teacher</th><td>@Model.TeacherName</td></tr>
+    <tr><th>Issued Date</th><td>@Model.IssuedDate.ToString("yyyy-MM-dd")</td></tr>
+    <tr><th>Current Status</th><td>@(Model.Status ?? "Pending")</td></tr>
+  </table>
+
+  <!-- Breakdown -->
+  <div class="sec-title">Salary Breakdown</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th style="width:25%; text-align:right;">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Basic Salary</td><td class="right">@Model.BasicSalary.ToString("N2")</td></tr>
+      @if (Model.GradeAmount > 0)           { <tr><td>Grade Amount</td><td class="right">@Model.GradeAmount.ToString("N2")</td></tr> }
+      @if (Model.PF > 0)                    { <tr><td>Employees' Provident Fund</td><td class="right">@Model.PF.ToString("N2")</td></tr> }
+      @if (Model.CIT > 0)                   { <tr><td>Citizen Investment Trust (CIT)</td><td class="right">@Model.CIT.ToString("N2")</td></tr> }
+      @if (Model.Dearness > 0)              { <tr><td>Dearness Allowance</td><td class="right">@Model.Dearness.ToString("N2")</td></tr> }
+      @if (Model.HeadmasterAllowance > 0)   { <tr><td>Headmaster Allowance</td><td class="right">@Model.HeadmasterAllowance.ToString("N2")</td></tr> }
+      @if (Model.ClothingAmount > 0)        { <tr><td>Clothing Allowance (once a year)</td><td class="right">@Model.ClothingAmount.ToString("N2")</td></tr> }
+      @if (Model.FestivalAmount > 0)        { <tr><td>Festival Allowance (once a year)</td><td class="right">@Model.FestivalAmount.ToString("N2")</td></tr> }
+
+      <tr><th>Total Allowance</th><th class="right">@Model.TotalAllowance.ToString("N2")</th></tr>
+      <tr><th>Total Salary</th><th class="right">@Model.TotalSalary.ToString("N2")</th></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-title">Documents Attached</div>
+  <ol style="margin-top:0;">
+    <li>Salary request letter</li>
+    <li>Bank deposit/transfer confirmation (if applicable)</li>
+    <li>Employee PF/CIT deposit verification (if applicable)</li>
+    <li>Any other required supporting documents</li>
+  </ol>
+
+  <table class="sign" style="width:100%;">
+      <tr>
+          <td>Prepared by:<br/>Name: _____________</td>
+          <td style="text-align:right;">For: @Model.SchoolName</td>
+      </tr>
+  </table>
+
+</body>
+</html>

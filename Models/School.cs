@@ -7,7 +7,7 @@ namespace E_PayRoll.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        //[Required]
         public string SchoolName { get; set; } = string.Empty;
 
         [Required]
@@ -39,6 +39,7 @@ namespace E_PayRoll.Models
 
         public virtual User? User { get; set; }
         public virtual Admin? Admin { get; set; }
+        public virtual ICollection<Teacher>? Teachers { get; set; }
     }
 
     

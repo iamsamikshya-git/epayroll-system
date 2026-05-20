@@ -1,28 +1,74 @@
-@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
 @{
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
-<div class="dashboard-container">
-   <h2>@Localizer["SuperAdmin Dashboard"]</h2>
- 
+<div class="container mt-5">
+    <h2 class="mb-4 text-center fw-bold">SuperAdmin Dashboard</h2>
 
-       <div class="card admin-card"></div>
-        <div class="card-title">Total Admins</div>
-        <div class="card-value">@ViewBag.AdminCount</div>
+    <div class="row g-4">
+        <!-- Admins Card -->
+        <div class="col-md-4">
+            <div class="card stat-card text-center border-0 shadow-sm bg-gradient-admin">
+                <div class="card-body">
+                    <i class="fa-solid fa-user-shield fa-3x mb-3 text-white"></i>
+                    <h5 class="card-title text-white">Total Admins</h5>
+                    <h2 class="card-value text-white">@ViewBag.AdminCount</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Municipalities Card -->
+        <div class="col-md-4">
+            <div class="card stat-card text-center border-0 shadow-sm bg-gradient-muni">
+                <div class="card-body">
+                    <i class="fa-solid fa-city fa-3x mb-3 text-white"></i>
+                    <h5 class="card-title text-white">Municipalities</h5>
+                    <h2 class="card-value text-white">@ViewBag.MunicipalityCount</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rural Municipalities Card -->
+        <div class="col-md-4">
+            <div class="card stat-card text-center border-0 shadow-sm bg-gradient-rural">
+                <div class="card-body">
+                    <i class="fa-solid fa-tractor fa-3x mb-3 text-white"></i>
+                    <h5 class="card-title text-white">Rural Municipalities</h5>
+                    <h2 class="card-value text-white">@ViewBag.RuralMunicipalityCount</h2>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-</div>
 
-<style>
-    .dashboard-container {
-        background: #fff;
-        max-width: 400px;
-        margin: 60px auto;
-        padding: 30px 40px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        text-align: center;
-    }
-</style>
+@section Styles {
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <style>
+        .stat-card {
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        .bg-gradient-admin {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+        }
+        .bg-gradient-muni {
+            background: linear-gradient(135deg, #28a745, #1e7e34);
+        }
+        .bg-gradient-rural {
+            background: linear-gradient(135deg, #fd7e14, #e8590c);
+        }
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        .card-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+    </style>
+}

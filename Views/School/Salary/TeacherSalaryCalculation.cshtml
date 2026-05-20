@@ -1,0 +1,410 @@
+@model E_PayRoll.Models.Salary
+
+@{
+    ViewBag.Title = "Teacher Salary Calculation";
+    Layout = "~/Views/Shared/DashboardLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #2a6fb6;
+            border-radius: 10px;
+            margin-left: 100px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2a6fb6;
+        }
+
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .form-field {
+            flex: 1 1 30%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            
+        }
+
+        input, select {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        .allowance-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        .allowance-table th,
+        .allowance-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .total-fields {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .submit-button {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .submit-button button {
+            background-color: #2a6fb6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-button button:hover {
+            background-color: #1e5a94;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    
+    <h2>Teacher Salary Calculation</h2>
+
+    <!-- Post to Salary/SalaryCalculation -->
+    <form method="post" asp-action="SalaryCalculation" asp-controller="Salary">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <!-- Teacher dropdown: shows names, posts TeacherId -->
+            <div class="form-field">
+                <label asp-for="TeacherId">Employee/Teacher</label>
+                <select asp-for="TeacherId"
+                        asp-items="@(new SelectList((IEnumerable<SelectListItem>)ViewBag.Teachers, "Value", "Text"))"
+                        class="form-control">
+                    <option value="">Select Teacher</option>
+                </select>
+                <span asp-validation-for="TeacherId" class="text-danger"></span>
+            </div>
+
+            <div class="form-field">
+                <label asp-for="AppointmentType"></label>
+                <input asp-for="AppointmentType" type="text" />
+                <span asp-validation-for="AppointmentType" class="text-danger"></span>
+            </div>
+            <div class="form-field">
+                <label asp-for="Level"></label>
+                <input asp-for="Level" type="text" />
+                <span asp-validation-for="Level" class="text-danger"></span>
+            </div>
+            <div class="form-field">
+                <label asp-for="Category"></label>
+                <input asp-for="Category" type="text" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-field">
+    <label asp-for="Grade"></label>
+    <select asp-for="Grade" asp-items="ViewBag.Grades" class="form-control">
+       
+    </select>
+    <span asp-validation-for="Grade" class="text-danger"></span>
+</div>
+
+            <div class="form-field">
+                <label asp-for="Date"></label>
+                <input asp-for="Date" type="date" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-field">
+                <label asp-for="BasicSalary"></label>
+                <input asp-for="BasicSalary" type="number" step="0.01" />
+                <span asp-validation-for="BasicSalary" class="text-danger"></span>
+            </div>
+        </div>
+
+        <table class="allowance-table">
+            <tr>
+                <th>Allowance Type</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td><label asp-for="GradeAmount">Grade Amount</label></td>
+                <td>
+                    <input asp-for="GradeAmount" type="number" step="0.01" />
+                    <span asp-validation-for="GradeAmount" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label asp-for="EmployeesProvidentFund">Employees' Provident Fund</label></td>
+                <td>
+                    <input asp-for="EmployeesProvidentFund" type="number" step="0.01" />
+                    <span asp-validation-for="EmployeesProvidentFund" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label asp-for="CitizenInvestmentTrust">Citizen Investment Trust (CIT)</label></td>
+                <td>
+                    <input asp-for="CitizenInvestmentTrust" type="number" step="0.01" />
+                    <span asp-validation-for="CitizenInvestmentTrust" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label asp-for="DearnessAllowance">Dearness Allowance</label></td>
+                <td>
+                    <input asp-for="DearnessAllowance" type="number" step="0.01" />
+                    <span asp-validation-for="DearnessAllowance" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label asp-for="HeadmasterAllowance">Headmaster Allowance</label></td>
+                <td>
+                    <input asp-for="HeadmasterAllowance" type="number" step="0.01" />
+                    <span asp-validation-for="HeadmasterAllowance" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input asp-for="FestivalAllowance" type="checkbox" />
+                    <label asp-for="FestivalAllowance">Festival Allowance (Once a Year)</label>
+                </td>
+                <td><input id="FestivalAmount" type="number" value="0" readonly /></td>
+            </tr>
+            <!-- remove the stray empty <tr></tr> -->
+            <tr>
+                <td>
+                    <input asp-for="ClothingAllowance" type="checkbox" />
+                    <label asp-for="ClothingAllowance">Clothing Allowance (Once a Year)</label>
+                </td>
+                <td><input id="ClothingAmount" type="number" value="0" readonly /></td>
+            </tr>
+        </table>
+
+        <div class="total-fields">
+            <div>Total Allowance</div>
+            <!-- bind to model so it posts; keep readonly -->
+            <input asp-for="TotalAllowance" id="TotalAllowance" type="number" step="0.01" readonly />
+        </div>
+
+        <div class="total-fields">
+            <div>Total Salary (Basic + Allowance)</div>
+            <!-- bind to model so it posts; keep readonly -->
+            <input asp-for="TotalSalary" id="TotalSalary" type="number" step="0.01" readonly />
+        </div>
+
+        <div class="submit-button">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+@section Scripts {
+<script>
+(function () {
+  const $  = (id)  => document.getElementById(id);
+  const q  = (sel) => document.querySelector(sel);
+  const num = (v) => {
+    if (v === null || v === undefined) return 0;
+    const n = parseFloat(String(v).replace(/,/g, ''));
+    return isNaN(n) ? 0 : n;
+  };
+  const ceil = (n) => Math.ceil(n || 0);
+
+  // --- elements from your markup ---
+  const teacherSel = $('TeacherId');
+
+  const appt     = $('AppointmentType');      // नियुक्ति प्रकार (text)
+  const level    = $('Level');                // तह (text)
+  const category = $('Category');             // श्रेणी (text)
+  const basic    = $('BasicSalary');          // मूल तलब (number)
+
+  const gradeSelect = $('Grade');             // ग्रेड संख्या (select)
+  const gradeAmt    = $('GradeAmount');       // ग्रेड रकम (number)
+
+  const epf = $('EmployeesProvidentFund');    // कर्मचारी संचय कोष (number)
+  const cit = $('CitizenInvestmentTrust');    // CIT (number)
+
+  const da   = $('DearnessAllowance');        // महँगी भत्ता
+  const head = $('HeadmasterAllowance');      // प्रधानाध्यापक भत्ता
+
+  // yearly checkboxes + display boxes
+  const festChk = q('input[name="FestivalAllowance"]'); // checkbox
+  const festAmt = $('FestivalAmount');                  // readonly display
+
+  const clothChk = q('input[name="ClothingAllowance"]'); // checkbox
+  const clothAmt = $('ClothingAmount');                  // readonly display
+
+  const totalAll = $('TotalAllowance');      // कुल भत्ता (readonly)
+  const totalSal = $('TotalSalary');         // कुल तलब (readonly)
+
+  // rows/containers to show/hide
+  const gradeAmtRow   = gradeAmt?.closest('tr') ?? null;
+  const epfRow        = epf?.closest('tr') ?? null;
+  const citRow        = cit?.closest('tr') ?? null;
+  const clothRow      = clothChk?.closest('tr') ?? null;
+  const festRow       = festChk?.closest('tr') ?? null;
+  const gradeSelField = gradeSelect?.closest('.form-field') || gradeSelect?.closest('tr') || null;
+
+  // ---- teacher auto-fill (same as you already had, but followed by toggle+calc) ----
+  if (teacherSel) {
+    teacherSel.addEventListener('change', function () {
+      const teacherId = this.value;
+      if (!teacherId) return;
+
+      fetch('@Url.Action("GetTeacherDefaults","Salary")?teacherId=' + encodeURIComponent(teacherId), {
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(r => r.ok ? r.json() : Promise.reject('Lookup failed'))
+      .then(d => {
+        if (appt)     appt.value     = d.appointmentType || '';
+        if (level)    level.value    = d.level || '';
+        if (category) category.value = d.category || '';
+        if (basic && d.basicSalary != null)
+          basic.value = Number(d.basicSalary).toFixed(2);
+
+        toggleFields();
+        calculateTotals();
+      })
+      .catch(err => console.warn(err));
+    });
+  }
+
+  
+  function isPermanent() {
+    return (appt?.value || '').trim() === 'Permanent';
+  }
+
+  // grade amount rule from your code:
+  // - if स्थायी:
+  //    - if gradeNumber > 0: (basic/30)*gradeNumber
+  //    - else: (basic/30)
+  // - else: 0
+  function computeGradeAmount(basicSalary) {
+    if (!isPermanent()) return 0;
+
+    const raw = gradeSelect ? gradeSelect.value : '';
+    if (raw === '0') return 0; // supports your older 'nograde' special value; harmless if not used
+    const gradeNum = (raw === '' || isNaN(parseInt(raw, 10))) ? 0 : parseInt(raw, 10);
+
+    if (gradeNum > 0) return (basicSalary / 30) * gradeNum;
+    return (basicSalary / 30);
+  }
+
+  // show/hide & default values 
+  function toggleFields() {
+    const perm = isPermanent();
+
+    // mirror: $("#grade_row, #pf_row, #cit_row, #clothallowance_check").closest("tr").toggle(isPermanent);
+    if (gradeSelField) gradeSelField.style.display = perm ? '' : 'none';
+    if (gradeAmtRow)   gradeAmtRow.style.display   = perm ? '' : 'none';
+    if (epfRow)        epfRow.style.display        = perm ? '' : 'none';
+    if (citRow)        citRow.style.display        = perm ? '' : 'none';
+    if (clothRow)      clothRow.style.display      = perm ? '' : 'none';
+
+    // festival is always visible
+    if (festRow)       festRow.style.display       = '';
+
+    if (!perm) {
+      // when not स्थायी: zero & allow manual editing
+      if (gradeAmt) { gradeAmt.value = '0.00'; gradeAmt.readOnly = false; }
+      if (epf)      { epf.value      = '0.00'; epf.readOnly      = false; }
+      if (cit)      { cit.value      = '0.00'; cit.readOnly      = false; }
+      if (clothAmt) { clothAmt.value = '0.00'; clothAmt.readOnly = false; }
+      if (clothChk) clothChk.checked = false;
+    } else {
+      // when स्थायी: CIT=400 (editable in your code), Clothing=10000 (locked)
+      if (cit)      { cit.value      = '400';   cit.readOnly      = false; }
+      if (clothAmt) { clothAmt.value = '10000'; clothAmt.readOnly = true;  }
+      if (clothChk) clothChk.checked = true;
+    }
+  }
+
+  function calculateTotals() {
+    const perm      = isPermanent();
+    const basicVal  = num(basic?.value);
+
+    // grade
+    const gradeVal  = computeGradeAmount(basicVal);
+    if (gradeAmt) gradeAmt.value = String(ceil(gradeVal));
+
+    // PF: स्थायी ? 10% of (basic + grade) : 0
+    const pfVal = perm ? (basicVal + gradeVal) * 0.10 : 0;
+    if (epf) epf.value = String(ceil(pfVal));
+
+    const citVal   = num(cit?.value);
+    const daVal    = num(da?.value);
+    const headVal  = num(head?.value);
+
+    // clothing: checkbox-driven
+    const clothVal = (clothChk && clothChk.checked) ? num(clothAmt?.value) : 0;
+    if (clothChk && !clothChk.checked && clothAmt) clothAmt.value = '0';
+
+    // festival: स्थायी ? (basic + grade) : basic
+    const festVal = (festChk && festChk.checked) ? (perm ? (basicVal + gradeVal) : basicVal) : 0;
+    if (festAmt) festAmt.value = String(ceil(festVal));
+
+    // totals 
+    const totalAllowance = gradeVal + pfVal + citVal + daVal + headVal + clothVal + festVal;
+    const totalSalary    = basicVal + totalAllowance;
+
+    if (totalAll) totalAll.value = String(ceil(totalAllowance));
+    if (totalSal) totalSal.value = String(ceil(totalSalary));
+  }
+
+  // wire events (like your $('input, select').on('input change', ...))
+  [basic, gradeSelect, gradeAmt, epf, cit, da, head].forEach(el => {
+    if (!el) return;
+    el.addEventListener('input',  calculateTotals);
+    el.addEventListener('change', calculateTotals);
+  });
+
+  if (appt) {
+    appt.addEventListener('change', function () {
+      toggleFields();
+      calculateTotals();
+    });
+  }
+
+  if (clothChk) {
+    clothChk.addEventListener('change', function () {
+      // enable editing of clothing only when non-permanent and checked
+      if (clothAmt) clothAmt.readOnly = isPermanent() ? true : !clothChk.checked;
+      calculateTotals();
+    });
+  }
+  if (clothAmt) clothAmt.addEventListener('input', calculateTotals);
+
+  if (festChk) festChk.addEventListener('change', calculateTotals);
+
+  // initial run (same as your init: toggleFields(); calculateTotals();)
+  toggleFields();
+  calculateTotals();
+})();
+</script>
+}
+
+</body>
+</html>

@@ -1,26 +1,117 @@
 @{
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
+    var recent = ViewBag.RecentSchools as IEnumerable<dynamic>;
+    var top = ViewBag.TopSchools as IEnumerable<dynamic>;
 }
 
-<div class="dashboard-container">
-    <h2>Admin Dashboard</h2>
+<div class="container mt-5">
+    <h2 class="mb-4 text-center fw-bold">Admin Dashboard</h2>
 
-       <div class="card admin-card"></div>
-        <div class="card-title">Total Schools</div>
-        <div class="card-value">@ViewBag.TotalSchools</div>
+    <!-- Stat cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="card stat-card text-center border-0 shadow-sm bg-gradient-primary">
+                <div class="card-body">
+                    <i class="fa-solid fa-school fa-3x mb-2 text-white"></i>
+                    <h6 class="text-white-50 mb-1">Total Schools</h6>
+                    <div class="display-5 fw-bold text-white">@ViewBag.TotalSchools</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card stat-card text-center border-0 shadow-sm bg-gradient-info">
+                <div class="card-body">
+                    <i class="fa-solid fa-bolt fa-3x mb-2 text-white"></i>
+                    <h6 class="text-white-50 mb-1">Recently Added</h6>
+                    <div class="display-6 fw-bold text-white">@((recent?.Count()) ?? 0)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card stat-card text-center border-0 shadow-sm bg-gradient-success">
+                <div class="card-body">
+                    <i class="fa-solid fa-ranking-star fa-3x mb-2 text-white"></i>
+                    <h6 class="text-white-50 mb-1">Top by Teachers</h6>
+                    <div class="display-6 fw-bold text-white">@((top?.Count()) ?? 0)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Two panels -->
+   <div class="row g-4">
+    <!-- Recently Added Schools -->
+    <div class="col-lg-6">
+        <div class="card stat-card bg-gradient-info text-white shadow-sm">
+            <div class="card-body">
+                <h5 class="mb-3 d-flex align-items-center">
+                    <i class="fa-solid fa-clock-rotate-left me-2"></i>
+                    Recently Added Schools
+                </h5>
+                @if (recent != null && recent.Any())
+                {
+                    <ul class="list-group list-group-flush">
+                        @foreach (var s in recent)
+                        {
+                            <li class="list-group-item bg-transparent border-0 text-white fw-semibold">
+                                @s.SchoolName
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <div class="text-light">No recent schools.</div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Top by Teacher Count -->
+    <div class="col-lg-6">
+        <div class="card stat-card bg-gradient-success text-white shadow-sm">
+            <div class="card-body">
+                <h5 class="mb-3 d-flex align-items-center">
+                    <i class="fa-solid fa-trophy me-2"></i>
+                    Top Schools by Teacher Count
+                </h5>
+                @if (top != null && top.Any())
+                {
+                    <ul class="list-group list-group-flush">
+                        @foreach (var s in top)
+                        {
+                            <li class="list-group-item bg-transparent border-0 d-flex justify-content-between align-items-center text-white fw-semibold">
+                                <span>@s.SchoolName</span>
+                                <span class="badge bg-light text-success fw-bold px-3 py-2">
+                                    @s.TeacherCount
+                                </span>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <div class="text-light">No data available.</div>
+                }
+            </div>
+        </div>
+    </div>
 </div>
-    @* You can add dashboard stats or welcome message here *@
-    
- 
 
-<style>
-    .dashboard-container {
-        background: #fff;
-        max-width: 400px;
-        margin: 60px auto;
-        padding: 30px 40px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        text-align: center;
-    }
-</style>
+
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <style>
+        .stat-card { border-radius: 14px; transition: transform .25s, box-shadow .25s; }
+        .stat-card:hover { transform: translateY(-6px); box-shadow: 0 10px 26px rgba(0,0,0,.18); }
+        .bg-gradient-primary { background: linear-gradient(135deg,#0d6efd,#094db3); }
+        .bg-gradient-info { background: linear-gradient(135deg,#0dcaf0,#0a8fb0); }
+        .bg-gradient-success { background: linear-gradient(135deg,#198754,#136b42); }
+        .fw-500 { font-weight: 500; }
+        .bg-success-subtle { background: #e7f6ee; }
+    </style>
+}

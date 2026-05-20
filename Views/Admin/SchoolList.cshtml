@@ -6,144 +6,252 @@
 }
 
 <h2 class="text-center mt-4 mb-4">School List</h2>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+@section Styles{
+<style>
+  .shell { max-width: 980px; }
+  /* Top areas */
+  .row-create { display:flex; justify-content:flex-start; }
+  .controls-bar{
+      display:flex; justify-content:space-between; align-items:center;
+      gap:.75rem; flex-wrap:wrap; margin-bottom:.75rem;
+  }
+  .controls-bar .form-select, .controls-bar .form-control { width:auto; }
+  .controls-bar .form-control { min-width: 240px; }
+
+  /* Cardy table */
+  .table-card { border:1px solid #e5e7eb; border-radius:14px; overflow:hidden; background:#fff; box-shadow:0 4px 18px rgba(0,0,0,.05); }
+  .table thead th { background:#0d6efd; color:#fff; }
+  .table tbody tr:hover { background:#f7fafc; }
+  .table td, .table th { vertical-align:middle; }
+
+  /* Action icons like your first image */
+  .btn-icon{
+      width: 30px; height: 30px; padding: 0;
+      display:inline-flex; align-items:center; justify-content:center;
+      border-radius:6px; line-height:1;
+  }
+  .btn-icon i{ font-size:1rem; }
+
+  /* Bottom pager/info */
+  .pager-row{ display:flex; justify-content:space-between; align-items:center; gap:.75rem; flex-wrap:wrap; }
+</style>
+}
 
 <div class="container d-flex justify-content-center">
-    <div class="col-md-10 col-lg-8">
+  <div class="shell w-100">
 
-        @* Success and Error message popups *@
-        @if (TempData["SuccessMessage"] != null)
-        {
-            <div class="alert alert-success alert-dismissible fade show" role="alert" id="successPopup">
-                <strong>Success!</strong> @TempData["SuccessMessage"]
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        }
-        @if (TempData["ErrorMessage"] != null)
-        {
-            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="errorPopup">
-                <strong>Error!</strong> @TempData["ErrorMessage"]
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        }
-
-        <div class="mb-3 text-end">
-            <a asp-controller="Admin" asp-action="CreateSchool" class="btn btn-primary btn-sm">
-                <i class="bi bi-plus-circle"></i> Create New School
-            </a>
+    @* popups *@
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="successPopup">
+            <strong>Success!</strong> @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-
-        <div class="input-group mb-3" style="max-width: 300px;">
-            <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="Search schools..." />
-            <button class="btn btn-outline-secondary btn-sm" type="button" id="searchButton" style="width: 40px;">
-                <i class="bi bi-search"></i>
-            </button>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" id="errorPopup">
+            <strong>Error!</strong> @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+    }
 
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped">
-                <thead class="table-dark">
-                    <tr>
-                        <th>S.N.</th>
-                        <th>School Name</th>
-                        <th>Tole</th>
-                        <th>Telephone No</th>
-                        <th>Email</th>
-                        <th style="min-width:120px;">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model != null && Model.Any())
-                    {
-                        int sn = 1;
-                        foreach (var school in Model)
-                        {
-                            <tr>
-                                <td>@sn</td>
-                                <td>@school.School?.SchoolName</td>
-                                <td>@school.School?.Tole</td>
-                                <td>@school.School?.TelephoneNo</td>
-                                <td>@school.School?.Email</td>
-                                <td>
-                                    <div class="btn-group btn-group-sm" role="group">
-                                        <a asp-action="EditSchool" asp-controller="Admin" asp-route-id="@school.School?.Id" class="btn btn-sm btn-primary"  title="Edit">
-                                            <i class="fas fa-pen"></i> 
-                                        </a>
-                                        <button type="button" class="btn btn-outline-danger delete-btn"
-                                            data-id="@school.School?.Id" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                            <i class="bi bi-trash-fill fs-5"></i>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            sn++;
-                        }
-                    }
-                    else
-                    {
-                        <tr>
-                            <td colspan="6" class="text-center text-muted">No schools found.</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+    <!-- Row 1: Create button ONLY (left) -->
+    <div class="row-create mb-3">
+      <a asp-controller="Admin" asp-action="CreateSchool" class="btn btn-primary btn-sm">
+          <i class="bi bi-plus-circle"></i> Create New School
+      </a>
     </div>
+
+    <!-- Row 2: Controls bar (like first screenshot) -->
+    <div class="controls-bar">
+      <!-- left: Show entries -->
+      <div class="d-inline-flex align-items-center gap-2">
+        <span class="fw-semibold">Show</span>
+        <select id="pageLength" class="form-select form-select-sm">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+        </select>
+        <span>entries</span>
+      </div>
+
+      <!-- right: Search (no extra text in the box) -->
+      <div class="d-inline-flex align-items-center gap-2">
+        <span class="fw-semibold">Search:</span>
+        <div class="input-group input-group-sm">
+          <input type="text" id="searchInput" class="form-control" />
+          <button class="btn btn-outline-secondary" type="button" id="searchButton" style="width:40px;">
+              <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-responsive table-card">
+      <table id="schoolsTable" class="table table-striped mb-0">
+        <thead>
+          <tr>
+            <th style="width:80px;">S.N.</th>
+            <th>School Name</th>
+            <th>Tole</th>
+            <th>Telephone No</th>
+            <th>Email</th>
+            <th style="min-width:150px;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @if (Model != null && Model.Any())
+          {
+              var sn = 1;
+              foreach (var school in Model)
+              {
+                  <tr>
+                      <td>@sn</td>
+                      <td>@school.School?.SchoolName</td>
+                      <td>@school.School?.Tole</td>
+                      <td>@school.School?.TelephoneNo</td>
+                      <td>@school.School?.Email</td>
+                      <td>
+                        <div class="d-inline-flex gap-2">
+                          <!-- Profile: solid blue -->
+                          <a asp-action="SchoolProfile" asp-controller="Admin" asp-route-id="@school.School?.Id"
+                             class="btn btn-primary btn-icon" title="Profile">
+                              <i class="bi bi-person-fill"></i>
+                          </a>
+                          <!-- Edit: blue outline -->
+                          <a asp-action="EditSchool" asp-controller="Admin" asp-route-id="@school.School?.Id"
+                             class="btn btn-outline-primary btn-icon" title="Edit">
+                              <i class="bi bi-pencil"></i>
+                          </a>
+                          <!-- Delete: red outline -->
+                          <button type="button" class="btn btn-outline-danger btn-icon delete-btn"
+                                  data-id="@school.School?.Id" title="Delete"
+                                  data-bs-toggle="modal" data-bs-target="#deleteModal">
+                              <i class="bi bi-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                  </tr>
+                  sn++;
+              }
+          }
+          else
+          {
+              <tr>
+                  <td colspan="6" class="text-center text-muted">No schools found.</td>
+              </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bottom info + pager -->
+    <div class="pager-row mt-2">
+      <div id="tableInfo" class="text-muted small"></div>
+      <div class="d-flex align-items-center gap-2">
+        <button id="prevPage" class="btn btn-sm btn-secondary">Previous</button>
+        <button id="nextPage" class="btn btn-sm btn-secondary">Next</button>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<!-- Delete Confirmation Modal -->
+<!-- Delete Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-danger text-white">
-                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to delete this school? This action cannot be undone.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <form id="deleteForm" method="post" asp-controller="Admin" asp-action="Delete">
-                    @Html.AntiForgeryToken()
-                    <input type="hidden" id="deleteSchoolId" name="id" value="" />
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </div>
-        </div>
-    </div>
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header bg-danger text-white">
+              <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">Are you sure you want to delete this school? This action cannot be undone.</div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <form id="deleteForm" method="post" asp-controller="Admin" asp-action="Delete">
+                  @Html.AntiForgeryToken()
+                  <input type="hidden" id="deleteSchoolId" name="id" value="" />
+                  <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+          </div>
+      </div>
+  </div>
 </div>
 
-@section Scripts {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(function () {
-            // Search functionality
-            $("#searchButton").on("click", function () {
-                var searchText = $("#searchInput").val().toLowerCase();
-                $("tbody tr").each(function () {
-                    var rowText = $(this).text().toLowerCase();
-                    $(this).toggle(rowText.indexOf(searchText) !== -1);
-                });
-            });
+@section Scripts{
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(function () {
+    const $table = $("#schoolsTable");
+    const $rows  = $table.find("tbody tr");
+    const $search = $("#searchInput");
+    const $pageLen = $("#pageLength");
+    const $info = $("#tableInfo");
+    const $prev = $("#prevPage");
+    const $next = $("#nextPage");
 
-            // Real-time search on input keyup
-            $("#searchInput").on("keyup", function () {
-                $("#searchButton").click();
-            });
+    let currentPage = 1;
+    let pageLength = parseInt($pageLen.val(), 10);
 
-            // Handle delete button click
-            $(".delete-btn").on("click", function () {
-                var id = $(this).data("id");
-                $("#deleteSchoolId").val(id);
-            });
+    function filteredRows(){
+        const q = ($search.val() || "").toString().trim().toLowerCase();
+        if (!q) return $rows.toArray();
+        return $rows.filter(function(){
+            return $(this).text().toLowerCase().includes(q);
+        }).toArray();
+    }
 
-            // Auto close success and error alerts after 3 seconds
-            setTimeout(function () {
-                $("#successPopup").alert('close');
-                $("#errorPopup").alert('close');
-            }, 3000);
-        });
-    </script>
-    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    function render(){
+        const list = filteredRows();
+        const total = list.length;
+        const totalPages = Math.max(1, Math.ceil(total / pageLength));
+        currentPage = Math.min(currentPage, totalPages);
+
+        $rows.hide();
+        const start = (currentPage - 1) * pageLength;
+        const end = start + pageLength;
+        $(list.slice(start, end)).show();
+
+        const from = total === 0 ? 0 : start + 1;
+        const to = Math.min(end, total);
+        $info.text(`Showing ${from} to ${to} of ${total} entries`);
+
+        $prev.prop("disabled", currentPage <= 1);
+        $next.prop("disabled", currentPage >= totalPages);
+    }
+
+    $("#searchButton").on("click", function(){ currentPage = 1; render(); });
+    $search.on("keyup", function(){ currentPage = 1; render(); });
+
+    $pageLen.on("change", function(){
+        pageLength = parseInt($(this).val(), 10);
+        currentPage = 1;
+        render();
+    });
+
+    $prev.on("click", function(){ if (currentPage > 1) { currentPage--; render(); }});
+    $next.on("click", function(){
+        const totalPages = Math.max(1, Math.ceil(filteredRows().length / pageLength));
+        if (currentPage < totalPages) { currentPage++; render(); }
+    });
+
+    // Delete modal
+    $(".delete-btn").on("click", function () {
+        $("#deleteSchoolId").val($(this).data("id"));
+    });
+
+    // Auto close alerts
+    setTimeout(function () {
+        $("#successPopup").alert('close');
+        $("#errorPopup").alert('close');
+    }, 3000);
+
+    render();
+});
+</script>
 }

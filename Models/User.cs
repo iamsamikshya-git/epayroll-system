@@ -14,5 +14,6 @@ namespace E_PayRoll.Models
 
         [Required(ErrorMessage = "Role is required")]
         public string? Role { get; set; }
+        
     }
 }

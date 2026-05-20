@@ -1,44 +1,167 @@
-
 @model List<AdminListViewModel>
 @{
     Layout = "~/Views/Shared/DashboardLayout.cshtml";
 }
 
-<div class="container mt-5">
-    <h2 class="mb-4">Registered Admins</h2>
+@section Styles{
+<style>
+  .table th, .table td { vertical-align: middle; text-align:center; }
+  .action-btns a, .action-btns form { display:inline-block; margin:0 2px; }
 
-    <table class="table table-bordered table-striped">
-        <thead class="table-dark">
-            <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Country</th>
-                <th>Province</th>
-                <th>District</th>
-                <th>Municipality</th>
-                <th>Profile Picture</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var a in Model)
-            {
-                <tr>
-                    <td>@a.Id</td>
-                    <td>@a.Username</td>
-                    <td>@a.Email</td>
-                    <td>@a.CountryName</td>
-                    <td>@a.ProvinceName</td>
-                    <td>@a.DistrictName</td>
-                    <td>@a.MunicipalityName</td>
-                    <td>
-                        @if (!string.IsNullOrEmpty(a.ProfilePicture))
-                        {
-                            <img src="@a.ProfilePicture" width="60" height="60" />
-                        }
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+  /* Controls row */
+  .top-controls {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-bottom:1rem;
+  }
+  .top-controls .form-select, 
+  .top-controls .form-control { width:auto; min-width:120px; }
+  .label { font-weight:600; }
+  .pagination-row { gap:.75rem; }
+</style>
+}
+
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Registered Admins</h2>
+
+  <!-- Controls row -->
+  <div class="top-controls">
+      <!-- Left: Show entries -->
+      <div>
+          <span class="label">Show</span>
+          <select id="pageLength" class="form-select d-inline-block mx-1">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+          </select>
+          <span>entries</span>
+      </div>
+
+      <!-- Right: Search -->
+      <div>
+          <span class="label me-1">Search:</span>
+          <input id="searchBox" type="text" class="form-control d-inline-block" style="width:200px;">
+      </div>
+  </div>
+
+  <table id="adminsTable" class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Country</th>
+        <th>Province</th>
+        <th>District</th>
+        <th>Municipality</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var a in Model)
+      {
+        <tr>
+          <td>@a.Id</td>
+          <td>@a.Username</td>
+          <td>@a.Email</td>
+          <td>@a.CountryName</td>
+          <td>@a.ProvinceName</td>
+          <td>@a.DistrictName</td>
+          <td>@a.MunicipalityName</td>
+          <td class="action-btns">
+            <!-- Profile -->
+            <a asp-action="AdminProfile" asp-controller="SuperAdmin" asp-route-id="@a.Id" 
+               class="btn btn-sm btn-primary" title="Profile">
+               <i class="bi bi-person-fill"></i>
+            </a>
+            <!-- Edit -->
+            <a asp-action="EditAdmin" asp-controller="SuperAdmin" asp-route-id="@a.Id" 
+               class="btn btn-sm btn-warning" title="Edit">
+               <i class="bi bi-pencil"></i>
+            </a>
+            <!-- Delete -->
+            <form asp-action="DeleteAdmin" asp-controller="SuperAdmin" method="post" 
+                  style="display:inline;" 
+                  onsubmit="return confirm('Are you sure you want to delete this admin?');">
+                <input type="hidden" name="id" value="@a.Id" />
+                <button type="submit" class="btn btn-sm btn-danger" title="Delete">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </form>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <!-- Bottom info + pager -->
+  <div class="d-flex flex-wrap justify-content-between align-items-center pagination-row">
+      <div id="tableInfo" class="text-muted"></div>
+      <div class="d-flex align-items-center gap-2">
+          <button id="prevPage" class="btn btn-sm btn-secondary">Previous</button>
+          <button id="nextPage" class="btn btn-sm btn-secondary">Next</button>
+      </div>
+  </div>
 </div>
+
+@section Scripts{
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const table = document.getElementById("adminsTable");
+  const allRows = Array.from(table.querySelectorAll("tbody tr"));
+
+  const pageLengthSel = document.getElementById("pageLength");
+  const searchBox = document.getElementById("searchBox");
+  const prevBtn = document.getElementById("prevPage");
+  const nextBtn = document.getElementById("nextPage");
+  const info = document.getElementById("tableInfo");
+
+  let currentPage = 1;
+  let pageLength = parseInt(pageLengthSel.value, 10);
+
+  function rowMatchesSearch(row){
+    const q = searchBox.value.trim().toLowerCase();
+    if (!q) return true;
+    return row.innerText.toLowerCase().includes(q);
+  }
+
+  function getFilteredRows(){
+    return allRows.filter(rowMatchesSearch);
+  }
+
+  function render(){
+    const filtered = getFilteredRows();
+    const total = filtered.length;
+    const totalPages = Math.max(1, Math.ceil(total / pageLength));
+    currentPage = Math.min(currentPage, totalPages);
+
+    allRows.forEach(r => r.style.display = "none");
+    const start = (currentPage - 1) * pageLength;
+    const end = start + pageLength;
+    filtered.slice(start, end).forEach(r => r.style.display = "");
+
+    const from = total === 0 ? 0 : start + 1;
+    const to = Math.min(end, total);
+    info.textContent = `Showing ${from} to ${to} of ${total} entries`;
+
+    prevBtn.disabled = currentPage <= 1;
+    nextBtn.disabled = currentPage >= totalPages;
+  }
+
+  pageLengthSel.addEventListener("change", () => { pageLength = parseInt(pageLengthSel.value, 10); currentPage = 1; render(); });
+  searchBox.addEventListener("input", () => { currentPage = 1; render(); });
+  prevBtn.addEventListener("click", () => { if (currentPage > 1) { currentPage--; render(); } });
+  nextBtn.addEventListener("click", () => {
+    const totalPages = Math.max(1, Math.ceil(getFilteredRows().length / pageLength));
+    if (currentPage < totalPages) { currentPage++; render(); }
+  });
+
+  render();
+});
+</script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+}

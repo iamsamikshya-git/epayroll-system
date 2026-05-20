@@ -18,8 +18,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\E-Payroll-System
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/E-Payroll-System/Views/Account/login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxsb2dpbi5jc2h0bWw=
+[D:/E-Payroll-System/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/E-Payroll-System/Views/Admin/CreateSchool.cshtml]
@@ -38,8 +38,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/E-Payroll-System/Views/Admin/SalaryAcknowledgment/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2FsYXJ5QWNrbm93bGVkZ21lbnRcQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/Admin/SalaryAcknowledgment/Salarylist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2FsYXJ5QWNrbm93bGVkZ21lbnRcU2FsYXJ5bGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/E-Payroll-System/Views/Admin/SchoolList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2Nob29sTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/Admin/SchoolProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2Nob29sUHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/Admin/TeachersBySchool.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVGVhY2hlcnNCeVNjaG9vbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/Admin/ViewTeachers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlld1RlYWNoZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/E-Payroll-System/Views/Home/Index.cshtml]
@@ -50,24 +70,92 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/E-Payroll-System/Views/School/AddTeacher.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXEFkZFRlYWNoZXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/E-Payroll-System/Views/School/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXERhc2hib2FyZC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/E-Payroll-System/Views/School/EditTeacher.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXEVkaXRUZWFjaGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/E-Payroll-System/Views/School/Salary.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFNhbGFyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/E-Payroll-System/Views/School/TeacherList.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFRlYWNoZXJMaXN0LmNzaHRtbA==
+[D:/E-Payroll-System/Views/School/Salary/pdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFNhbGFyeVxwZGYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Salary/SalaryCalculationlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFNhbGFyeVxTYWxhcnlDYWxjdWxhdGlvbmxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Salary/TeacherSalaryCalculation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFNhbGFyeVxUZWFjaGVyU2FsYXJ5Q2FsY3VsYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Setting/AddAppointmentType.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFNldHRpbmdcQWRkQXBwb2ludG1lbnRUeXBlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Setting/AddBasicSalary.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFNldHRpbmdcQWRkQmFzaWNTYWxhcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Setting/AddGradeNumber.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFNldHRpbmdcQWRkR3JhZGVOdW1iZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Setting/AddTeacherCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFNldHRpbmdcQWRkVGVhY2hlckNhdGVnb3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Setting/AddTeacherLevel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFNldHRpbmdcQWRkVGVhY2hlckxldmVsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Setting/AppointmentTypeList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFNldHRpbmdcQXBwb2ludG1lbnRUeXBlTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Setting/BasicSalaryList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFNldHRpbmdcQmFzaWNTYWxhcnlMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Setting/GradeNumberList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFNldHRpbmdcR3JhZGVOdW1iZXJMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Setting/TeacherCategoryList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFNldHRpbmdcVGVhY2hlckNhdGVnb3J5TGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Setting/TeacherLevelList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFNldHRpbmdcVGVhY2hlckxldmVsTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Teacher/BasicInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFRlYWNoZXJcQmFzaWNJbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Teacher/EditTecher.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFRlYWNoZXJcRWRpdFRlY2hlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Teacher/ExperienceInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFRlYWNoZXJcRXhwZXJpZW5jZUluZm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Teacher/PersonalInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFRlYWNoZXJcUGVyc29uYWxJbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Teacher/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFRlYWNoZXJcU3VjY2Vzcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Teacher/TeacherList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFRlYWNoZXJcVGVhY2hlckxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/School/Teacher/TeacherProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nob29sXFRlYWNoZXJcVGVhY2hlclByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/E-Payroll-System/Views/Shared/DashboardLayout.cshtml]
@@ -84,6 +172,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/E-Payroll-System/Views/SuperAdmin/AdminList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwZXJBZG1pblxBZG1pbkxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/E-Payroll-System/Views/SuperAdmin/AdminProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwZXJBZG1pblxBZG1pblByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/E-Payroll-System/Views/SuperAdmin/CreateAdmin.cshtml]
